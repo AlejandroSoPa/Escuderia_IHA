@@ -1,0 +1,35 @@
+* Which Australian player has the highest salary?
++ Mathew Ryan
+- Harry Souttar
+- Milos Degenejer
+- Leo Messi
+* Are the British punctual?
++ Always
+- Usually
+- Maybe
+- Never
+* Which of these countries were not colonized by England?
+- Maldiva's Islands
+- Cayman Islands
+- Bermuda
++ Belarus
+* In what century the cricket become a national sport?
++ In the end of 18th century
+- In the beginning of 17th century
+- In the end of 15th century
+- At the beginning of the 19th century
+* In which English colony do they play cricket the least?
+- India
++ Australia
+- Pakistán
+- South Africa
+* Which of these European countries is still a colony of the British Empire?
++ Gibraltar
+- Cyprus
+- Channel islands
+- England
+* What is the Rolling Cheese tradition about?
+- Eat round cheese
++ Throw round cheese off a hille
+- Making a round cheesecake
+- Buy a big round cheese
