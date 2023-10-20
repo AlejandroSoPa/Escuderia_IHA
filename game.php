@@ -21,7 +21,7 @@ foreach ($lineas as $linea) {
         if (!empty($pregunta_actual)) {
             $preguntas[] = $pregunta_actual;
         }
-        $pregunta_actual = ['pregunta' => $linea, 'respuestas' => []];
+        $pregunta_actual = ['pregunta' => $linea=substr($linea, 2), 'respuestas' => []];
     }
 }
 shuffle($preguntas);
