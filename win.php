@@ -4,34 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <style>
-        @charset "utf-8";
-        .panel{
-            position: absolute;
-            top:0;
-            left:0;
-            display:flex;
-            justify-content: center;
-            align-items: center;
-            height:100%;
-            width: 100%;
-            transition: transform 300ms;
-            z-index:-1;
-        }
-        .panel div{ 
-            display:flex;
-            flex-direction:column;
-            justify-content: center;
-            align-items: center;
-            background: beige;
-            width: 400px;
-            height:400px;
-            z-index:1000;
-        }
-        .panel[
-            data-on='on'
-        ] {transform: scale(1);}.panel[data-on='off']{transform: scale(0);}
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <?php
