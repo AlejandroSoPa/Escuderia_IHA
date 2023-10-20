@@ -41,19 +41,26 @@ $preguntasAleatorias = array_slice($preguntas, 0, 3);
 
     <div class="question" id="question1">
         <h2><?php echo $preguntasAleatorias[0]['pregunta']; ?></h2>
-        <ul>
-            <?php foreach ($preguntasAleatorias[0]['respuestas'] as $respuesta) : ?>
-                <li><?php echo $respuesta; ?></li>
-            <?php endforeach; ?>
-        </ul>
-        <br>
+        <form id="form1">
+            <ul>
+                <?php foreach ($preguntasAleatorias[0]['respuestas'] as $respuesta) : ?>
+                    <li>
+                        <input type="radio" name="respuesta1" value="<?php echo $respuesta; ?>"><?php echo $respuesta; ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+            <br>
+        </form>
+        <div id="feedback1"></div>
     </div>
 
     <div class="questionHidden" id="question2">
         <h2><?php echo $preguntasAleatorias[1]['pregunta']; ?></h2>
         <ul>
             <?php foreach ($preguntasAleatorias[1]['respuestas'] as $respuesta) : ?>
-                <li><?php echo $respuesta; ?></li>
+                <li>
+                    <input type="radio" name="respuesta2" value="<?php echo $respuesta; ?>"><?php echo $respuesta; ?>
+                </li>
             <?php endforeach; ?>
         </ul>
         <br>
@@ -63,17 +70,19 @@ $preguntasAleatorias = array_slice($preguntas, 0, 3);
         <h2><?php echo $preguntasAleatorias[2]['pregunta']; ?></h2>
         <ul>
             <?php foreach ($preguntasAleatorias[2]['respuestas'] as $respuesta) : ?>
-                <li><?php echo $respuesta; ?></li>
+                <li>
+                    <input type="radio" name="respuesta3" value="<?php echo $respuesta; ?>"><?php echo $respuesta; ?>
+                </li>
             <?php endforeach; ?>
         </ul>
         <br>
     </div>
 
     <form action="game.js">
-        <input id="btnSeguent"type="submit" value="Següent">
+        <input id="btnSeguent" type="submit" value="Següent">
     </form>
     <form action="index.php">
-        <input id="btnInici"type="submit" value="Tornar a l' inici">
+        <input id="btnInici" type="submit" value="Tornar a l' inici">
     </form>
 </body>
 
