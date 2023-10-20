@@ -7,6 +7,11 @@ body {
     margin: 0;
 }
 
+.autocenter {
+    align-items: center;
+    text-align: center;
+}
+
 header {
     background-color: #f3e5ab; /* Color de fondo del encabezado */
     padding: 10px 0; /* Espaciado interno superior e inferior */
@@ -15,6 +20,7 @@ header {
     align-content: right;
     display: flex;
     flex-direction: row-reverse;
+    border-bottom: 3px solid #42393b;
 }
 
 header button {
