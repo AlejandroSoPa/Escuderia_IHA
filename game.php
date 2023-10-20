@@ -45,7 +45,7 @@ $preguntasAleatorias = array_slice($preguntas, 0, 3);
             <ul>
                 <?php foreach ($preguntasAleatorias[0]['respuestas'] as $respuesta) : ?>
                     <li>
-                        <input type="radio" name="respuesta1" value="<?php echo $respuesta; ?>" autocomplete="off"><?php echo $respuesta = substr($respuesta, 2); ?>
+                        <input type="radio" name="respuesta1" value="<?php echo $respuesta; ?>" autocomplete="off" class="answer1"><?php echo $respuesta = substr($respuesta, 2); ?>
                     </li>
                 <?php endforeach; ?>
             </ul>
@@ -57,14 +57,14 @@ $preguntasAleatorias = array_slice($preguntas, 0, 3);
     <div class="questionHidden" id="question2">
         <h2><?php echo $preguntasAleatorias[1]['pregunta']; ?></h2>
         <form id="form2">
-        <ul>
-            <?php foreach ($preguntasAleatorias[1]['respuestas'] as $respuesta) : ?>
-                <li>
-                    <input type="radio" name="respuesta2" value="<?php echo $respuesta; ?>" autocomplete="off"><?php echo $respuesta = substr($respuesta, 2); ?>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-        <br>
+            <ul>
+                <?php foreach ($preguntasAleatorias[1]['respuestas'] as $respuesta) : ?>
+                    <li>
+                        <input type="radio" name="respuesta2" value="<?php echo $respuesta; ?>" autocomplete="off" class="answer2"><?php echo $respuesta = substr($respuesta, 2); ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+            <br>
         </form>
         <div id="feedback2"></div>
     </div>
@@ -74,7 +74,7 @@ $preguntasAleatorias = array_slice($preguntas, 0, 3);
         <ul>
             <?php foreach ($preguntasAleatorias[2]['respuestas'] as $respuesta) : ?>
                 <li>
-                    <input type="radio" name="respuesta3" value="<?php echo $respuesta; ?>" autocomplete="off"><?php echo $respuesta = substr($respuesta, 2); ?>
+                    <input type="radio" name="respuesta3" value="<?php echo $respuesta; ?>" autocomplete="off" class="answer3"><?php echo $respuesta = substr($respuesta, 2); ?>
                 </li>
             <?php endforeach; ?>
         </ul>
@@ -92,21 +92,22 @@ $preguntasAleatorias = array_slice($preguntas, 0, 3);
 
     <script>
         // JavaScript para manejar la interacción del jugador
-        document.getElementById("form1").addEventListener("change", function() {
+   
+        // JavaScript para manejar la interacción del jugador
+        document.getElementById("form1").addEventListener("change", function () {
             var selectedAnswer = document.querySelector('input[name="respuesta1"]:checked');
             if (selectedAnswer) {
                 var playerAnswer = selectedAnswer.value;
-                // Comprueba el primer carácter de la respuesta
                 var firstChar = playerAnswer.charAt(0);
                 var isCorrect = (firstChar === '+');
                 if (isCorrect) {
                     document.getElementById("feedback1").innerHTML = "Resposta correcta. Avançant a la següent pregunta...";
-
-                    // Muestra las preguntas ocultas
+                    // Deshabilita todas las respuestas de la pregunta 1
                     document.getElementById("question2").classList.remove("questionHidden");
-                    //document.getElementById("question3").classList.remove("questionHidden");
-
-                    // Además, podrías deshabilitar los botones de selección de respuesta si la respuesta es correcta.
+                    var answers = document.querySelectorAll('.answer1');
+                    for (var i = 0; i < answers.length; i++) {
+                        answers.disabled = true;
+                    }
                 } else {
                     document.getElementById("feedback1").innerHTML = "Resposta incorrecta. Intenteu-ho de nou.";
                 }
@@ -115,21 +116,20 @@ $preguntasAleatorias = array_slice($preguntas, 0, 3);
             }
         });
 
-        document.getElementById("form2").addEventListener("change", function() {
+        document.getElementById("form2").addEventListener("change", function () {
             var selectedAnswer = document.querySelector('input[name="respuesta2"]:checked');
             if (selectedAnswer) {
                 var playerAnswer = selectedAnswer.value;
-                // Comprueba el primer carácter de la respuesta
                 var firstChar = playerAnswer.charAt(0);
                 var isCorrect = (firstChar === '+');
                 if (isCorrect) {
                     document.getElementById("feedback2").innerHTML = "Resposta correcta. Avançant a la següent pregunta...";
-
-                    // Muestra las preguntas ocultas
+                    // Deshabilita todas las respuestas de la pregunta 1
                     document.getElementById("question3").classList.remove("questionHidden");
-                    //document.getElementById("question3").classList.remove("questionHidden");
-
-                    // Además, podrías deshabilitar los botones de selección de respuesta si la respuesta es correcta.
+                    var answers = document.querySelectorAll('.answer2');
+                    for (var i = 0; i < answers.length; i++) {
+                        answers[i].disabled = true;
+                    }
                 } else {
                     document.getElementById("feedback2").innerHTML = "Resposta incorrecta. Intenteu-ho de nou.";
                 }
@@ -137,6 +137,7 @@ $preguntasAleatorias = array_slice($preguntas, 0, 3);
                 document.getElementById("feedback2").innerHTML = "";
             }
         });
+
     </script>
 </body>
 
