@@ -15,18 +15,16 @@
             $_SESSION['lang'] = 'cat';
         }
         
-        echo "  <header>";
-        echo "  <form method='POST' action='./resources/setLanguage.php'>";
-        echo "      <button type='submit' name='lang' value='en'><img src='./images/estados-unidos.png'></button>";
-        echo "      <button type='submit' name='lang' value='es'><img src='./images/espana.png'></button>";
-        echo "      <button type='submit' name='lang' value='cat'><img src='./images/catalonia.png'></button>";
-        echo "  </form>";
-        echo "  </header>";
+        echo "  <header>\n";
+        echo "  <form method='POST' action='./resources/setLanguage.php'>\n";
+        echo "      <button type='submit' name='lang' value='en'><img src='./images/estados-unidos.png'></button>\n";
+        echo "      <button type='submit' name='lang' value='es'><img src='./images/espana.png'></button>\n";
+        echo "      <button type='submit' name='lang' value='cat'><img src='./images/catalonia.png'></button>\n";
+        echo "  </form>\n";
+        echo "  </header>\n";
 
         $welcomeMessage = trans('welcome', $_SESSION['lang']);
         echo "  <h1>$welcomeMessage</h1>";
-        $asd = $_SESSION['lang'];
-        echo "<h4>$asd</h4>";
     ?>
     </div>
 </body>

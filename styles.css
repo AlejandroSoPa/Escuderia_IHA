@@ -3,3 +3,34 @@
 .color3 { #bac99a };
 .color4 { #ffc897 };
 .color5 { #f3e5ab };*/
+body {
+    margin: 0;
+}
+
+header {
+    background-color: #f3e5ab; /* Color de fondo del encabezado */
+    padding: 10px 0; /* Espaciado interno superior e inferior */
+    text-align: right;
+    align-items: right;
+    align-content: right;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+header button {
+    background-color: #f3e5ab;
+    border: 3px solid #42393b;
+    border-radius: 5px;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    height: 50px;
+    width: 60px;
+    margin-right: 10px;
+}
+
+header button:hover {
+    background-color: #9e956e;
+}
+
+header button img {
+    height: 50%;
+}
