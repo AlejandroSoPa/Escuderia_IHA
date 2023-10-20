@@ -50,7 +50,7 @@ $preguntasAleatorias = array_slice($preguntas, 0, 3);
     </div>
 
     <div class="questionHidden" id="question2">
-        <h2><?php echo $preguntasAleatorias[1]['pregunta']; ?></h2> 
+        <h2><?php echo $preguntasAleatorias[1]['pregunta']; ?></h2>
         <ul>
             <?php foreach ($preguntasAleatorias[1]['respuestas'] as $respuesta) : ?>
                 <li><?php echo $respuesta; ?></li>
@@ -69,9 +69,11 @@ $preguntasAleatorias = array_slice($preguntas, 0, 3);
         <br>
     </div>
 
-    <button>Següents preguntes</button>
+    <form action="game.js">
+        <input id="btnSeguent"type="submit" value="Següent">
+    </form>
     <form action="index.php">
-        <input type="submit" value="Tornar a l' inici">
+        <input id="btnInici"type="submit" value="Tornar a l' inici">
     </form>
 </body>
 

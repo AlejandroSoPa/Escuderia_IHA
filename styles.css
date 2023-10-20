@@ -38,3 +38,9 @@ header button img {
 .questionHidden {
     display: none;
 }
+#btnInici{
+    display: none;
+}
+#btnSeguent{
+    display: none;
+}
