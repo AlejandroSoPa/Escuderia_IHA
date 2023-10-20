@@ -71,6 +71,7 @@ $preguntasAleatorias = array_slice($preguntas, 0, 3);
 
     <div class="questionHidden" id="question3">
         <h2><?php echo $preguntasAleatorias[2]['pregunta']; ?></h2>
+        
         <ul>
             <?php foreach ($preguntasAleatorias[2]['respuestas'] as $respuesta) : ?>
                 <li>
@@ -106,7 +107,7 @@ $preguntasAleatorias = array_slice($preguntas, 0, 3);
                     document.getElementById("question2").classList.remove("questionHidden");
                     var answers = document.querySelectorAll('.answer1');
                     for (var i = 0; i < answers.length; i++) {
-                        answers.disabled = true;
+                        answers[i].disabled = true;
                     }
                 } else {
                     document.getElementById("feedback1").innerHTML = "Resposta incorrecta. Intenteu-ho de nou.";
