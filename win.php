@@ -28,7 +28,7 @@
         </div>
     </div>
     <form action="index.php">
-        <input id="btnInici" type="submit" value="Tornar a l' inici">
+        <input id="btnIniciWin" visibility:visible type="submit" value="Tornar a l' inici">
     </form>
 </body>
 </html>
