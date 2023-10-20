@@ -34,17 +34,28 @@
     </style>
 </head>
 <body>
-    <button onclick="document.getElementById('aviso').setAttribute('data-on','on')">Mostrar aviso</button> 
-    <div class="panel" id="aviso" data-on="off" onclick="this.setAttribute('data-on','off')">  
-        <div>  Esto es un panel de comunicación
-            <p>Introduce tu nombre</p>
-            <textarea name="datos" id="datos" cols="40" rows="5"></textarea>
+    <?php
+        echo "<h1>Felicidades! Has Ganadado</h1> <!-- Cambiar por varible-->";
+    ?>
+    <button onclick="document.getElementById('aviso').setAttribute('data-on','on')">Publicar</button> 
+    <div class="panel" id="aviso" data-on="off" onclick="this.setAttribute('data-on','on')">  
+        <div>
             <?php
-                $file = fopen("records.txt", "w");
-                $texto = $_POST["dades"];
-                fwrite($file, $texto);
+                echo"<form action='' method='post'>";
+                    echo"<p>Introduce tu nombre</p>";
+                    echo"<textarea name='name' id='name' cols='54' rows='5'></textarea>";
+                    echo"<input type='number' name='point' id='point' cols='40' rows='5' style='display: none;' value='18'></input>";
+                    echo"<input type='submit'>";
+                echo"</form>";
+            
+                session_start();
+                file_put_contents("records.txt", 
+                    file_get_contents("records.txt").$_POST["name"].",".$_POST["point"].",".session_id()."\n");
             ?>
         </div>
     </div>
+    <form action="index.php">
+        <input id="btnInici" type="submit" value="Tornar a l' inici">
+    </form>
 </body>
 </html>
