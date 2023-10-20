@@ -3,3 +3,7 @@
 .color3 { #bac99a };
 .color4 { #ffc897 };
 .color5 { #f3e5ab };*/
+
+.questionHidden {
+    display: none;
+}
