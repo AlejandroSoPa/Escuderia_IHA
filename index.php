@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="autocenter">
+    <div class="mainDiv">
     <?php
         session_start();
         include './resources/myFunctions.php';
@@ -24,7 +24,10 @@
         echo "  </header>\n";
 
         $welcomeMessage = trans('welcome', $_SESSION['lang']);
-        echo "  <h1>$welcomeMessage</h1>";
+        $playButtonText = trans('playButton', $_SESSION['lang']);
+        echo "  <h1>$welcomeMessage</h1>\n";
+        echo "  <a href='/game.php'>$playButtonText</a>\n";
+        // boton de hall of fame o ranking por hacer echo "  <a href='/game.php'>$playButtonText</a>\n";
     ?>
     </div>
 </body>

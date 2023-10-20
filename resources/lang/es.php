@@ -1,6 +1,6 @@
 <?php
 return [
-    'welcome' => 'Bienvenidos y bienvenidas a ¿Quién quiere ser millonario?',
+    'welcome' => 'Bienvenidos y Bienvenidas a ¿Quién Quiere Ser Millonario?',
     'playButton' => 'Jugar'
 ];
 

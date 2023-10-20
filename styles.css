@@ -5,11 +5,16 @@
 .color5 { #f3e5ab };*/
 body {
     margin: 0;
+    background-color: #f3e5ab;
+    color: #42393b;
 }
 
-.autocenter {
+.mainDiv {
     align-items: center;
     text-align: center;
+    background-image: url("./images/question-icon.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 header {
@@ -31,12 +36,38 @@ header button {
     height: 50px;
     width: 60px;
     margin-right: 10px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
 
 header button:hover {
     background-color: #9e956e;
+    transform: scale(1.1);
 }
 
 header button img {
     height: 50%;
 }
+
+h1 {
+    margin-top: 350px;
+}
+
+a {
+    text-decoration: none; /* Elimina el subrayado en los enlaces */
+    color: #42393b; /* Hereda el color del texto del elemento padre */
+    background: transparent; /* Fondo transparente */
+    border: 3px solid #42393b;
+    border-radius: 5px;
+    font-weight: normal; /* Peso de fuente normal */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 4px 4px 0px #42393b;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a:hover {
+    background-color: #42393b;
+    color: #fff;
+  }
