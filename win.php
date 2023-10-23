@@ -15,20 +15,26 @@
         <div>
             <?php
                 echo"<form action='' method='post'>";
-                    echo"<p>Introduce tu nombre</p>";
+                    echo"<p>Introduce tu nombre</p> <!-- Cambiar por varible-->";
                     echo"<textarea name='name' id='name' cols='54' rows='5'></textarea>";
                     echo"<input type='number' name='point' id='point' cols='40' rows='5' style='display: none;' value='18'></input>";
                     echo"<input type='submit'>";
                 echo"</form>";
             
                 session_start();
+                
+                $text = preg_replace("/[\r\n|\n|\r]+/", "", $_POST["name"]); /* Convierte la string sin saltos de linea */
                 file_put_contents("records.txt", 
-                    file_get_contents("records.txt").$_POST["name"].",".$_POST["point"].",".session_id()."\n");
+                    file_get_contents("records.txt").trim($text).",".$_POST["point"].",".session_id()."\n");
+                session_destroy();
             ?>
         </div>
     </div>
     <form action="index.php">
         <input id="btnIniciWin" visibility:visible type="submit" value="Tornar a l' inici">
+    </form>
+    <form action="ranking.php">
+        <input id="btntRanking" visibility:visible type="submit" value="Pantalla Ranking">
     </form>
 </body>
 </html>
