@@ -1,8 +1,22 @@
 <?php
-if ($_SESSION['lang'] == 'es') {
+session_start();
+if (!isset($_SESSION['counter'])) {
+    $_SESSION['counter'] = 0;
 }
-$contenido = file_get_contents('questions/catalan_1.txt');
-$lineas = explode("\n", $contenido);
+if ($_SESSION['lang'] == 'cat') {
+    $fileRoute = 'questions/catalan_1.txt';
+}
+elseif ($_SESSION['lang'] == 'es') {
+    $fileRoute = 'questions/spanish_1.txt';
+} 
+elseif ($_SESSION['lang'] == 'en')  {
+    $fileRoute = 'questions/english_1.txt';
+}
+
+$contenido = file_get_contents($fileRoute);
+$texto_procesado = preg_replace('/[ \t]+/', ' ', $contenido); // Reemplaza múltiples espacios o tabulaciones con un solo espacio
+$texto_procesado = preg_replace('/\s*\n\s*/', "\n", $texto_procesado); // Elimina saltos de línea fuera de lugar
+$lineas = explode("\n", $texto_procesado);
 
 $preguntas = [];
 $pregunta_actual = null; //Variable para saber en que pregunta estoy
@@ -24,6 +38,7 @@ foreach ($lineas as $linea) {
         $pregunta_actual = ['pregunta' => $linea=substr($linea, 2), 'respuestas' => []];
     }
 }
+
 shuffle($preguntas);
 $preguntasAleatorias = array_slice($preguntas, 0, 3);
 ?>
