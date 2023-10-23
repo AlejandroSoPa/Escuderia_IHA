@@ -17,12 +17,24 @@ function comprobarRespuesta(formId, answerName, feedbackId, nextQuestionId, answ
             if (isCorrect) {
                 feedbackElement.innerHTML = "Resposta correcta. Avançant a la següent pregunta...";
                 nextQuestionElement.classList.remove("questionHidden");
-                
-                for (var i = 0; i < answers.length; i++) {
+                //Bloquear respuesta una vez contestada
+                for (var i = 0; i <= answers.length; i++) {
                     answers[i].disabled = true;
                 }
             } else {
-                feedbackElement.innerHTML = "Resposta incorrecta. Intenteu-ho de nou.";
+                
+                feedbackElement.innerHTML = "Resposta incorrecta.";
+                var btnInici = document.getElementById('btnInici');
+                //Mostrar boton de inicio si falla la respuesta
+                if (btnInici) {
+                    btnInici.style.display = 'block';
+
+                }
+                //Bloquear respuesta una vez contestada
+                for (var i = 0; i <= answers.length; i++) {
+                    answers[i].disabled = true;
+                }
+
             }
         } else {
             feedbackElement.innerHTML = "";

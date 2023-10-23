@@ -1,6 +1,6 @@
 <?php
-/*if ($_SESSION['lang'] == 'es') {
-}*/
+if ($_SESSION['lang'] == 'es') {
+}
 $contenido = file_get_contents('questions/catalan_1.txt');
 $lineas = explode("\n", $contenido);
 
@@ -21,7 +21,7 @@ foreach ($lineas as $linea) {
         if (!empty($pregunta_actual)) {
             $preguntas[] = $pregunta_actual;
         }
-        $pregunta_actual = ['pregunta' => $linea = substr($linea, 2), 'respuestas' => []];
+        $pregunta_actual = ['pregunta' => $linea=substr($linea, 2), 'respuestas' => []];
     }
 }
 shuffle($preguntas);
@@ -92,8 +92,7 @@ $preguntasAleatorias = array_slice($preguntas, 0, 3);
     </form>
 
 
-    <script src="script.js">
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
