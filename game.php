@@ -1,6 +1,7 @@
 <?php
 if ($_SESSION['lang'] == 'es') {
 }
+$dificultad=1;
 $contenido = file_get_contents('questions/catalan_1.txt');
 $lineas = explode("\n", $contenido);
 
@@ -30,16 +31,20 @@ $preguntasAleatorias = array_slice($preguntas, 0, 3);
 
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-    <h1>GAME</h1>
-
-    <div class="question" id="question1">
+    
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="styles.css">
+        
+    </head>
+    
+    <body>
+        <h1>GAME</h1>
+        <audio id="audioCorrecto" src="audio/acierto.mp3"></audio>
+        <audio id="audioIncorrecto" src="audio/error.mp3"></audio>
+        
+    </form>
+        <div class="question" id="question1">
         <h2><?php echo $preguntasAleatorias[0]['pregunta']; ?></h2>
         <form id="form1">
             <ul>
@@ -80,9 +85,9 @@ $preguntasAleatorias = array_slice($preguntas, 0, 3);
             <?php endforeach; ?>
         </ul>
         <br>
-        </form>
         <div id="feedback3"></div>
     </div>
+
 
     <form action="game.js">
         <input id="btnSeguent" type="submit" value="Següent">
