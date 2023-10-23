@@ -5,16 +5,25 @@
 .color5 { #f3e5ab };*/
 body {
     margin: 0;
+    background-color: #f3e5ab;
+    color: #42393b;
+    font-family: 'Kanit';
+}
+
+.mainDiv {
+    background-image: url("./images/question-icon.svg");
+    background-repeat: no-repeat;
+    background-position: 50% 250px;
+    align-items: center;
+    text-align: center;
 }
 
 header {
     background-color: #f3e5ab; /* Color de fondo del encabezado */
     padding: 10px 0; /* Espaciado interno superior e inferior */
-    text-align: right;
-    align-items: right;
-    align-content: right;
     display: flex;
     flex-direction: row-reverse;
+    border-bottom: 3px solid #42393b;
 }
 
 header button {
@@ -25,10 +34,12 @@ header button {
     height: 50px;
     width: 60px;
     margin-right: 10px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
 
 header button:hover {
     background-color: #9e956e;
+    transform: scale(1.1);
 }
 
 header button img {
@@ -69,3 +80,59 @@ header button img {
 .panel[
     data-on='on'
 ] {transform: scale(1);}.panel[data-on='off']{transform: scale(0);}
+
+h1 {
+    margin-top: 320px;
+    font-size: 40px;
+    margin-bottom: 150px;
+}
+
+.rankingButton {
+    font-size: 25px;
+    font-weight: bold;
+    margin-right: 25px;
+    text-decoration: none; /* Elimina el subrayado en los enlaces */
+    color: #42393b; /* Hereda el color del texto del elemento padre */
+    background: transparent; /* Fondo transparente */
+    border: 3px solid #42393b;
+    border-radius: 5px;
+    font-weight: normal; /* Peso de fuente normal */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 4px 4px 0px #42393b;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.playButton {
+    font-size: 25px;
+    font-weight: bold;
+    margin-left: 25px;
+    text-decoration: none; /* Elimina el subrayado en los enlaces */
+    color: #42393b; /* Hereda el color del texto del elemento padre */
+    background: transparent; /* Fondo transparente */
+    border: 3px solid #42393b;
+    border-radius: 5px;
+    font-weight: normal; /* Peso de fuente normal */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 4px 4px 0px #42393b;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a:hover {
+    background-color: #42393b;
+    color: #fff;
+}
+
+.instructions {
+    width: 40%;
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+
+}
