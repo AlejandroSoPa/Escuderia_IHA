@@ -14,27 +14,29 @@
     <div class="panel" id="aviso" data-on="off" onclick="this.setAttribute('data-on','on')">  
         <div>
             <?php
-                echo"<form action='' method='post'>";
+                echo"<form action='index.php' method='post'>";
                     echo"<p>Introduce tu nombre</p> <!-- Cambiar por varible-->";
-                    echo"<textarea name='name' id='name' cols='54' rows='5'></textarea>";
+                    echo"<input type='text' name='name' id='name' cols='54' rows='5' required></input><br>";
                     echo"<input type='number' name='point' id='point' cols='40' rows='5' style='display: none;' value='18'></input>";
                     echo"<input type='submit'>";
                 echo"</form>";
             
                 session_start();
-                
-                $text = preg_replace("/[\r\n|\n|\r]+/", "", $_POST["name"]); /* Convierte la string sin saltos de linea */
-                file_put_contents("records.txt", 
+                $texto = preg_replace('/\s+/', "", $_POST["name"]);
+                if (isset($texto)) {
+                    //Código de validación de datos
+                    file_put_contents("records.txt", 
                     file_get_contents("records.txt").trim($text).",".$_POST["point"].",".session_id()."\n");
-                session_destroy();
+                    session_destroy();
+                }
             ?>
         </div>
     </div>
     <form action="index.php">
-        <input id="btnIniciWin" visibility:visible type="submit" value="Tornar a l' inici">
+        <input id="btnIniciWin" visibility:visible type="submit" value="Tornar a l' inici"><!-- Cambiar por varible-->
     </form>
     <form action="ranking.php">
-        <input id="btntRanking" visibility:visible type="submit" value="Pantalla Ranking">
+        <input id="btntRanking" visibility:visible type="submit" value="Pantalla Ranking"><!-- Cambiar por varible-->
     </form>
 </body>
 </html>

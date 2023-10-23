@@ -17,8 +17,8 @@
             echo "<table border=1>
                     <thead>
                     <tr>
-                        <th>Nom</th>
-                        <th>Cognom1</th>
+                        <th>Nom</th><!-- Cambiar por varible-->
+                        <th>Cognom1</th><!-- Cambiar por varible-->
                     </tr>
                     </thead>
                     <tbody>
@@ -44,7 +44,7 @@
         ?>
     </div>
     <form action="index.php">
-        <input id="btnIniciWin" visibility:visible type="submit" value="Tornar a l' inici">
+        <input id="btnIniciWin" visibility:visible type="submit" value="Tornar a l' inici"><!-- Cambiar por varible-->
     </form>
 </body>
 </html>
