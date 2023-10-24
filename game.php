@@ -14,6 +14,7 @@ elseif ($_SESSION['lang'] == 'en')  {
 }
 
 $contenido = file_get_contents($fileRoute);
+//$texto_procesado = preg_replace('/[ \t\n]+/', '', $contenido);
 $texto_procesado = preg_replace('/[ \t]+/', ' ', $contenido); // Reemplaza múltiples espacios o tabulaciones con un solo espacio
 $texto_procesado = preg_replace('/\s*\n\s*/', "\n", $texto_procesado); // Elimina saltos de línea fuera de lugar
 $lineas = explode("\n", $texto_procesado);
@@ -22,15 +23,19 @@ $preguntas = [];
 $pregunta_actual = null; //Variable para saber en que pregunta estoy
 
 foreach ($lineas as $linea) {
-    $linea = trim($linea); //Elimina espacios en blanco
-
+    $linea = trim($linea, " \n"); //Elimina espacios en blanco
     if (empty($linea)) {
         continue;
         //Verificar si la linea esta vacia, si esta vacia sigue con la siguiente iteración
     }
 
-    if (strpos($linea, '+ ') === 0 || strpos($linea, '- ') === 0) { //Comprueba el primer caracter, para saber si se trata de una respuesta 
-        $pregunta_actual['respuestas'][] = substr($linea, 0); // Esta parte del código accede al array asociativo $pregunta_actual y específicamente al elemento 'respuestas'. La clave 'respuestas' se utiliza para almacenar las respuestas de la pregunta actual. 
+    if (strpos($linea, '+') === 0 || strpos($linea, '-') === 0) { //Comprueba el primer caracter, para saber si se trata de una respuesta
+        if ($linea[1] != " ") { // Si no hay un espacio en en carater 1 de la string se añadira 1. Luego facilitara la impresion de las respuestas
+            $parte1 = substr($linea, 0, 1);
+            $parte2 = substr($linea, 1);
+            $linea = $parte1." ".$parte2;
+        }
+        $pregunta_actual['respuestas'][] = $linea; // Esta parte del código accede al array asociativo $pregunta_actual y específicamente al elemento 'respuestas'. La clave 'respuestas' se utiliza para almacenar las respuestas de la pregunta actual. 
     } else { // Si el primer caracter que encuentra en cada linea no es '+' ni '-', asume que ha llegado a la siguiente pregunta
         if (!empty($pregunta_actual)) {
             $preguntas[] = $pregunta_actual;
