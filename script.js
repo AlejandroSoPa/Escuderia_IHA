@@ -2,6 +2,11 @@ let respuesta1 = comprobarRespuesta("form1", "respuesta1", "feedback1", "questio
 let respuesta2 = comprobarRespuesta("form2", "respuesta2", "feedback2", "question3", "answer2");
 let respuesta3 = comprobarRespuesta("form3", "respuesta3", "feedback3", "question4", "answer3");
 
+// Suponiendo que obtienes los elementos de audio por sus IDs
+var audioCorrecto = document.getElementById('audioCorrecto');
+var audioIncorrecto = document.getElementById('audioIncorrecto');
+
+
 var preguntasCorrectas = 0;
 function comprobarRespuesta(formId, answerName, feedbackId, nextQuestionId, answerClass) {
     document.getElementById(formId).addEventListener("change", function () {
@@ -16,16 +21,21 @@ function comprobarRespuesta(formId, answerName, feedbackId, nextQuestionId, answ
             var isCorrect = (firstChar === '+');
             if (isCorrect) {
                 feedbackElement.innerHTML = "Resposta correcta. Avançant a la següent pregunta...";
+                audioCorrecto.play();
                 preguntasCorrectas++;
                 nextQuestionElement.classList.remove("questionHidden");
                 //Bloquear respuesta una vez contestada
                 for (var i = 0; i < answers.length; i++) {
                     answers[i].disabled = true;
                 }
-                console.log(preguntasCorrectas);
+                if (preguntasCorrectas === 3) {
+
+                    preguntasCorrectas = 0;
+                }
             } else {
 
                 feedbackElement.innerHTML = "Resposta incorrecta.";
+                audioIncorrecto.play();
                 var btnInici = document.getElementById('btnInici');
                 //Mostrar boton de inicio si falla la respuesta
                 if (btnInici) {
@@ -36,7 +46,6 @@ function comprobarRespuesta(formId, answerName, feedbackId, nextQuestionId, answ
                 for (var i = 0; i < answers.length; i++) {
                     answers[i].disabled = true;
                 }
-
             }
         } else {
             feedbackElement.innerHTML = "";
