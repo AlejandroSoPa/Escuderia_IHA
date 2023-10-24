@@ -12,35 +12,39 @@
     ?>
     <div>
         <?php
-            $file = fopen("records.txt", "r");
-            $escribir = "";
+            
+            // Función para ordenar el array por el segundo valor (entero)
+            function ordenarPorSegundoValor($a, $b) {
+                return $a[0] - $b[0];
+            }
             echo "<table border=1>
                     <thead>
                     <tr>
-                        <th>Nom</th><!-- Cambiar por varible-->
-                        <th>Cognom1</th><!-- Cambiar por varible-->
+                        <th>Nombre</th><!-- Cambiar por varible-->
+                        <th>Puntuacion</th><!-- Cambiar por varible-->
                     </tr>
                     </thead>
                     <tbody>
                     "
             ;
-            while(true){
-                $contenido = fgets($file);
-                if($contenido){
-                    $lista = explode(",", $contenido);
-                    $escribir .= "$lista[0]#$lista[1]#$lista[2]#$lista[3]";
-                    echo "
-                        <tr>
-                            <td>$lista[0]</td>
-                            <td>$lista[1]</td>
-                        </tr>
-                    ";
-                } else {
-                    break;
-                }
+            $file = fopen("records.txt", "r");
+            $ranking = [];
+            while (!feof($file)) {
+                $line = fgets($file);
+                $users = explode(",", $line);
+                $ranking[$users[0]." ".$users[1]] = $users[1];
             }
+            arsort($ranking);
+            foreach ($ranking as $order => $valor) {    
+                echo "<tr>
+                        <td>".substr($order,0,strlen($order)-2)."</td> 
+                        <td>".$valor."</td>
+                     </tr>";
+            }
+            fclose($file);
+
             
-            echo "</tbody></table>";
+            echo "</tbody></table><br>";
         ?>
     </div>
     <form action="index.php">
