@@ -13,7 +13,6 @@
     </audio>
     <h1>Has perdido</h1>
     <h2>Vuelve a intentar-lo </h2>
-    <h1>:S</h1>
 </body>
 
 </html>
