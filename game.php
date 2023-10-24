@@ -53,7 +53,10 @@ $preguntasAleatorias = array_slice($preguntas, 0, 3);
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
 </head>
 
 <body>
@@ -104,8 +107,8 @@ $preguntasAleatorias = array_slice($preguntas, 0, 3);
         <div id="feedback3"></div>
     </div>
 
-    <form action="game.js">
-        <input id="btnSeguent" type="submit" value="Següent">
+    <form action="game.php">
+        <input id="buttonNext" type="submit" value="Següent">
     </form>
     <form action="index.php">
         <input id="btnInici" type="submit" value="Tornar a l' inici">
