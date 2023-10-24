@@ -12,11 +12,6 @@
     ?>
     <div>
         <?php
-            
-            // Función para ordenar el array por el segundo valor (entero)
-            function ordenarPorSegundoValor($a, $b) {
-                return $a[0] - $b[0];
-            }
             echo "<table border=1>
                     <thead>
                     <tr>
@@ -42,8 +37,6 @@
                      </tr>";
             }
             fclose($file);
-
-            
             echo "</tbody></table><br>";
         ?>
     </div>
