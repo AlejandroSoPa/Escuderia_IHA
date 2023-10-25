@@ -55,6 +55,9 @@ header button img {
 #buttonNext{
     display: none;
 }
+#feedback1, #feedback11, #feedback2, #feedback22, #feedback3, #feedback33 {
+    display: none;
+} 
 .panel{
     position: absolute;
     top:0;
@@ -81,7 +84,7 @@ header button img {
     data-on='on'
 ] {transform: scale(1);}.panel[data-on='off']{transform: scale(0);}
 
-h1 {
+.mainTitle {
     margin-top: 320px;
     font-size: 40px;
     margin-bottom: 150px;

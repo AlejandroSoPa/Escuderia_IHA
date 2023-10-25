@@ -1,16 +1,20 @@
 <?php
 session_start();
+include './resources/myFunctions.php';
 if (!isset($_SESSION['counter'])) {
     $_SESSION['counter'] = 0;
 }
+if (!isset($_SESSION['level'])) {
+    $_SESSION['level'] = 1;
+}
 if ($_SESSION['lang'] == 'cat') {
-    $fileRoute = 'questions/catalan_1.txt';
+    $fileRoute = 'questions/catalan_'.$_SESSION['level'].'.txt';
 }
 elseif ($_SESSION['lang'] == 'es') {
-    $fileRoute = 'questions/spanish_1.txt';
+    $fileRoute = 'questions/spanish_'.$_SESSION['level'].'.txt';
 } 
 elseif ($_SESSION['lang'] == 'en')  {
-    $fileRoute = 'questions/english_1.txt';
+    $fileRoute = 'questions/english_'.$_SESSION['level'].'.txt';
 }
 
 $contenido = file_get_contents($fileRoute);
@@ -46,21 +50,26 @@ foreach ($lineas as $linea) {
 
 shuffle($preguntas);
 $preguntasAleatorias = array_slice($preguntas, 0, 3);
+$gameTittle = trans('gameTittle', $_SESSION['lang']);
+$nextButtonText = trans('nextButton', $_SESSION['lang']);
+$backToStartButtonText = trans('backToStartButton', $_SESSION['lang']);
+$correctAnswerText = trans('correctAnswer', $_SESSION['lang']);
+$incorrectAnswerText = trans('incorrectAnswer', $_SESSION['lang']);
+
+echo "<!DOCTYPE html>";
+echo "<html lang='{$_SESSION['lang']}'>";
+
+echo "<head>";
+    echo "<meta charset='UTF-8'>";
+    echo "<meta name='viewport' content='width=device-width, initial-scale=1.0'>";
+    echo "<title>$gameTittle</title>";
+    echo "<link rel='stylesheet' href='styles.css'>";
+    echo "<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Kanit'>";
+echo "</head>";
+
+echo "<body>";
+echo "   <h1>$gameTittle</h1>";
 ?>
-
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
-</head>
-
-<body>
-    <h1>GAME</h1>
 
     <div class="question" id="question1">
         <h2><?php echo $preguntasAleatorias[0]['pregunta']; ?></h2>
@@ -74,7 +83,8 @@ $preguntasAleatorias = array_slice($preguntas, 0, 3);
             </ul>
             <br>
         </form>
-        <div id="feedback1"></div>
+        <div id="feedback1"><?php echo $correctAnswerText; ?></div>
+        <div id="feedback11"><?php echo $incorrectAnswerText; ?></div>
     </div>
 
     <div class="questionHidden" id="question2">
@@ -89,7 +99,8 @@ $preguntasAleatorias = array_slice($preguntas, 0, 3);
             </ul>
             <br>
         </form>
-        <div id="feedback2"></div>
+        <div id="feedback2"><?php echo $correctAnswerText; ?></div>
+        <div id="feedback22"><?php echo $incorrectAnswerText; ?></div>
     </div>
 
     <div class="questionHidden" id="question3">
@@ -104,14 +115,15 @@ $preguntasAleatorias = array_slice($preguntas, 0, 3);
         </ul>
         <br>
         </form>
-        <div id="feedback3"></div>
+        <div id="feedback3"><?php echo $correctAnswerText; ?></div>
+        <div id="feedback33"><?php echo $incorrectAnswerText; ?></div>
     </div>
 
-    <form action="game.php">
-        <input id="buttonNext" type="submit" value="Següent">
+    <form action="./resources/setNextLevel.php" method="post">
+        <input id="buttonNext" name="next" type="submit" value="<?php echo $nextButtonText; ?>">
     </form>
     <form action="index.php">
-        <input id="btnInici" type="submit" value="Tornar a l' inici">
+        <input id="btnInici" type="submit" value="<?php echo $backToStartButtonText; ?>">
     </form>
 
 
