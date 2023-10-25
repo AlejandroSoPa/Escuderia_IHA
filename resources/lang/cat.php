@@ -8,7 +8,12 @@ return [
     'nextButton' => 'Següent',
     'backToStartButton' => 'Tornar a l\'inici',
     'incorrectAnswer' => 'Resposta incorrecta.',
-    'correctAnswer' => 'Resposta correcta. Avançant a la següent pregunta...'
+    'correctAnswer' => 'Resposta correcta. Avançant a la següent pregunta...',
+    'winTitle' => 'Felicitat! Has guanyat',
+    'publishTitle' => 'Publicar',
+    'popUpTitle' => 'Introdueix el teu nom',
+    'winInicio' => 'Tornar a l\'inici',
+    'winRanking' => 'SALÓ DE LA FAMA'
 ];
 
 ?>

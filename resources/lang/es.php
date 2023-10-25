@@ -8,7 +8,12 @@ return [
     'nextButton' => 'Siguiente',
     'backToStartButton' => 'Volver al inicio',
     'incorrectAnswer' => 'Respuesta incorrecta.',
-    'correctAnswer' => 'Respuesta correcta. Avanzando a la siguiente pregunta...'
+    'correctAnswer' => 'Respuesta correcta. Avanzando a la siguiente pregunta...',
+    'winTitle' => 'Felicidades! Has ganado',
+    'publishTitle' => 'Publicar',
+    'popUpTitle' => 'Introduce tu nombre',
+    'winInicio' => 'Tornar al inicio',
+    'winRanking' => 'SALÓN DE LA FAMA'
 ];
 
 ?>

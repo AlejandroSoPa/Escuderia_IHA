@@ -8,7 +8,12 @@ return [
     'nextButton' => 'Next',
     'backToStartButton' => 'Back to the start',
     'incorrectAnswer' => 'Incorrect answer.',
-    'correctAnswer' => 'Correct answer. Moving on to the next question...'
+    'correctAnswer' => 'Correct answer. Moving on to the next question...',
+    'winTitle' => 'Congratulations! You win',
+    'publishTitle' => 'Publish',
+    'popUpTitle' => 'Enter your name',
+    'winInicio' => 'Back to the start',
+    'winRanking' => 'HALL OF FAME'
 ];
 
 ?>
