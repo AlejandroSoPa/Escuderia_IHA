@@ -24,7 +24,7 @@
                     echo"<p>Introduce tu nombre</p> <!-- Cambiar por varible-->";
                     echo"<input type='text' name='name' id='name' cols='54' rows='5' required></input><br>";
                     echo"<input type='number' name='point' id='point' cols='40' rows='5' style='display: none;' value='18'></input>";
-                    echo"<input type='submit'>";
+                    echo"<br><input type='submit'>";
                 echo"</form>";
                 session_start();
                 $texto = preg_replace('/\s+/', "", $_POST["name"]);
