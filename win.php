@@ -24,7 +24,7 @@
                     echo"<p>Introduce tu nombre</p> <!-- Cambiar por varible-->";
                     echo"<input type='text' name='name' id='name' cols='54' rows='5' required></input><br>";
                     echo"<input type='number' name='point' id='point' cols='40' rows='5' style='display: none;' value='18'></input>";
-                    echo"<br><input type='submit'>";
+                    echo"<br><input id='redirect' type='submit'>";
                 echo"</form>";
                 session_start();
                 $texto = preg_replace('/\s+/', "", $_POST["name"]);
@@ -37,6 +37,11 @@
             ?>
         </div>
     </div>
+    <?php
+    if(isset($_POST["name"])){
+        header("Location:http://localhost:8080/");
+    }
+    ?>
     <form action="index.php">
         <input id="btnIniciWin" visibility:visible type="submit" value="Tornar a l' inici"><!-- Cambiar por varible-->
     </form>
