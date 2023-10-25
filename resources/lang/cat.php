@@ -8,7 +8,10 @@ return [
     'nextButton' => 'Següent',
     'backToStartButton' => 'Tornar a l\'inici',
     'incorrectAnswer' => 'Resposta incorrecta.',
-    'correctAnswer' => 'Resposta correcta. Avançant a la següent pregunta...'
+    'correctAnswer' => 'Resposta correcta. Avançant a la següent pregunta...',
+    'rankingTittle' => 'Classificació',
+    'nameColumn' => 'Nom',
+    'pointsColumn' => 'Punts'
 ];
 
 ?>

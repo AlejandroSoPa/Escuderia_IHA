@@ -8,7 +8,10 @@ return [
     'nextButton' => 'Next',
     'backToStartButton' => 'Back to the start',
     'incorrectAnswer' => 'Incorrect answer.',
-    'correctAnswer' => 'Correct answer. Moving on to the next question...'
+    'correctAnswer' => 'Correct answer. Moving on to the next question...',
+    'rankingTittle' => 'Ranking',
+    'nameColumn' => 'Name',
+    'pointsColumn' => 'Points'
 ];
 
 ?>

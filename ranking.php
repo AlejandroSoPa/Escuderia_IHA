@@ -1,22 +1,32 @@
-<!DOCTYPE html>
-<html lang="es">
+<?php
+    session_start();
+    include './resources/myFunctions.php';
+    $rankingTittle = trans('rankingTittle', $_SESSION['lang']);
+    $nameColumn = trans('nameColumn', $_SESSION['lang']);
+    $pointsColumn = trans('pointsColumn', $_SESSION['lang']);
+    $backToStartButton = trans('backToStartButton', $_SESSION['lang']);
+
+
+echo "<!DOCTYPE html>";
+echo "<html lang='{$_SESSION['lang']}'>";
+?>
 <head>
+    <?php echo "<title>$rankingTittle</title>"; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="./images/question-icon.svg" type="image/png">
 </head>
 <body>
-    <?php
-        echo "<h1>Ranking</h1> <!-- Cambiar por varible-->";
-    ?>
-    <div>
+    <?php echo "<h1>$rankingTittle</h1>"; ?>
+    <div class="mainDiv">
         <?php
             echo "<table border=1>
                     <thead>
                     <tr>
-                        <th>Nombre</th><!-- Cambiar por varible-->
-                        <th>Puntuacion</th><!-- Cambiar por varible-->
+                        <th>$nameColumn</th>
+                        <th>$pointsColumn</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -41,7 +51,7 @@
         ?>
     </div>
     <form action="index.php">
-        <input id="btnIniciWin" visibility:visible type="submit" value="Tornar a l' inici"><!-- Cambiar por varible-->
+        <input id="btnIniciWin" visibility:visible type="submit" value="<?php echo "$backToStartButton"; ?>">
     </form>
 </body>
 </html>
