@@ -65,6 +65,7 @@ echo "<head>";
     echo "<title>$gameTittle</title>";
     echo "<link rel='stylesheet' href='styles.css'>";
     echo "<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Kanit'>";
+    echo "<link rel='icon' href='./images/question-icon.svg' type='image/png'>";
 echo "</head>";
 
 echo "<body>";

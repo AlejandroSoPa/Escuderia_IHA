@@ -18,6 +18,7 @@ echo "<html lang='{$_SESSION['lang']}'>";
     <title>Index</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
+    <link rel="icon" href="./images/question-icon.svg" type="image/png">
 </head>
 <body>
     <div class="mainDiv">
