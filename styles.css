@@ -49,6 +49,7 @@ header button img {
 .questionHidden {
     display: none;
 }
+
 #btnInici{
     display: none;
 }
@@ -140,6 +141,59 @@ a:hover {
 
 }
 
+.tableDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 10%;
+    width: 30%;
+    border: 5px solid #42393b;
+    box-shadow: 6px 6px 0px #42393b;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
 table {
-    align-content: center;
+    border-collapse: collapse; /* Elimina el espacio entre las celdas */
+    width: 100%; /* Establece el ancho de la tabla */
+    border-left: transparent;
+    border-right: transparent;
+}
+
+td {
+    border-bottom: 2px solid #42393b;
+    padding: 8px; /* Espaciado interno para celdas */
+    text-align: center;
+}
+
+td p {
+    margin: 0;
+    padding: 0;
+    text-align: justify;
+}
+
+thead {
+    text-align: justify;
+    background-color: #ffc897;
+    border-bottom: transparent;
+    border-right: transparent;
+    border-top: transparent;
+    height: 40px;
+}
+
+th {
+    padding-left: 8px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.centered-link {
+    margin-top: 50px;
+    text-align: center; /* Centra el contenido horizontalmente */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente dentro del contenedor flex */
+    align-items: center; /* Centra verticalmente dentro del contenedor flex */
 }

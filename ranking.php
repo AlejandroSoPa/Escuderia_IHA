@@ -16,13 +16,14 @@ echo "<html lang='{$_SESSION['lang']}'>";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
     <link rel="icon" href="./images/question-icon.svg" type="image/png">
 </head>
 <body>
     <?php echo "<h1>$rankingTittle</h1>"; ?>
-    <div class="mainDiv">
+    <div class="tableDiv">
         <?php
-            echo "<table border=1>
+            echo "<table>
                     <thead>
                     <tr>
                         <th>$nameColumn</th>
@@ -42,16 +43,17 @@ echo "<html lang='{$_SESSION['lang']}'>";
             arsort($ranking);
             foreach ($ranking as $order => $valor) {    
                 echo "<tr>
-                        <td>".substr($order,0,strlen($order)-2)."</td> 
-                        <td>".$valor."</td>
+                        <td><p>".substr($order,0,strlen($order)-2)."</p></td> 
+                        <td><p>".$valor."</p></td>
                      </tr>";
             }
             fclose($file);
             echo "</tbody></table><br>";
         ?>
     </div>
-    <form action="index.php">
-        <input id="btnIniciWin" visibility:visible type="submit" value="<?php echo "$backToStartButton"; ?>">
-    </form>
+    <div class="centered-link">
+        <a class='rankingButton' href='/'><?php echo $backToStartButton; ?></a>
+    </div>
+
 </body>
 </html>
