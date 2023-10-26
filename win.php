@@ -42,7 +42,7 @@
                     if(isset($texto)){
                         //Código de validación de datos
                         file_put_contents("records.txt", 
-                        file_get_contents("records.txt").trim($texto).",".$_POST["point"].",".session_id()."\n");
+                        file_get_contents("records.txt")."\n".trim($texto).",".$_POST["point"].",".session_id());
                         session_destroy();
                     }
                 }
