@@ -52,3 +52,59 @@ function checkAnswer(formId, answerName, feedbackId, feedbackId2, nextQuestionId
         }
     });
 }
+
+async function getInitialTime() {
+    try {
+        const response = await fetch('game.php');
+        console.log(response);
+        const data = await response.json();
+        return data.initialTime;
+    } catch (error) {
+        console.error('Error al obtener el tiempo inicial:', error);
+        return null;
+    }
+}
+
+async function startCountDown() {
+    const initialTime = await getInitialTime();
+    if (initialTime !== null) {
+        let time = initialTime;
+        let counterId = '';
+        if (correctAnswers <= 1) {
+            counterId = 'countDownTimer1';
+        }
+        else if (correctAnswers == 2) {
+            counterId = 'countDownTimer2';
+        } else {
+            counterId = 'countDownTimer3';
+        }
+        const countDownElement = document.getElementById(counterId);
+
+        async function updateCountDown() {
+            countDownElement.textContent = time;
+            if (time <= 0) {
+                countDownElement.textContent = 'Tiempo agotado';
+            } else {
+                time--;
+                setTimeout(updateCountDown, 1000);
+            }
+        }
+
+        updateCountDown();
+    }
+}
+
+async function checkSessionLevel() {
+    try {
+        const response = await fetch('game.php');
+        const data = await response.json();
+        if (data.sessionLevel => 2) {
+            console.log("haz esto");
+        }
+        // Starts the regresive counter for question
+        //startCountDown();
+    } catch (error) {
+        console.error('Error al comprobar el nivel de sesion:', error);
+    }
+}
+

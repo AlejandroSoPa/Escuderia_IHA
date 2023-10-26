@@ -16,6 +16,11 @@ elseif ($_SESSION['lang'] == 'es') {
 elseif ($_SESSION['lang'] == 'en')  {
     $fileRoute = 'questions/english_'.$_SESSION['level'].'.txt';
 }
+if ($_SESSION['level'] >= 2) { // start regresive counter
+    $initialRegresiveTime = 30;
+    echo json_encode(['initialTime' => $initialRegresiveTime]);
+}
+echo json_encode(['sessionLevel' => $_SESSION['level']]);
 
 $contenido = file_get_contents($fileRoute);
 //$texto_procesado = preg_replace('/[ \t\n]+/', '', $contenido);
@@ -75,6 +80,7 @@ echo "   <h1>$gameTittle</h1>";
 
     <div class="question" id="question1">
         <h2><?php echo $preguntasAleatorias[0]['pregunta']; ?></h2>
+        <h3 id="countDownTimer1"></h3>
         <form id="form1">
             <ul>
                 <?php foreach ($preguntasAleatorias[0]['respuestas'] as $respuesta) : ?>
@@ -131,6 +137,7 @@ echo "   <h1>$gameTittle</h1>";
 
 
     <script src="questionsInteraction.js"></script>
+    <script src="countDownTimer.js"></script>
 </body>
 
 </html>
