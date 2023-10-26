@@ -16,7 +16,13 @@ return [
     'publishTitle' => 'Publicar',
     'popUpTitle' => 'Introduce tu nombre',
     'winInicio' => 'Tornar al inicio',
-    'winRanking' => 'SALÓN DE LA FAMA'
+    'winRanking' => 'SALÓN DE LA FAMA',
+    'jsNone' => 'Javascript está deshabilitado en su navegador web.<br />
+      Por favor, para ver correctamente este sitio,<br />
+      <b><i>habilite javascript</i></b>.<br />
+       <br/>
+      Para ver las instrucciones para habilitar javascript<br/>
+      en su navegador, haga click'
 ];
 
 ?>
