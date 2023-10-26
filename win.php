@@ -36,12 +36,15 @@
                     echo"<br><input type='submit' value='$publishTitle'>";
                 echo"</form>";
                 
-                $texto = preg_replace('/\s+/', "", $_POST["name"]);
-                if (isset($texto)) {
-                    //Código de validación de datos
-                    file_put_contents("records.txt", 
-                    file_get_contents("records.txt").trim($texto).",".$_POST["point"].",".session_id()."\n");
-                    session_destroy();
+                
+                if (isset($_POST["name"])) {
+                    $texto = preg_replace('/\s+/', "", $_POST["name"]);
+                    if(isset($texto)){
+                        //Código de validación de datos
+                        file_put_contents("records.txt", 
+                        file_get_contents("records.txt").trim($texto).",".$_POST["point"].",".session_id()."\n");
+                        session_destroy();
+                    }
                 }
             ?>
         </div>
