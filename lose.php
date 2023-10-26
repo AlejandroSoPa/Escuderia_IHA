@@ -10,7 +10,7 @@
 
 <body>
     <audio autoplay>
-        <source src="audio/exit.mp3" type="audio/mpeg">
+        <source src="audio/GameOver.mp3" type="audio/mpeg">
     </audio>
     <?php
     echo "<h1>Game Over</h1> <!-- Cambiar por varible-->";
