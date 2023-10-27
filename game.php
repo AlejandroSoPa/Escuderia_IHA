@@ -72,7 +72,7 @@ echo "   <h1>$gameTittle</h1>";
 ?>
     <audio id="audioCorrecto" src="audio/acierto.mp3"></audio>
     <audio id="audioIncorrecto" src="audio/error.mp3"></audio>
-
+    <div class="container">
     <div class="question" id="question1">
         <h2><?php echo $preguntasAleatorias[0]['pregunta']; ?></h2>
         <form id="form1">
@@ -128,7 +128,7 @@ echo "   <h1>$gameTittle</h1>";
     <form action="index.php">
         <input id="btnInici" type="submit" value="<?php echo $backToStartButtonText; ?>">
     </form>
-
+    </div>
 
     <script src="questionsInteraction.js"></script>
 </body>

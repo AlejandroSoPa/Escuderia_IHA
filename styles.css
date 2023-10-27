@@ -45,9 +45,20 @@ header button:hover {
 header button img {
     height: 50%;
 }
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-left: 33%;
+    padding-right: 33%;
+    
+}
+.question{
+}
 
 .questionHidden {
     display: none;
+
 }
 
 #btnInici{
