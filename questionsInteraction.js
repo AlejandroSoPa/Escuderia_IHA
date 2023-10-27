@@ -6,6 +6,10 @@ let respuesta3 = checkAnswer("form3", "respuesta3", "feedback3", "feedback33", "
 var audioCorrecto = document.getElementById('audioCorrecto');
 var audioIncorrecto = document.getElementById('audioIncorrecto');
 var correctAnswers = 0;
+//Scroll
+var currentQuestion = 1; // Pregunta actual
+var totalQuestions = 3; // Número total de preguntes
+
 
 function checkAnswer(formId, answerName, feedbackId, feedbackId2, nextQuestionId, answerClass) {
     document.getElementById(formId).addEventListener("change", function () {
@@ -25,9 +29,11 @@ function checkAnswer(formId, answerName, feedbackId, feedbackId2, nextQuestionId
                 if (correctAnswers == 3) {
                     var btnSeguent = document.getElementById('buttonNext');
                     btnSeguent.style.display = "block";
+                    showNextQuestion(nextQuestionId);
                 } else {
                     feedbackElement.style.display = "block";
                     nextQuestionElement.classList.remove("questionHidden");
+                    showNextQuestion(nextQuestionId);
                 }
                 
                 // Disable question after being answered
@@ -51,4 +57,11 @@ function checkAnswer(formId, answerName, feedbackId, feedbackId2, nextQuestionId
             }
         }
     });
+}
+function showNextQuestion(nextQuestionId) {
+    if (currentQuestion < totalQuestions) {
+        var nextQuestionElement = document.getElementById(nextQuestionId);
+        nextQuestionElement.scrollIntoView({ behavior: "smooth" }); // Desplaçar-se a la següent pregunta
+        currentQuestion++; // Incrementa la pregunta actual
+    }
 }
