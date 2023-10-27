@@ -20,10 +20,12 @@
 <body>
 <?php
     if (!isset($_POST["game_won"])) {
+        http_response_code(403);
         echo "<h1>403 Forbidden</h1>";
         echo "<form action='index.php'>
                   <input id='btnIniciWin' visibility:visible type='submit' value='$winInicio'>
               </form>";
+        exit;
     } else {
         echo"<audio autoplay>";
             echo"<source src='audio/exit.mp3' type='audio/mpeg'>";
