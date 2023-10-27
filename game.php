@@ -121,16 +121,14 @@ echo "   <h1>$gameTittle</h1>";
         <div id="feedback33"><?php echo $incorrectAnswerText; ?></div>
     </div>
 
-
     <form action="./resources/setNextLevel.php" method="post">
         <input id="buttonNext" name="next" type="submit" value="<?php echo $nextButtonText; ?>">
     </form>
     <form action="index.php">
         <input id="btnInici" type="submit" value="<?php echo $backToStartButtonText; ?>">
     </form>
-
-
     <script src="questionsInteraction.js"></script>
+    <script src="crono.js"></script>
 </body>
 
 </html>
