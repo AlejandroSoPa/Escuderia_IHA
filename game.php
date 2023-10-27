@@ -1,6 +1,7 @@
 <?php
 session_start();
 include './resources/myFunctions.php';
+$responseData = [];
 if (!isset($_SESSION['counter'])) {
     $_SESSION['counter'] = 0;
 }
@@ -16,14 +17,14 @@ elseif ($_SESSION['lang'] == 'es') {
 elseif ($_SESSION['lang'] == 'en')  {
     $fileRoute = 'questions/english_'.$_SESSION['level'].'.txt';
 }
-if ($_SESSION['level'] >= 2) { // start regresive counter
+/*if ($_SESSION['level'] >= 2) { // start regresive counter
     $initialRegresiveTime = 30;
-    echo json_encode(['initialTime' => $initialRegresiveTime]);
-}
-echo json_encode(['sessionLevel' => $_SESSION['level']]);
+    $responseData['initialTime'] = $initialRegresiveTime;
+}*/
+/*$responseData['sessionLevel'] = $_SESSION['level'];
+echo json_encode($responseData);*/
 
 $contenido = file_get_contents($fileRoute);
-//$texto_procesado = preg_replace('/[ \t\n]+/', '', $contenido);
 $texto_procesado = preg_replace('/[ \t]+/', ' ', $contenido); // Reemplaza múltiples espacios o tabulaciones con un solo espacio
 $texto_procesado = preg_replace('/\s*\n\s*/', "\n", $texto_procesado); // Elimina saltos de línea fuera de lugar
 $lineas = explode("\n", $texto_procesado);
@@ -73,6 +74,7 @@ echo "<head>";
 echo "</head>";
 
 echo "<body>";
+echo "<script>var js_session = '".$_SESSION['level']."';alert(js_session);</script>";
 echo "   <h1>$gameTittle</h1>";
 ?>
     <audio id="audioCorrecto" src="audio/acierto.mp3"></audio>
@@ -137,7 +139,6 @@ echo "   <h1>$gameTittle</h1>";
 
 
     <script src="questionsInteraction.js"></script>
-    <script src="countDownTimer.js"></script>
 </body>
 
 </html>

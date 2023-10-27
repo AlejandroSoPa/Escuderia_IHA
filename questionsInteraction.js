@@ -56,7 +56,6 @@ function checkAnswer(formId, answerName, feedbackId, feedbackId2, nextQuestionId
 async function getInitialTime() {
     try {
         const response = await fetch('game.php');
-        console.log(response);
         const data = await response.json();
         return data.initialTime;
     } catch (error) {
@@ -78,6 +77,7 @@ async function startCountDown() {
         } else {
             counterId = 'countDownTimer3';
         }
+        console.log(counterId + " AAA");
         const countDownElement = document.getElementById(counterId);
 
         async function updateCountDown() {
@@ -95,16 +95,17 @@ async function startCountDown() {
 }
 
 async function checkSessionLevel() {
+    alert("alert desde checksession js: "+js_session);
     try {
         const response = await fetch('game.php');
         const data = await response.json();
-        if (data.sessionLevel => 2) {
-            console.log("haz esto");
+        if (data.sessionLevel >= 2) {
+            // Starts the regresive counter for question
+            startCountDown();
         }
-        // Starts the regresive counter for question
-        //startCountDown();
     } catch (error) {
         console.error('Error al comprobar el nivel de sesion:', error);
     }
 }
+checkSessionLevel();
 
