@@ -6,8 +6,22 @@ let respuesta3 = checkAnswer("form3", "respuesta3", "feedback3", "feedback33", "
 var audioCorrecto = document.getElementById('audioCorrecto');
 var audioIncorrecto = document.getElementById('audioIncorrecto');
 var correctAnswers = 0;
+var countDownTimer;
+var time = initialTime;
+
+// Disable question after being answered
+function disableQuestion(answers) {
+    for (var i = 0; i < answers.length; i++) {
+        answers[i].disabled = true;
+    }
+}
 
 function checkAnswer(formId, answerName, feedbackId, feedbackId2, nextQuestionId, answerClass) {
+    if (time <= 0) { // esto no va cambiar
+        let radioButtons = document.getElementsByName(answerName);
+        console.log(radioButtons);
+    }
+    
     document.getElementById(formId).addEventListener("change", function () {
         var selectedAnswer = document.querySelector(`input[name="${answerName}"]:checked`);
         var feedbackElement = document.getElementById(feedbackId);
@@ -16,24 +30,25 @@ function checkAnswer(formId, answerName, feedbackId, feedbackId2, nextQuestionId
         var answers = document.querySelectorAll(`.${answerClass}`);
 
         if (selectedAnswer) {
+            stopCountDown();
             var playerAnswer = selectedAnswer.value;
             var firstChar = playerAnswer.charAt(0);
             var isCorrect = (firstChar === '+');
             if (isCorrect) {
+                time = initialTime;
                 correctAnswers++;
                 audioCorrecto.play();
                 if (correctAnswers == 3) {
                     var btnSeguent = document.getElementById('buttonNext');
                     btnSeguent.style.display = "block";
                 } else {
+                    checkSessionLevel();
                     feedbackElement.style.display = "block";
                     nextQuestionElement.classList.remove("questionHidden");
                 }
                 
                 // Disable question after being answered
-                for (var i = 0; i < answers.length; i++) {
-                    answers[i].disabled = true;
-                }
+                disableQuestion(answers);
             } else {
                 feedbackElement2.style.display = "block";
                 audioIncorrecto.play();
@@ -44,49 +59,43 @@ function checkAnswer(formId, answerName, feedbackId, feedbackId2, nextQuestionId
 
                 }
                 // Disable question after being answered
-                for (var i = 0; i < answers.length; i++) {
-                    answers[i].disabled = true;
-                }
+                disableQuestion(answers);
 
             }
         }
     });
 }
 
-async function getInitialTime() {
-    try {
-        const response = await fetch('game.php');
-        const data = await response.json();
-        return data.initialTime;
-    } catch (error) {
-        console.error('Error al obtener el tiempo inicial:', error);
-        return null;
-    }
-}
-
 async function startCountDown() {
-    const initialTime = await getInitialTime();
     if (initialTime !== null) {
-        let time = initialTime;
-        let counterId = '';
-        if (correctAnswers <= 1) {
+        var counterId = '';
+        if (correctAnswers == 0) {
             counterId = 'countDownTimer1';
         }
-        else if (correctAnswers == 2) {
+        else if (correctAnswers == 1) {
             counterId = 'countDownTimer2';
         } else {
             counterId = 'countDownTimer3';
         }
-        console.log(counterId + " AAA");
-        const countDownElement = document.getElementById(counterId);
+        var countDownElement = document.getElementById(counterId);
 
         async function updateCountDown() {
             countDownElement.textContent = time;
             if (time <= 0) {
                 countDownElement.textContent = 'Tiempo agotado';
+                var answersList;
+                if (correctAnswers == 0) {
+                    answersList = document.querySelectorAll("answer1");
+                }
+                else if (correctAnswers == 1) {
+                    answersList = document.querySelectorAll("answer2");
+                } else {
+                    answersList = document.querySelectorAll("answer3");
+                }
+                
             } else {
                 time--;
-                setTimeout(updateCountDown, 1000);
+                countDownTimer = setTimeout(updateCountDown, 1000);
             }
         }
 
@@ -94,12 +103,13 @@ async function startCountDown() {
     }
 }
 
+async function stopCountDown() {
+    clearTimeout(countDownTimer);
+}
+
 async function checkSessionLevel() {
-    alert("alert desde checksession js: "+js_session);
     try {
-        const response = await fetch('game.php');
-        const data = await response.json();
-        if (data.sessionLevel >= 2) {
+        if (sessionLevel >= 2) {
             // Starts the regresive counter for question
             startCountDown();
         }

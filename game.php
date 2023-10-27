@@ -1,7 +1,6 @@
 <?php
 session_start();
 include './resources/myFunctions.php';
-$responseData = [];
 if (!isset($_SESSION['counter'])) {
     $_SESSION['counter'] = 0;
 }
@@ -17,12 +16,6 @@ elseif ($_SESSION['lang'] == 'es') {
 elseif ($_SESSION['lang'] == 'en')  {
     $fileRoute = 'questions/english_'.$_SESSION['level'].'.txt';
 }
-/*if ($_SESSION['level'] >= 2) { // start regresive counter
-    $initialRegresiveTime = 30;
-    $responseData['initialTime'] = $initialRegresiveTime;
-}*/
-/*$responseData['sessionLevel'] = $_SESSION['level'];
-echo json_encode($responseData);*/
 
 $contenido = file_get_contents($fileRoute);
 $texto_procesado = preg_replace('/[ \t]+/', ' ', $contenido); // Reemplaza múltiples espacios o tabulaciones con un solo espacio
@@ -74,7 +67,7 @@ echo "<head>";
 echo "</head>";
 
 echo "<body>";
-echo "<script>var js_session = '".$_SESSION['level']."';alert(js_session);</script>";
+echo "<script>var sessionLevel = '".$_SESSION['level']."'; var initialTime = 30;</script>";
 echo "   <h1>$gameTittle</h1>";
 ?>
     <audio id="audioCorrecto" src="audio/acierto.mp3"></audio>
@@ -99,6 +92,7 @@ echo "   <h1>$gameTittle</h1>";
 
     <div class="questionHidden" id="question2">
         <h2><?php echo $preguntasAleatorias[1]['pregunta']; ?></h2>
+        <h3 id="countDownTimer2"></h3>
         <form id="form2">
             <ul>
                 <?php foreach ($preguntasAleatorias[1]['respuestas'] as $respuesta) : ?>
@@ -115,6 +109,7 @@ echo "   <h1>$gameTittle</h1>";
 
     <div class="questionHidden" id="question3">
         <h2><?php echo $preguntasAleatorias[2]['pregunta']; ?></h2>
+        <h3 id="countDownTimer3"></h3>
         <form id="form3">
         <ul>
             <?php foreach ($preguntasAleatorias[2]['respuestas'] as $respuesta) : ?>
