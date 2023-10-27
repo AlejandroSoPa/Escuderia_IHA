@@ -1,5 +1,6 @@
 <?php
 session_start();
+include './resources/JsNotEnable.php';
 include './resources/myFunctions.php';
 if (isset($_SESSION['counter'])) {
     unset($_SESSION['counter']);
@@ -35,15 +36,12 @@ echo "<html lang='{$_SESSION['lang']}'>";
         echo "  </header>\n";
 
         //Mensaje de error, JS no esta habilitado en el navegador
-        $JsNoneMessage = trans('jsNone', $_SESSION['lang']);
-        echo "<noscript>\n";
-        echo "    <div class='deshabilitado'>\n";
-        echo "        $JsNoneMessage";
-        echo "        <a href='http://www.enable-javascript.com/es/' target='_blank'>aquí</a>.\n";
-        echo "    </div>\n";
-        echo "</noscript>\n";
+        $JsNotEnableMessage = trans('jsNone', $_SESSION['lang']);
+        $jsNotEnable = CheckJsEnable($JsNotEnableMessage);
+        echo $jsNotEnable;
 
-        
+
+
         $welcomeMessage = trans('welcome', $_SESSION['lang']);
         $playButtonText = trans('playButton', $_SESSION['lang']);
         $rankingButtonText = trans('rankingButton', $_SESSION['lang']);
