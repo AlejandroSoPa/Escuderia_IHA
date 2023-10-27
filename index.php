@@ -43,6 +43,7 @@ echo "<html lang='{$_SESSION['lang']}'>";
         echo "    </div>\n";
         echo "</noscript>\n";
 
+        
         $welcomeMessage = trans('welcome', $_SESSION['lang']);
         $playButtonText = trans('playButton', $_SESSION['lang']);
         $rankingButtonText = trans('rankingButton', $_SESSION['lang']);
