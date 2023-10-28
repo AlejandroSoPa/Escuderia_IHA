@@ -3,6 +3,11 @@
 - Spain
 - France
 - Melilla
+* Where is Buckingham Palace located?
+- France
++ England
+- Italy
+- South-Africa
 * Where is the big ben located?
 - Paris
 + London
@@ -38,8 +43,3 @@
 - Sciencist
 + Mathematician
 - Chemistry
-* Where is Buckingham Palace located?
-- France
-+ England
-- Italy
-- South-Africa

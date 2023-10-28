@@ -1,5 +1,6 @@
 <?php
 session_start();
+include './resources/getPhotos.php';
 include './resources/myFunctions.php';
 if (!isset($_SESSION['counter'])) {
     $_SESSION['counter'] = 0;
@@ -8,14 +9,21 @@ if (!isset($_SESSION['level'])) {
     $_SESSION['level'] = 1;
 }
 if ($_SESSION['lang'] == 'cat') {
-    $fileRoute = 'questions/catalan_'.$_SESSION['level'].'.txt';
+    $fileRoute = 'questions/catalan_' . $_SESSION['level'] . '.txt';
+} elseif ($_SESSION['lang'] == 'es') {
+    $fileRoute = 'questions/spanish_' . $_SESSION['level'] . '.txt';
+} elseif ($_SESSION['lang'] == 'en') {
+    $fileRoute = 'questions/english_' . $_SESSION['level'] . '.txt';
 }
-elseif ($_SESSION['lang'] == 'es') {
-    $fileRoute = 'questions/spanish_'.$_SESSION['level'].'.txt';
-} 
-elseif ($_SESSION['lang'] == 'en')  {
-    $fileRoute = 'questions/english_'.$_SESSION['level'].'.txt';
-}
+
+// Especifica la carpeta principal, subcarpeta y nombre de archivo a buscar
+
+$rutaFoto = 'FotosPreguntas/1/GhandiDoFor.png';
+$rutaFoto2 = 'FotosPreguntas/1/SoccerCentury.jpg';
+
+
+// Llama a la función para buscar y mostrar la foto;
+
 
 $contenido = file_get_contents($fileRoute);
 //$texto_procesado = preg_replace('/[ \t\n]+/', '', $contenido);
@@ -37,17 +45,16 @@ foreach ($lineas as $linea) {
         if ($linea[1] != " ") { // Si no hay un espacio en en carater 1 de la string se añadira 1. Luego facilitara la impresion de las respuestas
             $parte1 = substr($linea, 0, 1);
             $parte2 = substr($linea, 1);
-            $linea = $parte1." ".$parte2;
+            $linea = $parte1 . " " . $parte2;
         }
         $pregunta_actual['respuestas'][] = $linea; // Esta parte del código accede al array asociativo $pregunta_actual y específicamente al elemento 'respuestas'. La clave 'respuestas' se utiliza para almacenar las respuestas de la pregunta actual. 
     } else { // Si el primer caracter que encuentra en cada linea no es '+' ni '-', asume que ha llegado a la siguiente pregunta
         if (!empty($pregunta_actual)) {
             $preguntas[] = $pregunta_actual;
         }
-        $pregunta_actual = ['pregunta' => $linea=substr($linea, 2), 'respuestas' => []];
+        $pregunta_actual = ['pregunta' => $linea = substr($linea, 2), 'respuestas' => []];
     }
 }
-
 shuffle($preguntas);
 $preguntasAleatorias = array_slice($preguntas, 0, 3);
 $gameTittle = trans('gameTittle', $_SESSION['lang']);
@@ -60,27 +67,34 @@ echo "<!DOCTYPE html>";
 echo "<html lang='{$_SESSION['lang']}'>";
 
 echo "<head>";
-    echo "<meta charset='UTF-8'>";
-    echo "<meta name='viewport' content='width=device-width, initial-scale=1.0'>";
-    echo "<title>$gameTittle</title>";
-    echo "<link rel='stylesheet' href='styles.css'>";
-    echo "<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Kanit'>";
+echo "<meta charset='UTF-8'>";
+echo "<meta name='viewport' content='width=device-width, initial-scale=1.0'>";
+echo "<title>$gameTittle</title>";
+echo "<link rel='stylesheet' href='styles.css'>";
+echo "<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Kanit'>";
 echo "</head>";
 
 echo "<body>";
 echo "   <h1>$gameTittle</h1>";
 ?>
-    <audio id="audioCorrecto" src="audio/acierto.mp3"></audio>
-    <audio id="audioIncorrecto" src="audio/error.mp3"></audio>
-    <div class="container">
+<audio id="audioCorrecto" src="audio/acierto.mp3"></audio>
+<audio id="audioIncorrecto" src="audio/error.mp3"></audio>
+<div class="container">
     <div class="question" id="question1">
         <h2><?php echo $preguntasAleatorias[0]['pregunta']; ?></h2>
+        <?php
+        $preguntaActual = $preguntasAleatorias[0]['pregunta'];
+        mostrarFotoParaPregunta($preguntaActual, $preguntasConFotos);
+        ?>
+
         <form id="form1">
             <ul>
                 <?php foreach ($preguntasAleatorias[0]['respuestas'] as $respuesta) : ?>
-                    <li>
-                        <input type="radio" name="respuesta1" value="<?php echo $respuesta; ?>" autocomplete="off" class="answer1"><?php echo $respuesta = substr($respuesta, 2); ?>
-                    </li>
+                    <div>
+                        <li class="li">
+                            <input type="radio" name="respuesta1" value="<?php echo $respuesta; ?>" autocomplete="off" class="answer1"><?php echo $respuesta = substr($respuesta, 2); ?>
+                        </li>
+                    </div>
                 <?php endforeach; ?>
             </ul>
             <br>
@@ -91,6 +105,10 @@ echo "   <h1>$gameTittle</h1>";
 
     <div class="questionHidden" id="question2">
         <h2><?php echo $preguntasAleatorias[1]['pregunta']; ?></h2>
+        <?php
+        $preguntaActual = $preguntasAleatorias[1]['pregunta'];
+        mostrarFotoParaPregunta($preguntaActual, $preguntasConFotos);
+        ?>
         <form id="form2">
             <ul>
                 <?php foreach ($preguntasAleatorias[1]['respuestas'] as $respuesta) : ?>
@@ -107,15 +125,19 @@ echo "   <h1>$gameTittle</h1>";
 
     <div class="questionHidden" id="question3">
         <h2><?php echo $preguntasAleatorias[2]['pregunta']; ?></h2>
+        <?php
+        $preguntaActual = $preguntasAleatorias[2]['pregunta'];
+        mostrarFotoParaPregunta($preguntaActual, $preguntasConFotos);
+        ?>
         <form id="form3">
-        <ul>
-            <?php foreach ($preguntasAleatorias[2]['respuestas'] as $respuesta) : ?>
-                <li>
-                    <input type="radio" name="respuesta3" value="<?php echo $respuesta; ?>" autocomplete="off" class="answer3"><?php echo $respuesta = substr($respuesta, 2); ?>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-        <br>
+            <ul>
+                <?php foreach ($preguntasAleatorias[2]['respuestas'] as $respuesta) : ?>
+                    <li>
+                        <input type="radio" name="respuesta3" value="<?php echo $respuesta; ?>" autocomplete="off" class="answer3"><?php echo $respuesta = substr($respuesta, 2); ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+            <br>
         </form>
         <div id="feedback3"><?php echo $correctAnswerText; ?></div>
         <div id="feedback33"><?php echo $incorrectAnswerText; ?></div>
@@ -128,9 +150,9 @@ echo "   <h1>$gameTittle</h1>";
     <form action="index.php">
         <input id="btnInici" type="submit" value="<?php echo $backToStartButtonText; ?>">
     </form>
-    </div>
+</div>
 
-    <script src="questionsInteraction.js"></script>
+<script src="questionsInteraction.js"></script>
 </body>
 
 </html>

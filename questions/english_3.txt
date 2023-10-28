@@ -1,8 +1,8 @@
-* Test Question?
-- Option A
-- Option B
-+ Correct Option
-- Option C
+* More Population?
++ India
+- Bangladesh 
+- Australia
+- England
 * More World Cups?
 - Jamaica
 - France
@@ -16,11 +16,6 @@
 * More PIB Annual?
 + India
 - Canada
-- Australia
-- England
-* More Population?
-+ India
-- Bangladesh 
 - Australia
 - England
 * The Hottest Country?
@@ -88,6 +83,11 @@
 - Namibia
 + India
 - England
+* Test Question?
+- Option A
+- Option B
++ Correct Option
+- Option C
 * More Fast Food?
 - Canada
 + India

@@ -8,6 +8,11 @@
 - Soup
 - Bacon
 + Potatoes And Fish
+* How Many Territories Did The British Empire Conquer?
++ 5 Territories
+- 8 Territories
+- 10 Territories
+- 12 Territories
 * Who Is The President Of The Uk?
 - Donald Trump
 - Pedro Sánchez
@@ -38,8 +43,3 @@
 + Times
 - Monarchy
 - Country
-* How Many Territories Did The British Empire Conquer?
-+ 5 Territories
-- 8 Territories
-- 10 Territories
-- 12 Territories

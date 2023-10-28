@@ -8,6 +8,11 @@
 - Sopa
 - Tocino
 + Patatas Y Pescado
+* ¿Cuántos territorios conquistó el Imperio Británico?
++ 5 Territorios
+- 8 territorios
+- 10 territorios
+- 12 territorios
 * ¿Quién es el presidente del Reino Unido?
 - Donald Trump
 - Pedro Sánchez
@@ -38,8 +43,3 @@
 + Horarios
 - Monarquía
 - País
-* ¿Cuántos territorios conquistó el Imperio Británico?
-+ 5 Territorios
-- 8 territorios
-- 10 territorios
-- 12 territorios

@@ -8,6 +8,11 @@
 - Generalmente
 - Puede
 - Nunca
+* ¿De qué se trata la tradición del Rolling Cheese?
+- Comer queso redondo
++ Tirar queso redondo desde una colina
+- Hacer una tarta de queso redonda
+- Compra un queso redondo grande.
 * ¿Cuáles de estos países no fueron colonizados por Inglaterra?
 - Islas Maldivas
 - Islas Caimán
@@ -28,8 +33,3 @@
 - Chipre
 - Islas del Canal
 - Inglaterra
-* ¿De qué se trata la tradición del Rolling Cheese?
-- Comer queso redondo
-+ Tirar queso redondo desde una colina
-- Hacer una tarta de queso redonda
-- Compra un queso redondo grande.
