@@ -84,7 +84,7 @@ echo "   <h1>$gameTittle</h1>";
         <h2><?php echo $preguntasAleatorias[0]['pregunta']; ?></h2>
         <?php
         $preguntaActual = $preguntasAleatorias[0]['pregunta'];
-        mostrarFotoParaPregunta($preguntaActual, $preguntasConFotos);
+        getPhotoAndPath($preguntaActual, $preguntasConFotos);
         ?>
 
         <form id="form1">
@@ -107,7 +107,7 @@ echo "   <h1>$gameTittle</h1>";
         <h2><?php echo $preguntasAleatorias[1]['pregunta']; ?></h2>
         <?php
         $preguntaActual = $preguntasAleatorias[1]['pregunta'];
-        mostrarFotoParaPregunta($preguntaActual, $preguntasConFotos);
+        getPhotoAndPath($preguntaActual, $preguntasConFotos);
         ?>
         <form id="form2">
             <ul>
@@ -127,7 +127,7 @@ echo "   <h1>$gameTittle</h1>";
         <h2><?php echo $preguntasAleatorias[2]['pregunta']; ?></h2>
         <?php
         $preguntaActual = $preguntasAleatorias[2]['pregunta'];
-        mostrarFotoParaPregunta($preguntaActual, $preguntasConFotos);
+        getPhotoAndPath($preguntaActual, $preguntasConFotos);
         ?>
         <form id="form3">
             <ul>

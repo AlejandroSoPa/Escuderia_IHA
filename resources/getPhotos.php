@@ -1,19 +1,19 @@
 <?php
 
-// Leer el contenido del archivo JSON
+// Leer el contenido del archivo JSON con las pregutnas asociadas a su foto
 $jsonData = file_get_contents('resources/questionsWithPhotos.json');
 
 // Decodificar el JSON en un arreglo asociativo
 $preguntasConFotos = json_decode($jsonData, true);
 
-function mostrarFotoParaPregunta($pregunta, $preguntasConFotos) {
+function getPhotoAndPath($pregunta, $preguntasConFotos) {
     if (array_key_exists($pregunta, $preguntasConFotos)) {
         $rutaFoto = $preguntasConFotos[$pregunta];
-        buscarFotoPorRuta($rutaFoto);
+        showPhoto($rutaFoto);
     }
 }
 
-function buscarFotoPorRuta($rutaArchivo) {
+function showPhoto($rutaArchivo) {
     // Comprobar si el archivo especificado existe
     if (file_exists($rutaArchivo)) {
         // Comprobar si el archivo es una imagen (puedes agregar más extensiones si es necesario)
