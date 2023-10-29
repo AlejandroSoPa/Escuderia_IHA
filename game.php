@@ -73,7 +73,6 @@ echo "   <h1>$gameTittle</h1>";
 ?>
     <audio id="audioCorrecto" src="audio/acierto.mp3"></audio>
     <audio id="audioIncorrecto" src="audio/error.mp3"></audio>
-    <div class="container">
     <div class="question" id="question1">
         <h2 class="questionText"><?php echo $preguntasAleatorias[0]['pregunta']; ?></h2>
         <h3 class="countDownTimer" id="countDownTimer1"></h3>
@@ -126,8 +125,6 @@ echo "   <h1>$gameTittle</h1>";
         </form>
         <div id="feedback3"><?php echo $correctAnswerText; ?></div>
         <div id="feedback33"><?php echo $incorrectAnswerText; ?></div>
-    </div>
-
 
     <form action="./resources/setNextLevel.php" method="post">
         <input id="buttonNext" name="next" type="submit" value="<?php echo $nextButtonText; ?>">
