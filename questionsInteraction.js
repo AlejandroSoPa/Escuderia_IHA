@@ -33,8 +33,8 @@ function checkAnswer(formId, answerName, feedbackId, feedbackId2, nextQuestionId
                 time = initialTime;
                 correctAnswers++;
                 audioCorrecto.play();
-                console.log(selectedAnswer);
-                selectedAnswer.style.backgroundColor = "white";
+                selectedAnswer.classList.remove(answerClass);
+                selectedAnswer.classList.add("correct");
                 if (correctAnswers == 3) {
                     var btnSeguent = document.getElementById('buttonNext');
                     btnSeguent.style.display = "block";
@@ -47,6 +47,8 @@ function checkAnswer(formId, answerName, feedbackId, feedbackId2, nextQuestionId
                 // Disable question after being answered
                 disableQuestion(answers);
             } else {
+                selectedAnswer.classList.remove(answerClass);
+                selectedAnswer.classList.add("incorrect");
                 feedbackElement2.style.display = "block";
                 audioIncorrecto.play();
                 var btnInici = document.getElementById('btnInici');
