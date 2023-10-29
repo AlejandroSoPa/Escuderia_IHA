@@ -30,7 +30,7 @@ header button {
     background-color: #f3e5ab;
     border: 3px solid #42393b;
     border-radius: 5px;
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    cursor: pointer;
     height: 50px;
     width: 60px;
     margin-right: 10px;
@@ -58,12 +58,29 @@ header button img {
 
 }
 
-#btnInici{
+#btnInici, #buttonNext {
     display: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    background: none;
+    color: inherit;
+    font-family: inherit;
+    border: 3px solid #42393b;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bolder;
+    height: 50px;
+    box-shadow: 4px 4px 0px #42393b;
+    transition: color 0.3s, background-color 0.3s;
 }
-#buttonNext{
-    display: none;
+
+#btnInici:hover , #buttonNext:hover {
+    color: white;
+    background-color: #42393b;
 }
+
 #feedback1, #feedback11, #feedback2, #feedback22, #feedback3, #feedback33 {
     display: none;
 } 
@@ -101,7 +118,6 @@ header button img {
 
 .rankingButton {
     font-size: 25px;
-    font-weight: bold;
     margin-right: 25px;
     text-decoration: none; /* Elimina el subrayado en los enlaces */
     color: #42393b; /* Hereda el color del texto del elemento padre */
@@ -119,7 +135,6 @@ header button img {
 
 .playButton {
     font-size: 25px;
-    font-weight: bold;
     margin-left: 25px;
     text-decoration: none; /* Elimina el subrayado en los enlaces */
     color: #42393b; /* Hereda el color del texto del elemento padre */
@@ -200,8 +215,95 @@ h1 {
 
 .centered-link {
     margin-top: 50px;
-    text-align: center; /* Centra el contenido horizontalmente */
+    text-align: center;
     display: flex;
-    justify-content: center; /* Centra horizontalmente dentro del contenedor flex */
-    align-items: center; /* Centra verticalmente dentro del contenedor flex */
+    justify-content: center;
+    align-items: center;
+}
+
+#question1, #question2, #question3 {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+.questionText {
+    font-size: 40px;
+    margin-bottom: 0;
+    background-color: #ffc897;
+}
+
+.answer-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-rows: repeat(2, 1fr); /* 2 rows */
+    gap: 50px; /* Gap between elements */
+    list-style: none; /* Delete the default style of the ul */
+    text-align: center;
+    width: 80%;
+    padding: 0;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bolder;
+    font-size: 30px;
+}
+
+.answer-list li {
+    position: relative;
+    cursor: pointer;
+    height: 50px;
+}
+
+.answer-list input[type="radio"] {
+    /* use the input radius circle itself to make the select box or button */
+    position: absolute;
+    z-index: 10;
+    opacity: 0; /* Hide the input radio but still have function */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.answer-list input[type="radio"] + label::before {
+    /* custom button */
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    border: 3px solid #42393b;
+    border-radius: 5px;
+    box-shadow: 4px 4px 0px #42393b;
+    transition: height 0.3s;
+    position: absolute;
+    left: 5px;
+    top: 25%;
+    transform: translateY(-30%);
+}
+
+.answer-list input[type="radio"] + label {
+    transition: font-size 0.3s;
+}
+
+.answer-list input[type="radio"]:hover + label::before {
+    height: 70px;
+}
+
+.answer-list input[type="radio"]:hover + label {
+    font-size: 35px;
+}
+
+.answer-list input[type="radio"]:checked + label::before { 
+    background-color: none; /* Color de fondo del botón cuando está seleccionado */
+}
+
+.correct + label::before {
+    background-color: rgba(117, 201, 163, 0.5);
+}
+
+.incorrect + label::before {
+    background-color: rgba(255, 82, 82, 0.7);
 }
