@@ -48,15 +48,57 @@ header button img {
 .container{
     padding-left: 33%;
     padding-right: 33%;
-    
 }
-.question{
-}
-
 .questionHidden {
-    display: none;
-
+    display: none; 
 }
+.donate-now {
+    list-style-type: none;
+    margin: 25px 0 0 0;
+    padding: 0;
+    display: flex; /* Cambio: Utilizamos flexbox para mostrar los elementos en filas */
+    flex-wrap: wrap; /* Cambio: Envolver elementos en filas */
+  }
+  
+  .donate-now li {
+    flex-basis: calc(50% - 10px); /* Cambio: Ancho del 50% con margen entre elementos */
+    margin: 0 5px 10px 0; /* Cambio: Agregamos margen inferior */
+    height: 40px;
+    position: relative;
+  }
+  
+  .donate-now label,
+  .donate-now input {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .donate-now input[type="radio"] {
+    opacity: 0.01;
+    z-index: 100;
+  }
+  
+  .donate-now input[type="radio"]:checked+label,
+  .Checked+label {
+    background: yellow;
+  }
+  
+  .donate-now label {
+    padding: 5px;
+    border: 2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 90;
+  }
+  
+  .donate-now li:hover {
+    background: #DDD;
+  }
+  
 
 #btnInici{
     display: none;

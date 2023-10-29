@@ -79,80 +79,81 @@ echo "   <h1>$gameTittle</h1>";
 ?>
 <audio id="audioCorrecto" src="audio/acierto.mp3"></audio>
 <audio id="audioIncorrecto" src="audio/error.mp3"></audio>
-<div class="container">
-    <div class="question" id="question1">
-        <h2><?php echo $preguntasAleatorias[0]['pregunta']; ?></h2>
-        <?php
-        $preguntaActual = $preguntasAleatorias[0]['pregunta'];
-        getPhotoAndPath($preguntaActual, $preguntasConFotos);
-        ?>
+    <div class="container">
+        <div class="question" id="question1">
+            <h2><?php echo $preguntasAleatorias[0]['pregunta']; ?></h2>
+            <?php
+            $preguntaActual = $preguntasAleatorias[0]['pregunta'];
+            getPhotoAndPath($preguntaActual, $preguntasConFotos);
+            ?>
 
-        <form id="form1">
-            <ul>
-                <?php foreach ($preguntasAleatorias[0]['respuestas'] as $respuesta) : ?>
-                    <div>
+            <form id="form1">
+                <ul  class="donate-now">
+                    <?php foreach ($preguntasAleatorias[0]['respuestas'] as $respuesta) : ?>
                         <li class="li">
-                            <input type="radio" name="respuesta1" value="<?php echo $respuesta; ?>" autocomplete="off" class="answer1"><?php echo $respuesta = substr($respuesta, 2); ?>
+                            <input type="radio" id="respuesta1_<?php echo $respuesta; ?>" name="respuesta1" value="<?php echo $respuesta; ?>" autocomplete="off" class="answer1">
+                            <label for="respuesta1_<?php echo $respuesta; ?>"><?php echo substr($respuesta, 2); ?></label>
                         </li>
-                    </div>
-                <?php endforeach; ?>
-            </ul>
-            <br>
+                    <?php endforeach; ?>
+                </ul>
+                <br>
+            </form>
+            <div id="feedback1"><?php echo $correctAnswerText; ?></div>
+            <div id="feedback11"><?php echo $incorrectAnswerText; ?></div>
+        </div>
+
+        <div class="questionHidden" id="question2">
+            <h2><?php echo $preguntasAleatorias[1]['pregunta']; ?></h2>
+            <?php
+            $preguntaActual = $preguntasAleatorias[1]['pregunta'];
+            getPhotoAndPath($preguntaActual, $preguntasConFotos);
+            ?>
+            <form id="form2">
+                <ul class="donate-now">
+                    <?php foreach ($preguntasAleatorias[1]['respuestas'] as $respuesta) : ?>
+                        <li>
+                            <input type="radio" id="respuesta2_<?php echo $respuesta; ?>" name="respuesta2" value="<?php echo $respuesta; ?>" autocomplete="off" class="answer2">
+                            <label for="respuesta2_<?php echo $respuesta; ?>"><?php echo substr($respuesta, 2); ?></label>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+                <br>
+            </form>
+            <div id="feedback2"><?php echo $correctAnswerText; ?></div>
+            <div id="feedback22"><?php echo $incorrectAnswerText; ?></div>
+        </div>
+
+        <div class="questionHidden" id="question3">
+            <h2><?php echo $preguntasAleatorias[2]['pregunta']; ?></h2>
+            <?php
+            $preguntaActual = $preguntasAleatorias[2]['pregunta'];
+            getPhotoAndPath($preguntaActual, $preguntasConFotos);
+            ?>
+            <form id="form3">
+                <ul class="donate-now">
+                    <?php foreach ($preguntasAleatorias[2]['respuestas'] as $respuesta) : ?>
+                        <li>
+                            <input type="radio" id="respuesta3_<?php echo $respuesta; ?>" name="respuesta3" value="<?php echo $respuesta; ?>" autocomplete="off" class="answer3">
+                            <label for="respuesta3_<?php echo $respuesta; ?>"><?php echo substr($respuesta, 2); ?></label>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+                <br>
+            </form>
+            <div id="feedback3"><?php echo $correctAnswerText; ?></div>
+            <div id="feedback33"><?php echo $incorrectAnswerText; ?></div>
+        </div>
+
+        <form action="./resources/setNextLevel.php" method="post">
+            <input id="buttonNext" name="next" type="submit" value="<?php echo $nextButtonText; ?>">
         </form>
-        <div id="feedback1"><?php echo $correctAnswerText; ?></div>
-        <div id="feedback11"><?php echo $incorrectAnswerText; ?></div>
+        <form action="index.php">
+            <input id="btnInici" type="submit" value="<?php echo $backToStartButtonText; ?>">
+        </form>
     </div>
 
-    <div class="questionHidden" id="question2">
-        <h2><?php echo $preguntasAleatorias[1]['pregunta']; ?></h2>
-        <?php
-        $preguntaActual = $preguntasAleatorias[1]['pregunta'];
-        getPhotoAndPath($preguntaActual, $preguntasConFotos);
-        ?>
-        <form id="form2">
-            <ul>
-                <?php foreach ($preguntasAleatorias[1]['respuestas'] as $respuesta) : ?>
-                    <li>
-                        <input type="radio" name="respuesta2" value="<?php echo $respuesta; ?>" autocomplete="off" class="answer2"><?php echo $respuesta = substr($respuesta, 2); ?>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-            <br>
-        </form>
-        <div id="feedback2"><?php echo $correctAnswerText; ?></div>
-        <div id="feedback22"><?php echo $incorrectAnswerText; ?></div>
-    </div>
 
-    <div class="questionHidden" id="question3">
-        <h2><?php echo $preguntasAleatorias[2]['pregunta']; ?></h2>
-        <?php
-        $preguntaActual = $preguntasAleatorias[2]['pregunta'];
-        getPhotoAndPath($preguntaActual, $preguntasConFotos);
-        ?>
-        <form id="form3">
-            <ul>
-                <?php foreach ($preguntasAleatorias[2]['respuestas'] as $respuesta) : ?>
-                    <li>
-                        <input type="radio" name="respuesta3" value="<?php echo $respuesta; ?>" autocomplete="off" class="answer3"><?php echo $respuesta = substr($respuesta, 2); ?>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-            <br>
-        </form>
-        <div id="feedback3"><?php echo $correctAnswerText; ?></div>
-        <div id="feedback33"><?php echo $incorrectAnswerText; ?></div>
-    </div>
+    <script src="questionsInteraction.js"></script>
+    </body>
 
-
-    <form action="./resources/setNextLevel.php" method="post">
-        <input id="buttonNext" name="next" type="submit" value="<?php echo $nextButtonText; ?>">
-    </form>
-    <form action="index.php">
-        <input id="btnInici" type="submit" value="<?php echo $backToStartButtonText; ?>">
-    </form>
-</div>
-
-<script src="questionsInteraction.js"></script>
-</body>
-
-</html>
+    </html>
