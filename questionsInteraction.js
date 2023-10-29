@@ -33,6 +33,8 @@ function checkAnswer(formId, answerName, feedbackId, feedbackId2, nextQuestionId
                 time = initialTime;
                 correctAnswers++;
                 audioCorrecto.play();
+                console.log(selectedAnswer);
+                selectedAnswer.style.backgroundColor = "white";
                 if (correctAnswers == 3) {
                     var btnSeguent = document.getElementById('buttonNext');
                     btnSeguent.style.display = "block";
