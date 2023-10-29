@@ -17,11 +17,6 @@ function disableQuestion(answers) {
 }
 
 function checkAnswer(formId, answerName, feedbackId, feedbackId2, nextQuestionId, answerClass) {
-    if (time <= 0) { // esto no va cambiar
-        let radioButtons = document.getElementsByName(answerName);
-        console.log(radioButtons);
-    }
-    
     document.getElementById(formId).addEventListener("change", function () {
         var selectedAnswer = document.querySelector(`input[name="${answerName}"]:checked`);
         var feedbackElement = document.getElementById(feedbackId);
@@ -82,16 +77,8 @@ async function startCountDown() {
         async function updateCountDown() {
             countDownElement.textContent = time;
             if (time <= 0) {
-                countDownElement.textContent = 'Tiempo agotado';
-                var answersList;
-                if (correctAnswers == 0) {
-                    answersList = document.querySelectorAll("answer1");
-                }
-                else if (correctAnswers == 1) {
-                    answersList = document.querySelectorAll("answer2");
-                } else {
-                    answersList = document.querySelectorAll("answer3");
-                }
+                //countDownElement.textContent = 'Tiempo agotado';
+                window.location.href = 'lose.php';
                 
             } else {
                 time--;
@@ -114,8 +101,9 @@ async function checkSessionLevel() {
             startCountDown();
         }
     } catch (error) {
-        console.error('Error al comprobar el nivel de sesion:', error);
+        console.error('Error at check level session:', error);
     }
 }
+// checks if the session level is greater than 2
 checkSessionLevel();
 
