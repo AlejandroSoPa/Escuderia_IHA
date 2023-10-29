@@ -96,12 +96,20 @@ header button img {
   }
   
   .donate-now li:hover {
-    background: #DDD;
+    background: #ffc897;
   }
   
 
 #btnInici{
     display: none;
+    background-color: #f3e5ab;
+    border: 3px solid #42393b;
+    border-radius: 5px;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    height: 50px;
+    width: 60px;
+    margin-right: 10px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
 #buttonNext{
     display: none;
