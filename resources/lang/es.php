@@ -15,8 +15,11 @@ return [
     'winTitle' => 'Felicidades! Has ganado',
     'publishTitle' => 'Publicar',
     'popUpTitle' => 'Introduce tu nombre',
-    'winInicio' => 'Tornar al inicio',
-    'winRanking' => 'SALÓN DE LA FAMA'
+    'winInicio' => 'Volver al inicio',
+    'winRanking' => 'SALÓN DE LA FAMA',
+    'loseTitle' => 'Fin del juego! Has perdido!',
+    'loseInicio' => 'Volver al inicio',
+    'loseRanking' => 'SALÓN DE LA FAMA'
 ];
 
 ?>

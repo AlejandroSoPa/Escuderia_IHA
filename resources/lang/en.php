@@ -16,7 +16,10 @@ return [
     'publishTitle' => 'Publish',
     'popUpTitle' => 'Enter your name',
     'winInicio' => 'Back to the start',
-    'winRanking' => 'HALL OF FAME'
+    'winRanking' => 'HALL OF FAME',
+    'loseTitle' => 'Game Over! You lose!',
+    'loseInicio' => 'Back to the start',
+    'loseRanking' => 'HALL OF FAME'
 ];
 
 ?>

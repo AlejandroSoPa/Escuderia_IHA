@@ -12,11 +12,14 @@ return [
     'rankingTittle' => 'Classificació',
     'nameColumn' => 'Nom',
     'pointsColumn' => 'Punts',
-    'winTitle' => 'Felicitat! Has guanyat',
+    'winTitle' => 'Felicitats! Has guanyat',
     'publishTitle' => 'Publicar',
     'popUpTitle' => 'Introdueix el teu nom',
     'winInicio' => 'Tornar a l\'inici',
-    'winRanking' => 'SALÓ DE LA FAMA'
+    'winRanking' => 'SALÓ DE LA FAMA',
+    'loseTitle' => 'Fi del Joc! Has perdut!',
+    'loseInicio' => 'Tornar a l\'inici',
+    'loseRanking' => 'SALÓ DE LA FAMA'
 ];
 
 ?>
