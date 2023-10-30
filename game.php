@@ -158,6 +158,14 @@ echo "   <h1>$gameTittle</h1>";
 <form action="index.php">
     <input id="btnInici" type="submit" value="<?php echo $backToStartButtonText; ?>">
 </form>
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <h1>Public Wildcard</h1>
+        <p>Waiting for the public vote...</p>
+        <button onclick="hidePublicWildCard()" id="popup-button">Close</button>
+    </div>
+</div>
+
 <script src="questionsInteraction.js"></script>
 <script src="crono.js"></script>
 </body>

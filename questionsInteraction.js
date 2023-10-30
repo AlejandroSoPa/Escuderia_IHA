@@ -13,6 +13,9 @@ var totalQuestions = 3; // Número total de preguntes
 var countDownTimer;
 var time = initialTime;
 
+const popup = document.getElementById("popup");
+const popupButton = document.getElementById("popup-button");
+
 // Disable question after being answered
 function disableQuestion(answers) {
     for (var i = 0; i < answers.length; i++) {
@@ -126,7 +129,23 @@ function publicWildcard() {
     if (sessionLevel >= 2) {
         stopCountDown();
     }
-    alert("AAAAAAAAAAAAAAAAAAA");
+    if (correctAnswers == 0) {
+        // estas en la primera
+    }
+    else if (correctAnswers == 1) {
+        // estas en la segunda
+    } else {
+        //estas en la tercera
+    }
+    popup.style.display = "block";
+    // Bloquea la interacción con la pantalla principal
+    document.body.style.overflow = "hidden";
+}
+
+function hidePublicWildCard() {
+    popup.style.display = "none";
+    // Habilita la interacción con la pantalla principal
+    document.body.style.overflow = "auto";
 }
 
 // checks if the session level is greater than 2
