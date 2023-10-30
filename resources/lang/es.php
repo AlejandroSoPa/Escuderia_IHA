@@ -19,9 +19,7 @@ return [
     'winRanking' => 'SALÓN DE LA FAMA',
     'loseTitle' => 'Fin del juego! Has perdido!',
     'loseInicio' => 'Volver al inicio',
-    'loseRanking' => 'SALÓN DE LA FAMA'
-    'winInicio' => 'Tornar al inicio',
-    'winRanking' => 'SALÓN DE LA FAMA',
+    'loseRanking' => 'SALÓN DE LA FAMA',
     'jsNone' => 'Javascript está deshabilitado en su navegador web.<br />
       Por favor, para ver correctamente este sitio,<br />
       <b><i>habilite javascript</i></b>.<br />
