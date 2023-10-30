@@ -45,6 +45,11 @@ header button:hover {
 header button img {
     height: 50%;
 }
+#help{
+    display: flex;
+    position: fixed;
+    flex-direction: row-reverse;
+}
 .container{
     padding-left: 33%;
     padding-right: 33%;

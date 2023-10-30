@@ -124,3 +124,14 @@ async function checkSessionLevel() {
 // checks if the session level is greater than 2
 checkSessionLevel();
 
+
+    const hideAnswersButton = document.getElementById("hideAnswersButton");
+    // Agregar un manejador de eventos al hacer clic en el botón
+    hideAnswersButton.addEventListener("click", function() {
+      // Obtener todas las etiquetas de respuesta con clase "hidden-answer" en la pregunta actual
+      nextQuestionElement.classList.remove("questionHidden");
+  
+      // Recorrer todas las respuestas ocultas y cambiar su visibilidad
+    });
+
+  
