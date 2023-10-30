@@ -121,6 +121,14 @@ async function checkSessionLevel() {
         console.error('Error at check level session:', error);
     }
 }
+
+function publicWildcard() {
+    if (sessionLevel >= 2) {
+        stopCountDown();
+    }
+    alert("AAAAAAAAAAAAAAAAAAA");
+}
+
 // checks if the session level is greater than 2
 checkSessionLevel();
 
