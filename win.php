@@ -15,14 +15,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles.css">
-    <script src="manageButtons.js"></script>
 </head>
 
 <body>
-    <audio autoplay>
-        <source src="audio/exit.mp3" type="audio/mpeg">
-    </audio>
-    <?php
+<?php
+    if (!isset($_POST["game_won"])) {
+        http_response_code(403);
+        echo "<h1>403 Forbidden</h1>";
+        echo "<form action='index.php'>
+                  <input id='btnIniciWin' visibility:visible type='submit' value='$winInicio'>
+              </form>";
+        exit;
+    } else {
+        echo"<audio autoplay>";
+            echo"<source src='audio/exit.mp3' type='audio/mpeg'>";
+        echo"</audio>";
         echo "<h1>$winTitle</h1>";
     ?>
     <button id="publish" onclick="document.getElementById('aviso').setAttribute('data-on','on')"><?php echo $publishTitle; ?></button><br>
@@ -50,16 +57,19 @@
         </div>
     </div>
     <?php
+        echo"
+        <form action='index.php'>
+            <input id='btnIniciWin' visibility:visible type='submit' value='$winInicio'>
+        </form>
+        <form action='ranking.php'>
+            <input id='btntRanking' visibility:visible type='submit' value='$winRanking'>
+        </form>";
+    }
     if(isset($_POST["name"])){
         header("Location:http://localhost:8080/");
     }
     ?>
-    <form action="index.php">
-        <input id="btnIniciWin" visibility:visible type="submit" value="<?php echo $winInicio ?>">
-    </form>
-    <form action="ranking.php">
-        <input id="btntRanking" visibility:visible type="submit" value="<?php echo $winRanking ?>">
-    </form>
+    <script src="questionsInteraction.js"></script>
 </body>
 
 </html>

@@ -17,6 +17,10 @@ return [
     'popUpTitle' => 'Enter your name',
     'winInicio' => 'Back to the start',
     'winRanking' => 'HALL OF FAME',
+    'loseTitle' => 'Game Over! You lose!',
+    'loseInicio' => 'Back to the start',
+    'loseRanking' => 'HALL OF FAME'
+    'winRanking' => 'HALL OF FAME',
     'jsNone' => "JavaScript is disabled in your web browser.<br />
     Please <b><i>enable JavaScript</i></b> to view this site correctly.<br />
     To view instructions on enabling JavaScript in your browser, click."

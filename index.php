@@ -48,10 +48,11 @@ echo "<html lang='{$_SESSION['lang']}'>";
         $instructionsText = trans('instructions', $_SESSION['lang']);
         echo "  <h1 class='mainTitle'>$welcomeMessage</h1>\n";
         echo "  <a class='rankingButton' href='/ranking.php'>$rankingButtonText</a>\n";
-        echo "  <a class='playButton' href='/game.php'>$playButtonText</a>\n";
+        echo "  <a class='playButton' href='/game.php' onclick='empezarDetener(this);'>$playButtonText</a>\n";
         echo "  <p class='instructions'>$instructionsText</p>";
         ?>
     </div>
+    <script src="crono.js"></script>
 </body>
 
 </html>

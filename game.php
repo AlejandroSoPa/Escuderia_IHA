@@ -152,8 +152,8 @@ echo "   <h1>$gameTittle</h1>";
     <form action="index.php">
         <input id="btnInici" type="submit" value="<?php echo $backToStartButtonText; ?>">
     </form>
-
     <script src="questionsInteraction.js"></script>
-    </body>
+    <script src="crono.js"></script>
+</body>
 
     </html>
