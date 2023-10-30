@@ -103,7 +103,7 @@ echo "   <h1>$gameTittle</h1>";
     </div>
 
     <div class="questionHidden" id="question2">
-        <h2 class="questionText"><?php echo $preguntasAleatorias[1]['pregunta']; ?></h2>ç
+        <h2 class="questionText"><?php echo $preguntasAleatorias[1]['pregunta']; ?></h2>
         <?php
             $preguntaActual = $preguntasAleatorias[1]['pregunta'];
             getPhotoAndPath($preguntaActual, $preguntasConFotos);
