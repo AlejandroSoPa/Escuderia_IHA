@@ -10,6 +10,15 @@ var correctAnswers = 0;
 var currentQuestion = 1; // Pregunta actual
 var totalQuestions = 3; // Número total de preguntes
 
+var countDownTimer;
+var time = initialTime;
+
+// Disable question after being answered
+function disableQuestion(answers) {
+    for (var i = 0; i < answers.length; i++) {
+        answers[i].disabled = true;
+    }
+}
 
 function checkAnswer(formId, answerName, feedbackId, feedbackId2, nextQuestionId, answerClass) {
     document.getElementById(formId).addEventListener("change", function () {
@@ -20,27 +29,32 @@ function checkAnswer(formId, answerName, feedbackId, feedbackId2, nextQuestionId
         var answers = document.querySelectorAll(`.${answerClass}`);
 
         if (selectedAnswer) {
+            stopCountDown();
             var playerAnswer = selectedAnswer.value;
             var firstChar = playerAnswer.charAt(0);
             var isCorrect = (firstChar === '+');
             if (isCorrect) {
+                time = initialTime;
                 correctAnswers++;
                 audioCorrecto.play();
+                selectedAnswer.classList.remove(answerClass);
+                selectedAnswer.classList.add("correct");
                 if (correctAnswers == 3) {
                     var btnSeguent = document.getElementById('buttonNext');
                     btnSeguent.style.display = "block";
                     showNextQuestion(nextQuestionId);
                 } else {
+                    checkSessionLevel();
                     feedbackElement.style.display = "block";
                     nextQuestionElement.classList.remove("questionHidden");
                     showNextQuestion(nextQuestionId);
                 }
                 
                 // Disable question after being answered
-                for (var i = 0; i < answers.length; i++) {
-                    answers[i].disabled = true;
-                }
+                disableQuestion(answers);
             } else {
+                selectedAnswer.classList.remove(answerClass);
+                selectedAnswer.classList.add("incorrect");
                 feedbackElement2.style.display = "block";
                 audioIncorrecto.play();
                 var btnInici = document.getElementById('btnInici');
@@ -50,9 +64,7 @@ function checkAnswer(formId, answerName, feedbackId, feedbackId2, nextQuestionId
 
                 }
                 // Disable question after being answered
-                for (var i = 0; i < answers.length; i++) {
-                    answers[i].disabled = true;
-                }
+                disableQuestion(answers);
 
             }
         }
@@ -65,3 +77,50 @@ function showNextQuestion(nextQuestionId) {
         currentQuestion++; // Incrementa la pregunta actual
     }
 }
+
+async function startCountDown() {
+    if (initialTime !== null) {
+        var counterId = '';
+        if (correctAnswers == 0) {
+            counterId = 'countDownTimer1';
+        }
+        else if (correctAnswers == 1) {
+            counterId = 'countDownTimer2';
+        } else {
+            counterId = 'countDownTimer3';
+        }
+        var countDownElement = document.getElementById(counterId);
+
+        async function updateCountDown() {
+            countDownElement.textContent = time;
+            if (time <= 0) {
+                //countDownElement.textContent = 'Tiempo agotado';
+                window.location.href = 'lose.php';
+                
+            } else {
+                time--;
+                countDownTimer = setTimeout(updateCountDown, 1000);
+            }
+        }
+
+        updateCountDown();
+    }
+}
+
+async function stopCountDown() {
+    clearTimeout(countDownTimer);
+}
+
+async function checkSessionLevel() {
+    try {
+        if (sessionLevel >= 2) {
+            // Starts the regresive counter for question
+            startCountDown();
+        }
+    } catch (error) {
+        console.error('Error at check level session:', error);
+    }
+}
+// checks if the session level is greater than 2
+checkSessionLevel();
+
