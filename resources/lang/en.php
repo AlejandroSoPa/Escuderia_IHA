@@ -15,14 +15,14 @@ return [
     'winTitle' => 'Congratulations! You win',
     'publishTitle' => 'Publish',
     'popUpTitle' => 'Enter your name',
-    'winInicio' => 'Back to the start',
     'winRanking' => 'HALL OF FAME',
     'loseTitle' => 'Game Over! You lose!',
-    'loseInicio' => 'Back to the start',
     'loseRanking' => 'HALL OF FAME',
     'jsNone' => "JavaScript is disabled in your web browser.<br />
     Please <b><i>enable JavaScript</i></b> to view this site correctly.<br />
-    To view instructions on enabling JavaScript in your browser, click."
+    To view instructions on enabling JavaScript in your browser, click.",
+    'popUpTime' => 'Your time has been:',
+    'tempsColumn' => 'Time'
 ];
 
 ?>

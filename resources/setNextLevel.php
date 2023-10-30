@@ -6,20 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles.css">
-    <script src="../redirect.js"></script>
+    <script src="../crono.js"></script>
 </head>
-
-<?php
-session_start();
-if (isset($_POST['next'])) {
-    $_SESSION['counter'] += 3;
-    if ($_SESSION['counter'] == 18) {
-        echo "<form action='../win.php' method='post'>";
-        echo "<button id='game_won' name='game_won' value='1'";
-        echo "</form>";
-    } else {
-        $_SESSION['level'] += 1;
-        header("Location: ../game.php");
-    }
-}
-?>
+<body>
+    <?php
+        session_start();
+        if (isset($_POST['next'])) {
+            $_SESSION['counter'] += 3;
+            if ($_SESSION['counter'] == 18) {
+                echo "<form action='../win.php' method='post'>";
+                    echo "<input type='number' id='inicio' name='inicio' value=''></input>";
+                    echo "<input type='number' id='actual' name='actual' value=''></input>";
+                    echo "<input type='text' id='crono' name='crono' value=''></input>";
+                    echo "<input type='submit' id='game_won' name='game_won' value='' onclick='empezarDetener(this);'></input>";
+                echo "</form>";
+                echo "<script> showData(); </script>";
+            } else {
+                $_SESSION['level'] += 1;
+                header("Location: ../game.php");
+            }
+        }
+    ?>
+    <script src="../redirect.js"></script>
+</body>
+<html>
