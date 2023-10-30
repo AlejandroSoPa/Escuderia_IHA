@@ -125,6 +125,7 @@ echo "   <h1>$gameTittle</h1>";
         </form>
         <div id="feedback3"><?php echo $correctAnswerText; ?></div>
         <div id="feedback33"><?php echo $incorrectAnswerText; ?></div>
+    </div>
 
     <form action="./resources/setNextLevel.php" method="post">
         <input id="buttonNext" name="next" type="submit" value="<?php echo $nextButtonText; ?>">
