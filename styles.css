@@ -49,6 +49,7 @@ header button img {
     display: flex;
     position: fixed;
     flex-direction: row-reverse;
+    width: 100%;
 }
 .container{
     padding-left: 33%;

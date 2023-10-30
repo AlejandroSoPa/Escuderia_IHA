@@ -22,4 +22,5 @@ if (isset($_POST['next'])) {
         header("Location: ../game.php");
     }
 }
+
 ?>
