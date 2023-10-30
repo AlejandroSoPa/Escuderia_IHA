@@ -1,6 +1,7 @@
-var inicio=0;
-var timeout=0;
-var result=0
+var inicio = 0;
+var timeout = 0;
+var tempsImcrement = 0;
+var actual = 0;
 
 function empezarDetener(elemento){
     if(timeout==0){
@@ -18,18 +19,22 @@ function empezarDetener(elemento){
         clearTimeout(timeout);
         // Eliminamos el valor inicial guardado
         localStorage.removeItem("inicio");
+        localStorage.removeItem("actual");
+        localStorage.removeItem("tempsImcrement");
         timeout=0;
     }
 }
 
 function funcionando(){
     // obteneos la fecha actual
-    var actual = new Date().getTime();
+    actual = new Date().getTime();
+    localStorage.setItem("actual",actual)
     // obtenemos la diferencia entre la fecha actual y la de inicio
     var diff=new Date(actual-inicio);
     // mostramos la diferencia entre la fecha actual y la inicial
-    var tempsImcrement=LeadingZero(diff.getUTCHours())+":"+LeadingZero(diff.getUTCMinutes())+":"+LeadingZero(diff.getUTCSeconds());
+    tempsImcrement=LeadingZero(diff.getUTCHours())+":"+LeadingZero(diff.getUTCMinutes())+":"+LeadingZero(diff.getUTCSeconds());
     console.log(tempsImcrement);
+    localStorage.setItem("tempsImcrement",tempsImcrement)
     // Indicamos que se ejecute esta función nuevamente dentro de 1 segundo
     timeout=setTimeout("funcionando()",1000);
 }
@@ -46,6 +51,11 @@ window.onload=function(){
         // y iniciamos el proceso.
         inicio=localStorage.getItem("inicio");
         funcionando();
-
     }
+}
+
+function showData(){
+    document.getElementById('inicio').value = localStorage.getItem('inicio');
+    document.getElementById('actual').value = localStorage.getItem('actual');
+    document.getElementById('crono').value = localStorage.getItem('tempsImcrement');
 }

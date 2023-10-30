@@ -4,6 +4,7 @@
     $rankingTittle = trans('rankingTittle', $_SESSION['lang']);
     $nameColumn = trans('nameColumn', $_SESSION['lang']);
     $pointsColumn = trans('pointsColumn', $_SESSION['lang']);
+    $tempsColumn = trans('tempsColumn', $_SESSION['lang']);
     $backToStartButton = trans('backToStartButton', $_SESSION['lang']);
 
 
@@ -28,6 +29,7 @@ echo "<html lang='{$_SESSION['lang']}'>";
                     <tr>
                         <th>$nameColumn</th>
                         <th>$pointsColumn</th>
+                        <th>$tempsColumn</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -38,14 +40,15 @@ echo "<html lang='{$_SESSION['lang']}'>";
             while (!feof($file)) {
                 $line = fgets($file);
                 $users = explode(",", $line);
-                $ranking[$users[0]." ".$users[1]] = $users[1];
+                $ranking[$users[0]] = $users[1]." ".$users[2];
             }
             arsort($ranking);
-            foreach ($ranking as $order => $valor) {    
+            foreach ($ranking as $order => $valor) {
                 echo "<tr>
-                        <td><p>".substr($order,0,strlen($order)-2)."</p></td> 
-                        <td><p>".$valor."</p></td>
-                     </tr>";
+                        <td><p>".$order."</p></td>
+                        <td><p>".substr($valor,0,strpos($valor," "))."</p></td>
+                        <td><p>".substr($valor,strpos($valor," "),strlen($valor))."</p></td>
+                    ";
             }
             fclose($file);
             echo "</tbody></table><br>";

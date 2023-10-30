@@ -31,7 +31,7 @@
         echo "<h1>$loseTitle</h1>";
         echo"
         <form action='index.php'>
-            <input id='btnIniciWin' visibility:visible type='submit' value='$loseInicio'>
+            <input id='btnIniciWin' visibility:visible type='submit' value='$backToStartButton'>
         </form>
         <form action='ranking.php'>
             <input id='btntRanking' visibility:visible type='submit' value='$loseRanking'>

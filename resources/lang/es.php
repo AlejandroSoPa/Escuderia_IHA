@@ -15,17 +15,17 @@ return [
     'winTitle' => 'Felicidades! Has ganado',
     'publishTitle' => 'Publicar',
     'popUpTitle' => 'Introduce tu nombre',
-    'winInicio' => 'Volver al inicio',
     'winRanking' => 'SALÓN DE LA FAMA',
     'loseTitle' => 'Fin del juego! Has perdido!',
-    'loseInicio' => 'Volver al inicio',
     'loseRanking' => 'SALÓN DE LA FAMA',
     'jsNone' => 'Javascript está deshabilitado en su navegador web.<br />
       Por favor, para ver correctamente este sitio,<br />
       <b><i>habilite javascript</i></b>.<br />
        <br/>
       Para ver las instrucciones para habilitar javascript<br/>
-      en su navegador, haga click'
+      en su navegador, haga click',
+    'popUpTime' => 'Tu tiempo ha sido de:',
+    'tempsColumn' => 'Tiempo'
 ];
 
 ?>

@@ -77,6 +77,7 @@ echo "</head>";
 echo "<body>";
 echo "<script>var sessionLevel = '" . $_SESSION['level'] . "'; var initialTime = 30;</script>";
 echo "   <h1>$gameTittle</h1>";
+
 ?>
 <audio id="audioCorrecto" src="audio/acierto.mp3"></audio>
 <audio id="audioIncorrecto" src="audio/error.mp3"></audio>
@@ -161,5 +162,4 @@ echo "   <h1>$gameTittle</h1>";
 <script src="questionsInteraction.js"></script>
 <script src="crono.js"></script>
 </body>
-
 </html>
