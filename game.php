@@ -82,6 +82,10 @@ echo "   <h1>$gameTittle</h1>";
     <audio id="audioIncorrecto" src="audio/error.mp3"></audio>
     <div class="question" id="question1">
         <h2 class="questionText"><?php echo $preguntasAleatorias[0]['pregunta']; ?></h2>
+        <?php
+            $preguntaActual = $preguntasAleatorias[0]['pregunta'];
+            getPhotoAndPath($preguntaActual, $preguntasConFotos);
+            ?>
         <h3 class="countDownTimer" id="countDownTimer1"></h3>
         <form id="form1" class="answer-form">
             <ul class="answer-list">
@@ -99,7 +103,11 @@ echo "   <h1>$gameTittle</h1>";
     </div>
 
     <div class="questionHidden" id="question2">
-        <h2 class="questionText"><?php echo $preguntasAleatorias[1]['pregunta']; ?></h2>
+        <h2 class="questionText"><?php echo $preguntasAleatorias[1]['pregunta']; ?></h2>ç
+        <?php
+            $preguntaActual = $preguntasAleatorias[1]['pregunta'];
+            getPhotoAndPath($preguntaActual, $preguntasConFotos);
+            ?>
         <h3 class="countDownTimer" id="countDownTimer2"></h3>
         <form id="form2">
             <ul class="answer-list">
@@ -118,6 +126,10 @@ echo "   <h1>$gameTittle</h1>";
 
     <div class="questionHidden" id="question3">
         <h2 class="questionText"><?php echo $preguntasAleatorias[2]['pregunta']; ?></h2>
+        <?php
+            $preguntaActual = $preguntasAleatorias[2]['pregunta'];
+            getPhotoAndPath($preguntaActual, $preguntasConFotos);
+            ?>
         <h3 class="countDownTimer" id="countDownTimer3"></h3>
         <form id="form3">
         <ul class="answer-list">
