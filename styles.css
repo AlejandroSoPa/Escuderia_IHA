@@ -50,6 +50,7 @@ header button img {
     position: fixed;
     padding-left: 10px;
     flex-direction: row-reverse;
+    width: 100%;
 }
 #incremental{
     position: absolute;
