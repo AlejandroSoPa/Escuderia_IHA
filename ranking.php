@@ -40,15 +40,21 @@ echo "<html lang='{$_SESSION['lang']}'>";
             while (!feof($file)) {
                 $line = fgets($file);
                 $users = explode(",", $line);
-                $ranking[$users[0]] = $users[1]." ".$users[2];
+                $ranking[$users[3]." ".$users[1]] = $users[1];
+                $tiempo[$users[3]." ".$users[1]] = $users[2];
             }
             arsort($ranking);
-            foreach ($ranking as $order => $valor) {
+            foreach ($ranking as $order => $valor) {    
                 echo "<tr>
-                        <td><p>".$order."</p></td>
-                        <td><p>".substr($valor,0,strpos($valor," "))."</p></td>
-                        <td><p>".substr($valor,strpos($valor," "),strlen($valor))."</p></td>
-                    ";
+                        <td><p>".substr($order,strpos($order," "),strlen($order))."</p></td> 
+                        <td><p>".$valor."</p></td>
+                        ";
+                        foreach ($tiempo as $user => $time) {
+                            if(substr($order,0,strpos($order," "))===substr($user,0,strpos($user," "))){
+                                echo "<td><p>".$time."</p></td>";
+                            }
+                        }
+                echo"</tr>";
             }
             fclose($file);
             echo "</tbody></table><br>";
