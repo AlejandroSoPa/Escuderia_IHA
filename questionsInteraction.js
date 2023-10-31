@@ -126,39 +126,112 @@ async function checkSessionLevel() {
 }
 
 function publicWildcard() {
+    let numberOfAnswers;
+
     if (sessionLevel >= 2) {
         stopCountDown();
     }
     if (correctAnswers == 0) {
-        // estas en la primera
+        numberOfAnswers = document.getElementById("list1").getElementsByTagName("li").length;
+        let correctAnswer = returnCorrectAnswerPosition("answer1");
+        createChart(numberOfAnswers, correctAnswer);
     }
     else if (correctAnswers == 1) {
-        // estas en la segunda
+        numberOfAnswers = document.getElementById("list2").getElementsByTagName("li").length;
     } else {
-        //estas en la tercera
+        numberOfAnswers = document.getElementById("list3").getElementsByTagName("li").length;
     }
     popup.style.display = "block";
-    // Bloquea la interacción con la pantalla principal
+    // Block interaction with the main screen
     document.body.style.overflow = "hidden";
+}
+
+function returnCorrectAnswerPosition(className) {
+    let answersArray = document.getElementsByClassName(className);
+    for (var i = 0; i < answersArray.length; i++) {
+        if (answersArray[i].value.charAt(0) === '+') {
+            return i;
+        }
+    }
 }
 
 function hidePublicWildCard() {
     popup.style.display = "none";
-    // Habilita la interacción con la pantalla principal
+    // Enable interaction with the main screen
     document.body.style.overflow = "auto";
+}
+
+function createChart(numberOfBars, correctAnswerPos) {
+    let publicCorrect = generatePublicProbability();
+
+    // Datos de ejemplo (porcentajes para cuatro barras y etiquetas correspondientes)
+    const porcentajes = [0.3, 0.6, 0.8, 0.4]; // Cambia estos valores a tus porcentajes
+    const etiquetas = ["A", "B", "C", "D"]; // Etiquetas correspondientes
+
+    // Configuración del gráfico
+    const width = 410;
+    const height = 350;
+    const barSpacing = 20;
+    const numBars = porcentajes.length;
+    const barWidth = (width - (barSpacing * (numBars - 1))) / numBars;
+
+    // Crea un elemento SVG usando D3.js
+    const svg = d3.select("#chart")
+    .attr("width", width)
+    .attr("height", height);
+
+    // Crea un filtro de sombra en CSS para aplicar a las barras
+    svg.append("defs").append("filter")
+    .attr("id", "drop-shadow")
+    .append("feDropShadow")
+    .attr("dx", 4)
+    .attr("dy", 4)
+    .attr("stdDeviation", 0)
+    .attr("flood-color", "#42393b"); // Color de la sombra
+
+    // Crea las barras del gráfico
+    for (let i = 0; i < numBars; i++) {
+    const x = i * (barWidth + barSpacing);
+    const barHeight = height * porcentajes[i];
+
+    svg.append("rect")
+        .attr("x", x)
+        .attr("y", height - barHeight)
+        .attr("width", barWidth - 5)
+        .attr("height", barHeight - 30)
+        .attr("fill", "#ffc897")
+        .attr("stroke", "#42393b") // Color del borde
+        .attr("stroke-width", 3) // Ancho del borde
+        .attr("rx", 5) // Radio de la esquina X
+        .attr("ry", 5) // Radio de la esquina Y
+        .style("filter", "url(#drop-shadow)"); // Aplica la sombra
+
+    // Agrega etiquetas de porcentaje encima de las barras
+    svg.append("text")
+        .attr("x", x + barWidth / 2)
+        .attr("y", height - barHeight - 10)
+        .attr("text-anchor", "middle")
+        .text((porcentajes[i] * 100) + "%");
+
+    // Agrega etiquetas "A", "B", "C", "D" debajo de las barras
+    svg.append("text")
+        .attr("x", x + barWidth / 2)
+        .attr("y", height) // Ajusta la posición vertical según tus necesidades
+        .attr("text-anchor", "middle")
+        .text(etiquetas[i]);
+    }
+}
+
+function generatePublicProbability() {
+    const randomNumber = Math.random();
+    if (randomNumber < 0.8) { // 80% probability ok
+        return true;
+      } else {
+        return false;
+      }
 }
 
 // checks if the session level is greater than 2
 checkSessionLevel();
-
-
-    const hideAnswersButton = document.getElementById("hideAnswersButton");
-    // Agregar un manejador de eventos al hacer clic en el botón
-    hideAnswersButton.addEventListener("click", function() {
-      // Obtener todas las etiquetas de respuesta con clase "hidden-answer" en la pregunta actual
-      nextQuestionElement.classList.remove("questionHidden");
-  
-      // Recorrer todas las respuestas ocultas y cambiar su visibilidad
-    });
 
   

@@ -21,9 +21,8 @@ if ($_SESSION['lang'] == 'cat') {
 $rutaFoto = 'FotosPreguntas/1/GhandiDoFor.png';
 $rutaFoto2 = 'FotosPreguntas/1/SoccerCentury.jpg';
 
-
-// Llama a la función para buscar y mostrar la foto;
-
+$letersArray = ["A. ", "B. ", "C. ", "D. "];
+$iteration = 0;
 
 $contenido = file_get_contents($fileRoute);
 $texto_procesado = preg_replace('/[ \t]+/', ' ', $contenido); // Reemplaza múltiples espacios o tabulaciones con un solo espacio
@@ -94,13 +93,13 @@ echo "   <h1>$gameTittle</h1>";
     ?>
     <h3 class="countDownTimer" id="countDownTimer1"></h3>
     <form id="form1" class="answer-form">
-        <ul class="answer-list">
+        <ul class="answer-list" id="list1">
             <?php foreach ($preguntasAleatorias[0]['respuestas'] as $respuesta) : ?>
                 <li>
                     <input type="radio" name="respuesta1" value="<?php echo $respuesta; ?>" autocomplete="off" class="answer1">
-                    <label for="<?php echo $respuesta; ?>"><?php echo $respuesta = substr($respuesta, 2); ?></label>
+                    <label><?php echo $respuesta = $letersArray[$iteration].substr($respuesta, 2); $iteration++;?></label>
                 </li>
-            <?php endforeach; ?>
+            <?php endforeach; $iteration = 0;?>
         </ul>
         <br>
     </form>
@@ -116,13 +115,13 @@ echo "   <h1>$gameTittle</h1>";
     ?>
     <h3 class="countDownTimer" id="countDownTimer2"></h3>
     <form id="form2">
-        <ul class="answer-list">
+        <ul class="answer-list" id="list2">
             <?php foreach ($preguntasAleatorias[1]['respuestas'] as $respuesta) : ?>
                 <li>
                     <input type="radio" name="respuesta2" value="<?php echo $respuesta; ?>" autocomplete="off" class="answer2">
-                    <label for="<?php echo $respuesta; ?>"><?php echo $respuesta = substr($respuesta, 2); ?></label>
+                    <label><?php echo $respuesta = $letersArray[$iteration].substr($respuesta, 2); $iteration++;?></label>
                 </li>
-            <?php endforeach; ?>
+            <?php endforeach; $iteration = 0;?>
         </ul>
         <br>
     </form>
@@ -138,13 +137,13 @@ echo "   <h1>$gameTittle</h1>";
     ?>
     <h3 class="countDownTimer" id="countDownTimer3"></h3>
     <form id="form3">
-        <ul class="answer-list">
+        <ul class="answer-list" id="list3">
             <?php foreach ($preguntasAleatorias[2]['respuestas'] as $respuesta) : ?>
                 <li>
                     <input type="radio" name="respuesta3" value="<?php echo $respuesta; ?>" autocomplete="off" class="answer3">
-                    <label for="<?php echo $respuesta; ?>"><?php echo $respuesta = substr($respuesta, 2); ?></label>
+                    <label><?php echo $respuesta = $letersArray[$iteration].substr($respuesta, 2); $iteration++;?></label>
                 </li>
-            <?php endforeach; ?>
+            <?php endforeach; $iteration = 0;?>
         </ul>
         <br>
     </form>
@@ -162,12 +161,14 @@ echo "   <h1>$gameTittle</h1>";
     <div class="popup-content">
         <h1>Public Wildcard</h1>
         <p>Waiting for the public vote...</p>
-        <button onclick="hidePublicWildCard()" id="popup-button">Close</button>
+        <svg id="chart" width="400" height="300"></svg>
+        <button onclick="hidePublicWildCard()" class="standardButton">Close</button>
     </div>
 </div>
 
 <script src="questionsInteraction.js"></script>
 <script src="crono.js"></script>
+<script src="https://d3js.org/d3.v6.min.js"></script>
 </body>
 
 </html>
