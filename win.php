@@ -25,7 +25,7 @@ echo "<body>";
         http_response_code(403);
         echo "<h1>403 Forbidden</h1>";
         echo "<form action='index.php'>
-                  <input id='btnIniciWin' visibility:visible type='submit' value='$winInicio'>
+                  <input id='btnIniciWin' visibility:visible type='submit' value='$backToStartButton'>
               </form>";
         exit;
     } else {
@@ -33,8 +33,6 @@ echo "<body>";
             echo"<source src='audio/exit.mp3' type='audio/mpeg'>";
         echo"</audio>";
         echo"<h1>$winTitle</h1>";
-        echo $_POST["actual"];
-        echo $_POST["inicio"];
         ?>
         <button id="publish" onclick="document.getElementById('aviso').setAttribute('data-on','on')"><?php echo $publishTitle; ?></button><br>
         <div class="panel" id="aviso" data-on="off" onclick="this.setAttribute('data-on','on')">  

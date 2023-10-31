@@ -2,7 +2,7 @@
     session_start();
     include './resources/myFunctions.php';
     $loseTitle = trans('loseTitle', $_SESSION['lang']);
-    $loseInicio = trans('loseInicio', $_SESSION['lang']);
+    $backToStartButton = trans('backToStartButton', $_SESSION['lang']);
     $loseRanking = trans('loseRanking', $_SESSION['lang']);
 ?>
 <!DOCTYPE html>
@@ -17,16 +17,16 @@
 
 <body>
 <?php
-    if (!isset($_POST["game_won"])) {
+    if (!isset($_POST["game_lose"])) {
         http_response_code(403);
         echo "<h1>403 Forbidden</h1>";
         echo "<form action='index.php'>
-                  <input id='btnIniciWin' visibility:visible type='submit' value='$loseInicio'>
+                  <input id='btnIniciWin' visibility:visible type='submit' value='$backToStartButton'>
               </form>";
         exit;
     } else {
         echo"<audio autoplay>";
-            echo"<source src='audio/exit.mp3' type='audio/mpeg'>";
+            echo"<source src='audio/GameOver.mp3' type='audio/mpeg'>";
         echo"</audio>";
         echo "<h1>$loseTitle</h1>";
         echo"
@@ -38,7 +38,6 @@
         </form>";
     }
     ?>
-    <script src="questionsInteraction.js"></script>
 </body>
 
 </html>

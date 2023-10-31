@@ -26,17 +26,20 @@ function empezarDetener(elemento){
 }
 
 function funcionando(){
-    // obteneos la fecha actual
-    actual = new Date().getTime();
-    localStorage.setItem("actual",actual)
-    // obtenemos la diferencia entre la fecha actual y la de inicio
-    var diff=new Date(actual-inicio);
-    // mostramos la diferencia entre la fecha actual y la inicial
-    tempsImcrement=LeadingZero(diff.getUTCHours())+":"+LeadingZero(diff.getUTCMinutes())+":"+LeadingZero(diff.getUTCSeconds());
-    console.log(tempsImcrement);
-    localStorage.setItem("tempsImcrement",tempsImcrement)
-    // Indicamos que se ejecute esta función nuevamente dentro de 1 segundo
-    timeout=setTimeout("funcionando()",1000);
+    if(inicio!=null){
+        // obteneos la fecha actual
+        actual = new Date().getTime();
+        localStorage.setItem("actual",actual)
+        // obtenemos la diferencia entre la fecha actual y la de inicio
+        var diff=new Date(actual-inicio);
+        // mostramos la diferencia entre la fecha actual y la inicial
+        tempsImcrement=LeadingZero(diff.getUTCHours())+":"+LeadingZero(diff.getUTCMinutes())+":"+LeadingZero(diff.getUTCSeconds());
+        console.log(tempsImcrement);
+        document.getElementById('crono').innerHTML = tempsImcrement;
+        localStorage.setItem("tempsImcrement",tempsImcrement)
+        // Indicamos que se ejecute esta función nuevamente dentro de 1 segundo
+        timeout=setTimeout("funcionando()",1000);
+    }
 }
 
 /* Funcion que pone un 0 delante de un valor si es necesario */

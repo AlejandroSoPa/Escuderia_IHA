@@ -86,6 +86,9 @@ echo "   <h1>$gameTittle</h1>";
   <button type="submit" value="Public">Public</button>
   <button type="submit" value="Temps Extra">Temps Extra</button>
 </div>
+<div id="incremental">
+    <h5 id='crono'>00:00:00</h5>
+</div>
 
 <div class="question" id="question1">
     <h2 class="questionText"><?php echo $preguntasAleatorias[0]['pregunta']; ?></h2>
@@ -154,10 +157,10 @@ echo "   <h1>$gameTittle</h1>";
 </div>
 
 <form action="./resources/setNextLevel.php" method="post">
-    <input id="buttonNext" name="next" type="submit" value="<?php echo $nextButtonText; ?>">
+    <input id="buttonNext" name="next" type="submit" value="<?php echo $nextButtonText; ?>"></input>
 </form>
 <form action="index.php">
-    <input id="btnInici" type="submit" value="<?php echo $backToStartButtonText; ?>">
+    <input id="btnInici" type="submit" value="<?php echo $backToStartButtonText; ?>" onclick='empezarDetener(this);'></input>
 </form>
 <script src="questionsInteraction.js"></script>
 <script src="crono.js"></script>

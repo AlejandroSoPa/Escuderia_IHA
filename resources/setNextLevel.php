@@ -25,6 +25,10 @@
                 $_SESSION['level'] += 1;
                 header("Location: ../game.php");
             }
+        } else {
+            echo "<form action='../lose.php' method='post'>";
+                echo "<input type='submit' id='game_lose' name='game_lose' value='' onclick='empezarDetener(this);'></input>";
+            echo "</form>";
         }
     ?>
     <script src="../redirect.js"></script>

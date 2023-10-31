@@ -95,7 +95,7 @@ async function startCountDown() {
             countDownElement.textContent = time;
             if (time <= 0) {
                 //countDownElement.textContent = 'Tiempo agotado';
-                window.location.href = 'lose.php';
+                window.location.href = './resources/setNextLevel.php';
                 
             } else {
                 time--;
