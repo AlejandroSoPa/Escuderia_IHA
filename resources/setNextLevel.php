@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles.css">
     <script src="../crono.js"></script>
+    <script src="../questionsInteraction.js"></script>
 </head>
 <body>
     <?php
@@ -20,15 +21,18 @@
                     echo "<input type='text' id='crono' name='crono' value='' style='visibility:hidden;'></input>";
                     echo "<input type='submit' id='game_won' name='game_won' value='' onclick='empezarDetener(this);' style='visibility:hidden;'></input>";
                 echo "</form>";
+                echo "<script> cleanLocalStorageTime(); </script>";
                 echo "<script> showData(); </script>";
             } else {
                 $_SESSION['level'] += 1;
                 header("Location: ../game.php");
             }
         } else {
+            echo "<script> cleanLocalStorageTime(); </script>";
             echo "<form action='../lose.php' method='post'>";
-                echo "<input type='submit' id='game_lose' name='game_lose' value='' onclick='empezarDetener(this);' style='visibility:hidden;'></input>";
+                echo "<input type='submit' id='game_lose' name='game_lose' value='Empezar' onclick='cleanLocalStorageTimer();' style='visibility:hidden;'></input>";
             echo "</form>";
+            
         }
     ?>
     <script src="../redirect.js"></script>

@@ -62,3 +62,10 @@ function showData(){
     document.getElementById('actual').value = localStorage.getItem('actual');
     document.getElementById('crono').value = localStorage.getItem('tempsImcrement');
 }
+
+function cleanLocalStorageTimer(){
+    localStorage.removeItem("inicio");
+    localStorage.removeItem("actual");
+    localStorage.removeItem("tempsImcrement");
+    timeout=0;
+}

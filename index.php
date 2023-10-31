@@ -21,7 +21,7 @@ echo "<html lang='{$_SESSION['lang']}'>";
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
     <link rel="icon" href="./images/question-icon.svg" type="image/png">
-
+    <script src="questionsInteraction.js"></script>
 </head>
 
 <body>
@@ -50,6 +50,7 @@ echo "<html lang='{$_SESSION['lang']}'>";
         echo "  <a class='rankingButton' href='/ranking.php'>$rankingButtonText</a>\n";
         echo "  <a class='playButton' href='/game.php' onclick='empezarDetener(this);'>$playButtonText</a>\n";
         echo "  <p class='instructions'>$instructionsText</p>";
+        echo "<script> cleanLocalStorageTime(); </script>";
         ?>
     </div>
     <script src="crono.js"></script>

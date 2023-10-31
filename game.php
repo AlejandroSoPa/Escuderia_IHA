@@ -3,7 +3,7 @@ session_start();
 include './resources/getPhotos.php';
 include './resources/myFunctions.php';
 if (!isset($_SESSION['counter'])) {
-    $_SESSION['counter'] = 0;
+    $_SESSION['counter'] = 15;
 }
 if (!isset($_SESSION['level'])) {
     $_SESSION['level'] = 1;
@@ -77,14 +77,13 @@ echo "</head>";
 echo "<body>";
 echo "<script>var sessionLevel = '" . $_SESSION['level'] . "'; var initialTime = 30;</script>";
 echo "   <h1>$gameTittle</h1>";
-
 ?>
 <audio id="audioCorrecto" src="audio/acierto.mp3"></audio>
 <audio id="audioIncorrecto" src="audio/error.mp3"></audio>
 <div id="help">
-  <button id="submit" value="50%">50%</button>
+  <button type="submit" value="50%">50%</button>
   <button type="submit" value="Public">Public</button>
-  <button type="submit" value="Temps Extra">Temps Extra</button>
+  <button type="submit" id="extraTime" value="Temps Extra" disabled="true" onClick="extraTime();">Temps Extra</button>
 </div>
 <div id="incremental">
     <h5 id='crono'>00:00:00</h5>
@@ -163,6 +162,12 @@ echo "   <h1>$gameTittle</h1>";
     <input id="btnInici" type="submit" value="<?php echo $backToStartButtonText; ?>" onclick='empezarDetener(this);'></input>
 </form>
 <script src="questionsInteraction.js"></script>
+<?php
+if($_SESSION['level']>1){
+    $level = $_SESSION['level'];
+    echo "<script> enableExtraTime($level); </script>";
+};
+?>
 <script src="crono.js"></script>
 </body>
 </html>

@@ -102,9 +102,28 @@ async function startCountDown() {
                 countDownTimer = setTimeout(updateCountDown, 1000);
             }
         }
-
         updateCountDown();
     }
+}
+
+async function enableExtraTime(level) {
+    if(level>1){
+        if(localStorage.getItem("extraTime")!=null){
+            console.log('Comodin ya utilizado');
+        }else{
+            document.getElementById('extraTime').disabled=false;
+        }
+    }
+}
+
+async function cleanLocalStorageTime(){
+    localStorage.removeItem("extraTime");
+}
+
+async function extraTime() {
+    time = time + 30;
+    localStorage.setItem("extraTime",time);
+    document.getElementById('extraTime').disabled=true;
 }
 
 async function stopCountDown() {
@@ -123,8 +142,6 @@ async function checkSessionLevel() {
 }
 // checks if the session level is greater than 2
 checkSessionLevel();
-
-
     const hideAnswersButton = document.getElementById("hideAnswersButton");
     // Agregar un manejador de eventos al hacer clic en el botón
     hideAnswersButton.addEventListener("click", function() {
@@ -133,5 +150,3 @@ checkSessionLevel();
   
       // Recorrer todas las respuestas ocultas y cambiar su visibilidad
     });
-
-  
