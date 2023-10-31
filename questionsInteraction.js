@@ -127,6 +127,8 @@ async function checkSessionLevel() {
 
 function publicWildcard() {
     let numberOfAnswers;
+    changeWildcardSession("publicWildcard");
+    document.getElementById("publicWildcard").disabled = true;
 
     if (sessionLevel >= 2) {
         stopCountDown();
@@ -138,8 +140,12 @@ function publicWildcard() {
     }
     else if (correctAnswers == 1) {
         numberOfAnswers = document.getElementById("list2").getElementsByTagName("li").length;
+        let correctAnswer = returnCorrectAnswerPosition("answer2");
+        createChart(numberOfAnswers, correctAnswer);
     } else {
         numberOfAnswers = document.getElementById("list3").getElementsByTagName("li").length;
+        let correctAnswer = returnCorrectAnswerPosition("answer3");
+        createChart(numberOfAnswers, correctAnswer);
     }
     popup.style.display = "block";
     // Block interaction with the main screen
@@ -163,17 +169,43 @@ function hidePublicWildCard() {
 
 function createChart(numberOfBars, correctAnswerPos) {
     let publicCorrect = generatePublicProbability();
+    let percentages = [];
+    let totalAudience = 100;
+    let probabilityByOption = totalAudience / numberOfBars;
+    alert(publicCorrect);
+    for (let i = 0; i < numberOfBars; i++) {
+        percentages.push(probabilityByOption);
+    }
+    if (publicCorrect) {
+        let incrementCorrect = Math.floor(Math.random() * (25 - 10 + 1)) + 10; // numero random que genera un num del 10 al 25
+        percentages[correctAnswerPos] += incrementCorrect;
+        while (true) {
+            let modIndex = Math.floor(Math.random() * percentages.length); // a number from 0 to lenght of the percentatges - 1
+            if (modIndex != correctAnswerPos) {
+                percentages[modIndex] -= incrementCorrect;
+                break;
+            } 
+        }
+    } else {
+        let decrementCorrect = Math.floor(Math.random() * (25 - 10 + 1)) + 10; // numero random que genera un num del 10 al 25
+        percentages[correctAnswerPos] -= decrementCorrect;
+        while (true) {
+            let modIndex = Math.floor(Math.random() * percentages.length); // a number from 0 to lenght of the percentatges - 1
+            if (modIndex != correctAnswerPos) {
+                percentages[modIndex] += decrementCorrect;
+                break;
+            }
+        }
+    }
 
     // Datos de ejemplo (porcentajes para cuatro barras y etiquetas correspondientes)
-    const porcentajes = [0.3, 0.6, 0.8, 0.4]; // Cambia estos valores a tus porcentajes
     const etiquetas = ["A", "B", "C", "D"]; // Etiquetas correspondientes
 
     // Configuración del gráfico
     const width = 410;
     const height = 350;
     const barSpacing = 20;
-    const numBars = porcentajes.length;
-    const barWidth = (width - (barSpacing * (numBars - 1))) / numBars;
+    const barWidth = (width - (barSpacing * (numberOfBars - 1))) / numberOfBars;
 
     // Crea un elemento SVG usando D3.js
     const svg = d3.select("#chart")
@@ -190,15 +222,15 @@ function createChart(numberOfBars, correctAnswerPos) {
     .attr("flood-color", "#42393b"); // Color de la sombra
 
     // Crea las barras del gráfico
-    for (let i = 0; i < numBars; i++) {
+    for (let i = 0; i < numberOfBars; i++) {
     const x = i * (barWidth + barSpacing);
-    const barHeight = height * porcentajes[i];
+    const barHeight = height * (percentages[i] / 100);
 
     svg.append("rect")
         .attr("x", x)
-        .attr("y", height - barHeight)
+        .attr("y", (height - barHeight) - 30)
         .attr("width", barWidth - 5)
-        .attr("height", barHeight - 30)
+        .attr("height", barHeight)
         .attr("fill", "#ffc897")
         .attr("stroke", "#42393b") // Color del borde
         .attr("stroke-width", 3) // Ancho del borde
@@ -209,9 +241,9 @@ function createChart(numberOfBars, correctAnswerPos) {
     // Agrega etiquetas de porcentaje encima de las barras
     svg.append("text")
         .attr("x", x + barWidth / 2)
-        .attr("y", height - barHeight - 10)
+        .attr("y", height - barHeight - 40)
         .attr("text-anchor", "middle")
-        .text((porcentajes[i] * 100) + "%");
+        .text((percentages[i]) + "%");
 
     // Agrega etiquetas "A", "B", "C", "D" debajo de las barras
     svg.append("text")
@@ -230,6 +262,21 @@ function generatePublicProbability() {
         return false;
       }
 }
+
+function changeWildcardSession(wildCardName) {
+    // Realizar una solicitud AJAX al servidor
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', './resources/wildCardsSession.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    xhr.send(wildCardName + '=' + false);
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log(xhr.responseText);
+        }
+    };
+}
+
 
 // checks if the session level is greater than 2
 checkSessionLevel();

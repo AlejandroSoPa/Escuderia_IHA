@@ -5,6 +5,7 @@ include './resources/myFunctions.php';
 if (isset($_SESSION['counter'])) {
     unset($_SESSION['counter']);
     unset($_SESSION['level']);
+    unset($_SESSION['publicWildcard']);
 }
 if (!isset($_SESSION['lang'])) {
     $_SESSION['lang'] = 'cat';

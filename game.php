@@ -8,6 +8,9 @@ if (!isset($_SESSION['counter'])) {
 if (!isset($_SESSION['level'])) {
     $_SESSION['level'] = 1;
 }
+if (!isset($_SESSION['publicWildcard'])) {
+    $_SESSION['publicWildcard'] = true;
+}
 if ($_SESSION['lang'] == 'cat') {
     $fileRoute = 'questions/catalan_' . $_SESSION['level'] . '.txt';
 } elseif ($_SESSION['lang'] == 'es') {
@@ -15,6 +18,7 @@ if ($_SESSION['lang'] == 'cat') {
 } elseif ($_SESSION['lang'] == 'en') {
     $fileRoute = 'questions/english_' . $_SESSION['level'] . '.txt';
 }
+echo $_SESSION['publicWildcard'];
 
 // Especifica la carpeta principal, subcarpeta y nombre de archivo a buscar
 
@@ -80,9 +84,15 @@ echo "   <h1>$gameTittle</h1>";
 <audio id="audioCorrecto" src="audio/acierto.mp3"></audio>
 <audio id="audioIncorrecto" src="audio/error.mp3"></audio>
 <div id="help">
-  <button id="submit" value="50%">50%</button>
-  <button onclick="publicWildcard()" type="submit" value="Public">Public</button>
-  <button type="submit" value="Temps Extra">Temps Extra</button>
+    <button type="submit" value="50%">50%</button>
+    <?php 
+    if ($_SESSION['publicWildcard'] == true) {
+        echo "<button onclick='publicWildcard()' type='submit' value='Public' id='publicWildcard'>Public</button>";
+    } else {
+        echo "<button disabled>Public</button>";
+    }
+    ?>
+    <button type="submit" value="Temps Extra">Temps Extra</button>
 </div>
 
 <div class="question" id="question1">
