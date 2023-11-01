@@ -35,7 +35,7 @@ echo "<body>";
         echo"<h1>$winTitle</h1>";
         ?>
         <button id="publish" onclick="document.getElementById('aviso').setAttribute('data-on','on')"><?php echo $publishTitle; ?></button><br>
-        <div class="panel" id="aviso" data-on="off" onclick="this.setAttribute('data-on','on')">  
+        <div class="panel" id="aviso" data-on="off" onclick="this.setAttribute('data-on','on')">
             <div>
                 <?php
                     echo"<form action='' method='post'>";
