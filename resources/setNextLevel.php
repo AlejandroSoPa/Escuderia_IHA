@@ -21,7 +21,7 @@ if (isset($_POST['next'])) {
 } else {
     echo "<script> cleanLocalStorage(); </script>";
     echo "<form action='../lose.php' method='post'>";
-        echo "<input type='submit' id='game_lose' name='game_lose' value='Empezar' onclick='cleanLocalStorageTimer();' style='visibility:hidden;'></input>";
+        echo "<input type='submit' id='game_lose' name='game_lose' value='' onclick='cleanLocalStorageTimer();' style='visibility:hidden;'></input>";
     echo "</form>";
 }
 ?>
