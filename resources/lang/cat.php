@@ -25,7 +25,8 @@ return [
     Per veure les instruccions per habilitar JavaScript<br />
     al vostre navegador, feu clic.",
     'popUpTime' => 'El teu temps ha sigut de:',
-    'tempsColumn' => 'Temps'
+    'tempsColumn' => 'Temps',
+    'easterEgg' => 'Has trobat l\'ou de pascua'
 ];
 
 ?>

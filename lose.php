@@ -20,22 +20,25 @@
     if (!isset($_POST["game_lose"])) {
         http_response_code(403);
         echo "<h1>403 Forbidden</h1>";
-        echo "<form action='index.php'>
-                  <input id='btnIniciWin' visibility:visible type='submit' value='$backToStartButton'>
-              </form>";
+        ?>
+        <form action='index.php'>
+            <input id='btnIniciWin' visibility:visible type='submit' value="<?php echo $backToStartButton; ?>">
+        </form>
+        <?php
         exit;
     } else {
         echo"<audio autoplay>";
             echo"<source src='audio/GameOver.mp3' type='audio/mpeg'>";
         echo"</audio>";
         echo "<h1>$loseTitle</h1>";
-        echo"
+        ?>
         <form action='index.php'>
-            <input id='btnIniciWin' visibility:visible type='submit' value='$backToStartButton'>
+            <input id='btnIniciWin' visibility:visible type='submit' value="<?php echo $backToStartButton; ?>">
         </form>
         <form action='ranking.php'>
-            <input id='btntRanking' visibility:visible type='submit' value='$loseRanking'>
-        </form>";
+            <input id='btntRanking' visibility:visible type='submit' value='<?php echo $loseRanking; ?>'>
+        </form>
+    <?php
     }
     ?>
 </body>
