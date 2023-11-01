@@ -50,7 +50,7 @@ echo "<html lang='{$_SESSION['lang']}'>";
         echo "  <a class='rankingButton' href='/ranking.php'>$rankingButtonText</a>\n";
         echo "  <a class='playButton' href='/game.php' onclick='empezarDetener(this);'>$playButtonText</a>\n";
         echo "  <p class='instructions'>$instructionsText</p>";
-        echo "<script> cleanLocalStorageTime(); </script>";
+        echo "<script> cleanLocalStorage(); </script>";
         ?>
         <button id="publish" onclick="document.getElementById('easterEgg').setAttribute('data-on','on')"><?php echo 'Hola' ?></button><br>
         <div class="panel" id="easterEgg" data-on="off" onclick="this.setAttribute('data-on','off')">
