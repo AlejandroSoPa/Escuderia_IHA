@@ -46,16 +46,17 @@ echo "<html lang='{$_SESSION['lang']}'>";
         $playButtonText = trans('playButton', $_SESSION['lang']);
         $rankingButtonText = trans('rankingButton', $_SESSION['lang']);
         $instructionsText = trans('instructions', $_SESSION['lang']);
+        $easterEgg = trans('easterEgg', $_SESSION['lang']);
         echo "  <h1 class='mainTitle'>$welcomeMessage</h1>\n";
         echo "  <a class='rankingButton' href='/ranking.php'>$rankingButtonText</a>\n";
         echo "  <a class='playButton' href='/game.php' onclick='empezarDetener(this);'>$playButtonText</a>\n";
         echo "  <p class='instructions'>$instructionsText</p>";
         echo "<script> cleanLocalStorage(); </script>";
         ?>
-        <button id="publish" onclick="document.getElementById('easterEgg').setAttribute('data-on','on')"></button><br>
+        <button id="easter" onclick="document.getElementById('easterEgg').setAttribute('data-on','on')"></button><br>
         <div class="panel" id="easterEgg" data-on="off" onclick="this.setAttribute('data-on','off')">
             <div>
-                <p>Has encontrado el Easter Egg<p>
+                <p><?php echo $easterEgg; ?><p>
                 <img src='./images/gatos-bailando.gif'>
             </div>
         </div>
