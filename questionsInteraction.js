@@ -6,6 +6,7 @@ let respuesta3 = checkAnswer("form3", "respuesta3", "feedback3", "feedback33", "
 var audioCorrecto = document.getElementById('audioCorrecto');
 var audioIncorrecto = document.getElementById('audioIncorrecto');
 var audioPublic = document.getElementById('audioPublic');
+var audioHelp = document.getElementById('audioHelp');
 var correctAnswers = 0;
 //Scroll
 var currentQuestion = 1; // Pregunta actual
@@ -125,6 +126,7 @@ async function cleanLocalStorageTime(){
 }
 
 async function extraTime() {
+    audioHelp.play();
     time = time + 30;
     localStorage.setItem("extraTime",time);
     document.getElementById('extraTime').disabled=true;
@@ -339,6 +341,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Agregar un manejador de eventos al hacer clic en el botón
     fiftyPercentButton.addEventListener("click", function () {
+        audioHelp.play();
         // Verificar si el botón "50%" ya se ha utilizado
         if (!fiftyPercentUsed) {
             // Obtener el id de la pregunta actual, reemplaza "question1" con el id correcto
