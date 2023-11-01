@@ -137,6 +137,7 @@ async function stopCountDown() {
 async function cleanLocalStorage(){
     localStorage.removeItem("extraTime");
     localStorage.removeItem("publicWildcard");
+    localStorage.removeItem("50WildCard");
 }
 
 function checkWildcard() {
