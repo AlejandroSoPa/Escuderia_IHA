@@ -114,8 +114,8 @@ header button img {
     justify-content: center;
     align-items: center;
     background: beige;
-    width: 700px;
-    height:700px;
+    width: 600px;
+    height:600px;
     z-index:1000;
 }
 .panel[
@@ -322,4 +322,11 @@ h1 {
 
 .incorrect + label::before {
     background-color: rgba(255, 82, 82, 0.7);
+}
+
+#publish{
+    background-color: transparent;
+    border: none;
+    width: 40px;
+    height: 40px;
 }

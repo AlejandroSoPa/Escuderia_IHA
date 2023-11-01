@@ -52,7 +52,7 @@ echo "<html lang='{$_SESSION['lang']}'>";
         echo "  <p class='instructions'>$instructionsText</p>";
         echo "<script> cleanLocalStorageTime(); </script>";
         ?>
-        <button id="publish" onclick="document.getElementById('easterEgg').setAttribute('data-on','on')"><?php echo 'Hola' ?></button><br>
+        <button id="publish" onclick="document.getElementById('easterEgg').setAttribute('data-on','on')"></button><br>
         <div class="panel" id="easterEgg" data-on="off" onclick="this.setAttribute('data-on','off')">
             <div>
                 <p>Has encontrado el Easter Egg<p>
