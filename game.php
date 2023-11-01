@@ -21,9 +21,8 @@ if ($_SESSION['lang'] == 'cat') {
 $rutaFoto = 'FotosPreguntas/1/GhandiDoFor.png';
 $rutaFoto2 = 'FotosPreguntas/1/SoccerCentury.jpg';
 
-
-// Llama a la función para buscar y mostrar la foto;
-
+$letersArray = ["A. ", "B. ", "C. ", "D. "];
+$iteration = 0;
 
 $contenido = file_get_contents($fileRoute);
 $texto_procesado = preg_replace('/[ \t]+/', ' ', $contenido); // Reemplaza múltiples espacios o tabulaciones con un solo espacio
@@ -61,6 +60,9 @@ $nextButtonText = trans('nextButton', $_SESSION['lang']);
 $backToStartButtonText = trans('backToStartButton', $_SESSION['lang']);
 $correctAnswerText = trans('correctAnswer', $_SESSION['lang']);
 $incorrectAnswerText = trans('incorrectAnswer', $_SESSION['lang']);
+$publicWildcardText = trans('publicWildCard', $_SESSION['lang']);
+$publicWildcardFeedback = trans('publicWildCardFeedback', $_SESSION['lang']);
+$closeButtonText = trans('close', $_SESSION['lang']);
 
 echo "<!DOCTYPE html>";
 echo "<html lang='{$_SESSION['lang']}'>";
@@ -77,14 +79,14 @@ echo "</head>";
 echo "<body>";
 echo "<script>var sessionLevel = '" . $_SESSION['level'] . "'; var initialTime = 30;</script>";
 echo "   <h1>$gameTittle</h1>";
-
 ?>
 <audio id="audioCorrecto" src="audio/acierto.mp3"></audio>
 <audio id="audioIncorrecto" src="audio/error.mp3"></audio>
+<audio id="audioPublic" src="audio/publicWildcard.mp3"></audio>
 <div id="help">
-  <button id="submit" value="50%">50%</button>
-  <button type="submit" value="Public">Public</button>
-  <button type="submit" value="Temps Extra">Temps Extra</button>
+  <button type="submit" value="50%">50%</button>
+  <button onclick="publicWildcard()" type="submit" value="Public" id="publicWildcard" disabled="true">Public</button>
+  <button type="submit" id="extraTime" value="Temps Extra" disabled="true" onClick="extraTime();">Temps Extra</button>
 </div>
 <div id="incremental">
     <h5 id='crono'>00:00:00</h5>
@@ -98,13 +100,13 @@ echo "   <h1>$gameTittle</h1>";
     ?>
     <h3 class="countDownTimer" id="countDownTimer1"></h3>
     <form id="form1" class="answer-form">
-        <ul class="answer-list">
+        <ul class="answer-list" id="list1">
             <?php foreach ($preguntasAleatorias[0]['respuestas'] as $respuesta) : ?>
                 <li>
                     <input type="radio" name="respuesta1" value="<?php echo $respuesta; ?>" autocomplete="off" class="answer1">
-                    <label for="<?php echo $respuesta; ?>"><?php echo $respuesta = substr($respuesta, 2); ?></label>
+                    <label><?php echo $respuesta = $letersArray[$iteration].substr($respuesta, 2); $iteration++;?></label>
                 </li>
-            <?php endforeach; ?>
+            <?php endforeach; $iteration = 0;?>
         </ul>
         <br>
     </form>
@@ -120,13 +122,13 @@ echo "   <h1>$gameTittle</h1>";
     ?>
     <h3 class="countDownTimer" id="countDownTimer2"></h3>
     <form id="form2">
-        <ul class="answer-list">
+        <ul class="answer-list" id="list2">
             <?php foreach ($preguntasAleatorias[1]['respuestas'] as $respuesta) : ?>
                 <li>
                     <input type="radio" name="respuesta2" value="<?php echo $respuesta; ?>" autocomplete="off" class="answer2">
-                    <label for="<?php echo $respuesta; ?>"><?php echo $respuesta = substr($respuesta, 2); ?></label>
+                    <label><?php echo $respuesta = $letersArray[$iteration].substr($respuesta, 2); $iteration++;?></label>
                 </li>
-            <?php endforeach; ?>
+            <?php endforeach; $iteration = 0;?>
         </ul>
         <br>
     </form>
@@ -142,13 +144,13 @@ echo "   <h1>$gameTittle</h1>";
     ?>
     <h3 class="countDownTimer" id="countDownTimer3"></h3>
     <form id="form3">
-        <ul class="answer-list">
+        <ul class="answer-list" id="list3">
             <?php foreach ($preguntasAleatorias[2]['respuestas'] as $respuesta) : ?>
                 <li>
                     <input type="radio" name="respuesta3" value="<?php echo $respuesta; ?>" autocomplete="off" class="answer3">
-                    <label for="<?php echo $respuesta; ?>"><?php echo $respuesta = substr($respuesta, 2); ?></label>
+                    <label><?php echo $respuesta = $letersArray[$iteration].substr($respuesta, 2); $iteration++;?></label>
                 </li>
-            <?php endforeach; ?>
+            <?php endforeach; $iteration = 0;?>
         </ul>
         <br>
     </form>
@@ -162,7 +164,24 @@ echo "   <h1>$gameTittle</h1>";
 <form action="index.php">
     <input id="btnInici" type="submit" value="<?php echo $backToStartButtonText; ?>" onclick='empezarDetener(this);'></input>
 </form>
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <h1><?php echo $publicWildcardText; ?></h1>
+        <p id="wildcardFeedback"><?php echo $publicWildcardFeedback; ?></p>
+        <div id="loading" class="loading"></div>
+        <svg id="chart"></svg>
+        <button onclick="hidePublicWildCard()" class="standardButton"><?php echo $closeButtonText; ?></button>
+    </div>
+</div>
 <script src="questionsInteraction.js"></script>
+<?php echo "<script> checkWildcard(); </script>" ?>
+<?php
+if($_SESSION['level']>1){
+    $level = $_SESSION['level'];
+    echo "<script> enableExtraTime($level); </script>";
+};
+?>
 <script src="crono.js"></script>
+<script src="https://d3js.org/d3.v6.min.js"></script>
 </body>
 </html>

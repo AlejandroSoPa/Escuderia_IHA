@@ -40,8 +40,8 @@ echo "<html lang='{$_SESSION['lang']}'>";
             while (!feof($file)) {
                 $line = fgets($file);
                 $users = explode(",", $line);
-                $ranking[$users[3]." ".$users[1]] = $users[1];
-                $tiempo[$users[3]." ".$users[1]] = $users[2];
+                $ranking[$users[3]." ".$users[0]] = $users[1];
+                $tiempo[$users[3]." ".$users[0]] = $users[2];
             }
             arsort($ranking);
             foreach ($ranking as $order => $valor) {    

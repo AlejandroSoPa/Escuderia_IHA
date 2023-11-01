@@ -51,8 +51,7 @@ header button img {
     padding-left: 10px;
     padding-bottom: 3%;
     flex-direction: row-reverse;
-    width: 100% ;
-    
+    width: 100%;
 }
 #incremental{
     position: absolute;
@@ -110,7 +109,7 @@ header button img {
     height:100%;
     width: 100%;
     transition: transform 300ms;
-    z-index:-1;
+    z-index:10;
 }
 .panel div{ 
     display:flex;
@@ -118,13 +117,17 @@ header button img {
     justify-content: center;
     align-items: center;
     background: beige;
-    width: 400px;
-    height:400px;
+    width: 600px;
+    height:600px;
     z-index:1000;
 }
 .panel[
     data-on='on'
-] {transform: scale(1);}.panel[data-on='off']{transform: scale(0);}
+] {transform: scale(1);}
+
+.panel[
+    data-on='off'
+]{transform: scale(0);}
 
 .mainTitle {
     margin-top: 320px;
@@ -323,3 +326,83 @@ h1 {
 .incorrect + label::before {
     background-color: rgba(255, 82, 82, 0.7);
 }
+
+#publish{
+    background-color: transparent;
+    border: none;
+    width: 40px;
+    height: 40px;
+}
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    background: #f3e5ab;
+    padding: 20px;
+    border: 3px solid #42393b;
+    border-radius: 5px;
+    box-shadow: 4px 4px 0px #42393b;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.standardButton {
+    margin-left: auto;
+    margin-right: auto;
+    background: inherit;
+    color: inherit;
+    font-family: inherit;
+    border: 3px solid #42393b;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bolder;
+    height: 50px;
+    box-shadow: 4px 4px 0px #42393b;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.standardButton:hover {
+    background-color: #42393b;
+    color: #fff;
+}
+
+text {
+    font-size: 30px;
+    color: #42393b;
+}
+
+#chart {
+    margin-bottom: 30px;
+}
+
+.loading {
+    display: none;
+    width: 50px;
+    height: 50px;
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #42393b;
+    border-radius: 50%;
+    margin: 50px auto;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
