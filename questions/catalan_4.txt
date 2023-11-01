@@ -4,8 +4,8 @@
 - 2 Copes del Món
 - Mai ha anat
 * En quin costat condueixen les persones angleses?
-+ Conduint pel carril esquerre i el conductor a la dreta.
-- Conduint pel carril dret i el conductor a l'esquerra.
++ Pel carril esquerre i el conductor a la dreta.
+- Pel carril dret i el conductor a l'esquerra.
 - Com tothom.
 - Al revés.
 * Quin país de la Commonwealth creus que té la millor situació econòmica?

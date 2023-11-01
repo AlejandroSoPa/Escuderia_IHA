@@ -43,7 +43,6 @@ echo "<body>";
                     echo"<form action='' method='post'>";
                         echo"<p>".$popUpTitle."</p>";
                         echo"<input type='text' name='name' id='name' required></input><br>";
-                        var_dump($_POST["actual"]);
                         $diff = $_POST["actual"] - $_POST["inicio"];
                         if($diff<=60000){
                             $puntos = (120000-$diff)*2 + 18;
