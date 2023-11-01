@@ -48,18 +48,16 @@ header button img {
 #help{
     display: flex;
     position: fixed;
-    padding-left: 10px;
-    flex-direction: row-reverse;
-    width: 100%;
+    padding-right: 10px;
+    flex-direction: column-reverse;
+    right: 0;
 }
 #incremental{
-    position: absolute;
     display: flex;
     position: fixed;
-    padding-right: 10px;
-    padding-bottom: 10px;
+    margin-left: 10px;
     flex-direction: row-reverse;
-    right: 0;
+    left: 0;
 }
 .container{
     padding-left: 33%;
