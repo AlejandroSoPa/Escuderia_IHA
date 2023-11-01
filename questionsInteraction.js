@@ -128,6 +128,8 @@ checkSessionLevel();
 // Variable de control para rastrear si la función ya se ha ejecutado
 
 // Variable de control para rastrear si el botón "50%" ya se ha ejecutado
+
+// Variable de control para rastrear si el botón "50%" ya se ha ejecutado
 let fiftyPercentUsed = false;
 
 document.addEventListener("DOMContentLoaded", function () {

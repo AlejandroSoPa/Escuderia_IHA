@@ -6,21 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles.css">
-    <script src="../crono.js"></script>
+    <script src="../redirect.js"></script>
 </head>
 
 <?php
-session_start();
+session_start(); // Debe ir antes de cualquier salida, incluso antes del bloque <head>
+
 if (isset($_POST['next'])) {
     $_SESSION['counter'] += 3;
     if ($_SESSION['counter'] == 18) {
         echo "<form action='../win.php' method='post'>";
-        echo "<button id='game_won' name='game_won' value='1'";
+        echo "<button id='game_won' name='game_won' value='1'></button>"; // Debes cerrar la etiqueta <button>
         echo "</form>";
     } else {
         $_SESSION['level'] += 1;
         header("Location: ../game.php");
     }
 }
-
 ?>
