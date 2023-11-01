@@ -55,9 +55,10 @@ header button img {
 #incremental{
     display: flex;
     position: fixed;
-    margin-left: 10px;
+    margin-left: 30px;
     flex-direction: row-reverse;
     left: 0;
+    font-size: 25px;
 }
 .container{
     padding-left: 33%;
@@ -411,3 +412,27 @@ text {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+.wildCard {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: none;
+    cursor: pointer;
+    border: none;
+    height: 70px;
+    width: 90px;
+    margin-right: 10px;
+    transition: transform 0.3s;
+}
+
+.wildCard:hover {
+    transform: scale(1.1);
+}
+
+.wildCard img {
+    height: 100%;
+}
+
+.wildCard:disabled img {
+    opacity: 0.3;
+}
