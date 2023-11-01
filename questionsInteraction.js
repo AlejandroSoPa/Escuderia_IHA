@@ -137,12 +137,15 @@ async function stopCountDown() {
 async function cleanLocalStorage(){
     localStorage.removeItem("extraTime");
     localStorage.removeItem("publicWildcard");
-    localStorage.removeItem("50WildCard");
+    localStorage.removeItem("50Wildcard");
 }
 
 function checkWildcard() {
     if (localStorage.getItem("publicWildcard") == null) {
         document.getElementById('publicWildcard').disabled=false;
+    }
+    if (localStorage.getItem("50Wildcard") == null) {
+        document.getElementById('50Wildcard').disabled=false;
     }
 }
 
@@ -331,7 +334,9 @@ let fiftyPercentUsed = false;
 
 document.addEventListener("DOMContentLoaded", function () {
     // Obtener el botón "50%" por su id
-    const fiftyPercentButton = document.getElementById("submit");
+    const fiftyPercentButton = document.getElementById("50Wildcard");
+    localStorage.setItem("50Wildcard", true);
+
     // Agregar un manejador de eventos al hacer clic en el botón
     fiftyPercentButton.addEventListener("click", function () {
         // Verificar si el botón "50%" ya se ha utilizado
@@ -344,7 +349,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Contador para llevar el seguimiento de respuestas ocultas
             let respuestasOcultas = 0;
-            console.log("consollaa")
+            console.log();
             // Iterar a través de los elementos de la lista de respuestas de la pregunta actual
             listaRespuestas.forEach(function (item) {
                 // Obtener el input de tipo radio en cada elemento <li>
