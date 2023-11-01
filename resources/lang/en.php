@@ -20,6 +20,9 @@ return [
     'loseTitle' => 'Game Over! You lose!',
     'loseInicio' => 'Back to the start',
     'loseRanking' => 'HALL OF FAME',
+    'publicWildCard' => 'Public Wildcard',
+    'publicWildCardFeedback' => 'Waiting for the audience to vote...',
+    'close' => 'Close',
     'jsNone' => "JavaScript is disabled in your web browser.<br />
     Please <b><i>enable JavaScript</i></b> to view this site correctly.<br />
     To view instructions on enabling JavaScript in your browser, click."

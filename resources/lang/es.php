@@ -20,6 +20,9 @@ return [
     'loseTitle' => 'Fin del juego! Has perdido!',
     'loseInicio' => 'Volver al inicio',
     'loseRanking' => 'SALÓN DE LA FAMA',
+    'publicWildCard' => 'Comodín del público',
+    'publicWildCardFeedback' => 'Esperando a que la audiencia vote...',
+    'close' => 'Cerrar',
     'jsNone' => 'Javascript está deshabilitado en su navegador web.<br />
       Por favor, para ver correctamente este sitio,<br />
       <b><i>habilite javascript</i></b>.<br />

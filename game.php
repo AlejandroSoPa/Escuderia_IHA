@@ -60,6 +60,9 @@ $nextButtonText = trans('nextButton', $_SESSION['lang']);
 $backToStartButtonText = trans('backToStartButton', $_SESSION['lang']);
 $correctAnswerText = trans('correctAnswer', $_SESSION['lang']);
 $incorrectAnswerText = trans('incorrectAnswer', $_SESSION['lang']);
+$publicWildcardText = trans('publicWildCard', $_SESSION['lang']);
+$publicWildcardFeedback = trans('publicWildCardFeedback', $_SESSION['lang']);
+$closeButtonText = trans('close', $_SESSION['lang']);
 
 echo "<!DOCTYPE html>";
 echo "<html lang='{$_SESSION['lang']}'>";
@@ -79,6 +82,7 @@ echo "   <h1>$gameTittle</h1>";
 ?>
 <audio id="audioCorrecto" src="audio/acierto.mp3"></audio>
 <audio id="audioIncorrecto" src="audio/error.mp3"></audio>
+<audio id="audioPublic" src="audio/publicWildcard.mp3"></audio>
 <div id="help">
     <button type="submit" value="50%">50%</button>
     <button onclick="publicWildcard()" type="submit" value="Public" id="publicWildcard" disabled="true">Public</button>
@@ -159,10 +163,11 @@ echo "   <h1>$gameTittle</h1>";
 </form>
 <div id="popup" class="popup">
     <div class="popup-content">
-        <h1>Public Wildcard</h1>
-        <p>Waiting for the public vote...</p>
-        <svg id="chart" width="400" height="300"></svg>
-        <button onclick="hidePublicWildCard()" class="standardButton">Close</button>
+        <h1><?php echo $publicWildcardText; ?></h1>
+        <p id="wildcardFeedback"><?php echo $publicWildcardFeedback; ?></p>
+        <div id="loading" class="loading"></div>
+        <svg id="chart"></svg>
+        <button onclick="hidePublicWildCard()" class="standardButton"><?php echo $closeButtonText; ?></button>
     </div>
 </div>
 <script src="questionsInteraction.js"></script>

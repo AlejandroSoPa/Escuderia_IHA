@@ -5,6 +5,7 @@ let respuesta3 = checkAnswer("form3", "respuesta3", "feedback3", "feedback33", "
 // Suponiendo que obtienes los elementos de audio por sus IDs
 var audioCorrecto = document.getElementById('audioCorrecto');
 var audioIncorrecto = document.getElementById('audioIncorrecto');
+var audioPublic = document.getElementById('audioPublic');
 var correctAnswers = 0;
 //Scroll
 var currentQuestion = 1; // Pregunta actual
@@ -137,9 +138,12 @@ async function checkSessionLevel() {
 }
 
 function publicWildcard() {
+    audioPublic.play();
     let numberOfAnswers;
     localStorage.setItem("publicWildcard", true);
     document.getElementById("publicWildcard").disabled = true;
+    // Show the loading animation
+    document.getElementById('loading').style.display = 'block';
 
     if (sessionLevel >= 2) {
         stopCountDown();
@@ -147,16 +151,34 @@ function publicWildcard() {
     if (correctAnswers == 0) {
         numberOfAnswers = document.getElementById("list1").getElementsByTagName("li").length;
         let correctAnswer = returnCorrectAnswerPosition("answer1");
-        createChart(numberOfAnswers, correctAnswer);
+        setTimeout(function() {
+            // Ocultar la animación de carga después de un tiempo de espera
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('wildcardFeedback').style.display = 'none';
+            createChart(numberOfAnswers, correctAnswer);
+            // Realiza la acción deseada aquí, por ejemplo, cargar contenido o realizar una solicitud AJAX.
+        }, 15000);
     }
     else if (correctAnswers == 1) {
         numberOfAnswers = document.getElementById("list2").getElementsByTagName("li").length;
         let correctAnswer = returnCorrectAnswerPosition("answer2");
-        createChart(numberOfAnswers, correctAnswer);
+        setTimeout(function() {
+            // Ocultar la animación de carga después de un tiempo de espera
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('wildcardFeedback').style.display = 'none';
+            createChart(numberOfAnswers, correctAnswer);
+            // Realiza la acción deseada aquí, por ejemplo, cargar contenido o realizar una solicitud AJAX.
+        }, 15000);
     } else {
         numberOfAnswers = document.getElementById("list3").getElementsByTagName("li").length;
         let correctAnswer = returnCorrectAnswerPosition("answer3");
-        createChart(numberOfAnswers, correctAnswer);
+        setTimeout(function() {
+            // Ocultar la animación de carga después de un tiempo de espera
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('wildcardFeedback').style.display = 'none';
+            createChart(numberOfAnswers, correctAnswer);
+            // Realiza la acción deseada aquí, por ejemplo, cargar contenido o realizar una solicitud AJAX.
+        }, 15000);
     }
     popup.style.display = "block";
     // Block interaction with the main screen
@@ -173,6 +195,9 @@ function returnCorrectAnswerPosition(className) {
 }
 
 function hidePublicWildCard() {
+    if (sessionLevel >= 2) {
+        startCountDown();
+    }
     popup.style.display = "none";
     // Enable interaction with the main screen
     document.body.style.overflow = "auto";
@@ -183,7 +208,6 @@ function createChart(numberOfBars, correctAnswerPos) {
     let percentages = [];
     let totalAudience = 100;
     let probabilityByOption = totalAudience / numberOfBars;
-    alert(publicCorrect);
     for (let i = 0; i < numberOfBars; i++) {
         percentages.push(probabilityByOption);
     }
@@ -214,7 +238,7 @@ function createChart(numberOfBars, correctAnswerPos) {
 
     // Configuración del gráfico
     const width = 410;
-    const height = 350;
+    const height = 300;
     const barSpacing = 20;
     const barWidth = (width - (barSpacing * (numberOfBars - 1))) / numberOfBars;
 

@@ -20,6 +20,9 @@ return [
     'loseTitle' => 'Fi del Joc! Has perdut!',
     'loseInicio' => 'Tornar a l\'inici',
     'loseRanking' => 'SALÓ DE LA FAMA',
+    'publicWildCard' => 'Comodí del públic',
+    'publicWildCardFeedback' => 'Esperant que el públic voti...',
+    'close' => 'Tancar',
     'jsNone' => "JavaScript està deshabilitat al vostre navegador web.<br/>Si us plau, per veure aquest lloc web correctament,<br /><b><i>habiliteu JavaScript</i></b>.<br /><br />
     Per veure les instruccions per habilitar JavaScript<br />
     al vostre navegador, feu clic."
