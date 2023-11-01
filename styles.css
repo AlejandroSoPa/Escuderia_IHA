@@ -55,9 +55,10 @@ header button img {
 #incremental{
     display: flex;
     position: fixed;
-    margin-left: 10px;
+    margin-left: 30px;
     flex-direction: row-reverse;
     left: 0;
+    font-size: 25px;
 }
 .container{
     padding-left: 33%;
@@ -289,6 +290,7 @@ h1 {
     display: inline-block;
     width: 100%;
     height: 50px;
+    max-height: fit-content;
     border: 3px solid #42393b;
     border-radius: 5px;
     box-shadow: 4px 4px 0px #42393b;
@@ -297,10 +299,18 @@ h1 {
     left: 5px;
     top: 25%;
     transform: translateY(-30%);
+    white-space: nowrap;
+    max-width: 800px;
 }
 
 .answer-list input[type="radio"] + label {
+    white-space: nowrap;
+    max-width: 800px;
     transition: font-size 0.3s;
+}
+
+.too-long {
+    font-size: 20px;
 }
 
 .answer-list input[type="radio"]:hover + label::before {
@@ -402,3 +412,27 @@ text {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+.wildCard {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: none;
+    cursor: pointer;
+    border: none;
+    height: 70px;
+    width: 90px;
+    margin-right: 10px;
+    transition: transform 0.3s;
+}
+
+.wildCard:hover {
+    transform: scale(1.1);
+}
+
+.wildCard img {
+    height: 100%;
+}
+
+.wildCard:disabled img {
+    opacity: 0.3;
+}
