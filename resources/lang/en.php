@@ -25,7 +25,8 @@ return [
     Please <b><i>enable JavaScript</i></b> to view this site correctly.<br />
     To view instructions on enabling JavaScript in your browser, click.",
     'popUpTime' => 'Your time has been:',
-    'tempsColumn' => 'Time'
+    'tempsColumn' => 'Time',
+    'easterEgg' => 'You have found the easter egg!'
 ];
 
 ?>

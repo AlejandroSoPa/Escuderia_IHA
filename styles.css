@@ -48,18 +48,16 @@ header button img {
 #help{
     display: flex;
     position: fixed;
-    padding-left: 10px;
-    flex-direction: row-reverse;
-    width: 100%;
+    padding-right: 10px;
+    flex-direction: column-reverse;
+    right: 0;
 }
 #incremental{
-    position: absolute;
     display: flex;
     position: fixed;
-    padding-right: 10px;
-    padding-bottom: 10px;
+    margin-left: 10px;
     flex-direction: row-reverse;
-    right: 0;
+    left: 0;
 }
 .container{
     padding-left: 33%;
@@ -115,8 +113,8 @@ header button img {
     justify-content: center;
     align-items: center;
     background: beige;
-    width: 700px;
-    height:700px;
+    width: 600px;
+    height:600px;
     z-index:1000;
 }
 .panel[
@@ -334,6 +332,12 @@ h1 {
     background-color: rgba(255, 82, 82, 0.7);
 }
 
+#easter{
+    background-color: transparent;
+    border: none;
+    width: 40px;
+    height: 40px;
+}
 .popup {
     display: none;
     position: fixed;

@@ -28,7 +28,8 @@ return [
       Para ver las instrucciones para habilitar javascript<br/>
       en su navegador, haga click',
     'popUpTime' => 'Tu tiempo ha sido de:',
-    'tempsColumn' => 'Tiempo'
+    'tempsColumn' => 'Tiempo',
+    'easterEgg' => 'Has encontrado el huevo de pascua!'
 ];
 
 ?>

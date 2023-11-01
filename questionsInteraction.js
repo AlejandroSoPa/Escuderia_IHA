@@ -53,7 +53,7 @@ function checkAnswer(formId, answerName, feedbackId, feedbackId2, nextQuestionId
                     nextQuestionElement.classList.remove("questionHidden");
                     showNextQuestion(nextQuestionId);
                 }
-                
+
                 // Disable question after being answered
                 disableQuestion(answers);
             } else {
@@ -99,8 +99,8 @@ async function startCountDown() {
             countDownElement.textContent = time;
             if (time <= 0) {
                 //countDownElement.textContent = 'Tiempo agotado';
-                window.location.href = './resources/setNextLevel.php';
-                
+                window.location.href = 'lose.php';
+
             } else {
                 time--;
                 countDownTimer = setTimeout(updateCountDown, 1000);
@@ -137,12 +137,15 @@ async function stopCountDown() {
 async function cleanLocalStorage(){
     localStorage.removeItem("extraTime");
     localStorage.removeItem("publicWildcard");
-    localStorage.removeItem("50WildCard");
+    localStorage.removeItem("50Wildcard");
 }
 
 function checkWildcard() {
     if (localStorage.getItem("publicWildcard") == null) {
         document.getElementById('publicWildcard').disabled=false;
+    }
+    if (localStorage.getItem("50Wildcard") == null) {
+        document.getElementById('50Wildcard').disabled=false;
     }
 }
 
@@ -320,11 +323,56 @@ function generatePublicProbability() {
 
 // checks if the session level is greater than 2
 checkSessionLevel();
-    const hideAnswersButton = document.getElementById("hideAnswersButton");
+
+
+// Variable de control para rastrear si la función ya se ha ejecutado
+
+// Variable de control para rastrear si el botón "50%" ya se ha ejecutado
+
+// Variable de control para rastrear si el botón "50%" ya se ha ejecutado
+let fiftyPercentUsed = false;
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Obtener el botón "50%" por su id
+    const fiftyPercentButton = document.getElementById("50Wildcard");
+    localStorage.setItem("50Wildcard", true);
+
     // Agregar un manejador de eventos al hacer clic en el botón
-    hideAnswersButton.addEventListener("click", function() {
-      // Obtener todas las etiquetas de respuesta con clase "hidden-answer" en la pregunta actual
-      nextQuestionElement.classList.remove("questionHidden");
-  
-      // Recorrer todas las respuestas ocultas y cambiar su visibilidad
+    fiftyPercentButton.addEventListener("click", function () {
+        // Verificar si el botón "50%" ya se ha utilizado
+        if (!fiftyPercentUsed) {
+            // Obtener el id de la pregunta actual, reemplaza "question1" con el id correcto
+            const currentQuestionId = "question" + currentQuestion; // Reemplaza con el id de la pregunta actual
+
+            // Obtener todos los elementos <li> dentro de la lista de respuestas de la pregunta actual
+            const listaRespuestas = document.querySelectorAll(`#${currentQuestionId} .answer-list li`);
+
+            // Contador para llevar el seguimiento de respuestas ocultas
+            let respuestasOcultas = 0;
+            console.log();
+            // Iterar a través de los elementos de la lista de respuestas de la pregunta actual
+            listaRespuestas.forEach(function (item) {
+                // Obtener el input de tipo radio en cada elemento <li>
+                const radioInput = item.querySelector('input[type="radio"]');
+                // Obtener el valor del input de tipo radio
+                const valorRespuesta = radioInput.value;
+
+                // Verificar si el valor de la respuesta comienza con "-" y aún no se han ocultado dos respuestas
+                if (valorRespuesta.startsWith("-") && respuestasOcultas < 2) {
+                    // Ocultar el elemento <li>
+                    item.style.display = "none";
+                    respuestasOcultas++;
+                }
+            });
+
+            // Marcar el botón "50%" como utilizado
+            fiftyPercentUsed = true;
+
+            // Deshabilitar el botón "50%" después de usarlo
+            fiftyPercentButton.disabled = true;
+        }
     });
+
+    // Aquí debes agregar código para habilitar nuevamente el botón "50%" cuando vuelvas a la página de inicio (index).
+    // Puedes hacer esto mediante un enlace o un botón en la página de inicio que restablezca la variable fiftyPercentUsed y habilite el botón.
+});

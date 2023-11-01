@@ -24,9 +24,11 @@ echo "<body>";
     if (!isset($_POST["game_won"])) {
         http_response_code(403);
         echo "<h1>403 Forbidden</h1>";
-        echo "<form action='index.php'>
-                  <input id='btnIniciWin' visibility:visible type='submit' value='$backToStartButton'>
-              </form>";
+        ?>
+        <form action='index.php'>
+            <input id='btnIniciWin' visibility:visible type='submit' value="<?php echo $backToStartButton; ?>">
+        </form>
+        <?php
         exit;
     } else {
         echo"<audio autoplay>";
@@ -41,15 +43,16 @@ echo "<body>";
                     echo"<form action='' method='post'>";
                         echo"<p>".$popUpTitle."</p>";
                         echo"<input type='text' name='name' id='name' required></input><br>";
+                        var_dump($_POST["actual"]);
                         $diff = $_POST["actual"] - $_POST["inicio"];
-                        if($diff<=120000){
-                            $puntos = (120000-($diff*2)) + 18;
+                        if($diff<=60000){
+                            $puntos = (120000-$diff)*2 + 18;
                             echo"<input type='number' name='point' id='point' style='display: none;' value='$puntos'></input><br>";
                         } elseif($diff<=120000){
-                            $puntos = (120000-$diff) + 18;
+                            $puntos = (120000-($diff/2)) + 18;
                             echo"<input type='number' name='point' id='point' style='display: none;' value='$puntos'></input><br>";
                         } elseif($diff<=180000){
-                            $puntos = (120000-($diff/2)) + 18;
+                            $puntos = (180000-$diff) + 18;
                             echo"<input type='number' name='point' id='point' style='display: none;' value='$puntos'></input><br>";
                         } else{
                             echo"<input type='number' name='point' id='point' style='display: none;' value='18'></input><br>";
@@ -73,14 +76,13 @@ echo "<body>";
                 ?>
             </div>
         </div>
+        <form action='index.php'>
+            <input id='btnIniciWin' visibility:visible type='submit' value="<?php echo $backToStartButton; ?>">
+        </form>
+        <form action='ranking.php'>
+            <input id='btntRanking' visibility:visible type='submit' value="<?php echo $winRanking; ?>">
+        </form>
         <?php
-            echo"
-            <form action='index.php'>
-                <input id='btnIniciWin' class='rankingButton' visibility:visible type='submit' value='$backToStartButton'>
-            </form>
-            <form action='ranking.php'>
-                <input id='btntRanking' visibility:visible type='submit' value='$winRanking'>
-            </form>";
         }
         if(isset($_POST["name"])){
             header("Location:http://localhost:8080/");

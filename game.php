@@ -84,7 +84,7 @@ echo "   <h1>$gameTittle</h1>";
 <audio id="audioIncorrecto" src="audio/error.mp3"></audio>
 <audio id="audioPublic" src="audio/publicWildcard.mp3"></audio>
 <div id="help">
-  <button type="submit" value="50%">50%</button>
+  <button type="submit" value="50%" id="50Wildcard" disabled="true">50%</button>
   <button onclick="publicWildcard()" type="submit" value="Public" id="publicWildcard" disabled="true">Public</button>
   <button type="submit" id="extraTime" value="Temps Extra" disabled="true" onClick="extraTime();">Temps Extra</button>
 </div>
