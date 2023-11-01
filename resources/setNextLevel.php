@@ -2,6 +2,7 @@
 session_start();
 echo "<script src='../crono.js'></script>";
 echo "<script src='../questionsInteraction.js'></script>";
+echo"<script src='../redirect.js'></script>";
 if (isset($_POST['next'])) {
     $_SESSION['counter'] += 3;
     if ($_SESSION['counter'] == 18) {
@@ -15,7 +16,7 @@ if (isset($_POST['next'])) {
         echo "<script> showData(); </script>";
     } else {
         $_SESSION['level'] += 1;
-        header("Location: ../game.php");
+        echo '<script>window.location.href = "../game.php";</script>';
     }
 } else {
     echo "<script> cleanLocalStorage(); </script>";
@@ -23,5 +24,4 @@ if (isset($_POST['next'])) {
         echo "<input type='submit' id='game_lose' name='game_lose' value='Empezar' onclick='cleanLocalStorageTimer();' style='visibility:hidden;'></input>";
     echo "</form>";
 }
-echo"<script src='../redirect.js'></script>";
 ?>
