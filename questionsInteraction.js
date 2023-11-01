@@ -114,6 +114,17 @@ async function stopCountDown() {
     clearTimeout(countDownTimer);
 }
 
+async function cleanLocalStorage(){
+    localStorage.removeItem("extraTime");
+    localStorage.removeItem("publicWildcard");
+}
+
+function checkWildcard() {
+    if (localStorage.getItem("publicWildcard") == null) {
+        document.getElementById('publicWildcard').disabled=false;
+    }
+}
+
 async function checkSessionLevel() {
     try {
         if (sessionLevel >= 2) {
@@ -127,7 +138,7 @@ async function checkSessionLevel() {
 
 function publicWildcard() {
     let numberOfAnswers;
-    changeWildcardSession("publicWildcard");
+    localStorage.setItem("publicWildcard", true);
     document.getElementById("publicWildcard").disabled = true;
 
     if (sessionLevel >= 2) {
@@ -262,21 +273,6 @@ function generatePublicProbability() {
         return false;
       }
 }
-
-function changeWildcardSession(wildCardName) {
-    // Realizar una solicitud AJAX al servidor
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', './resources/wildCardsSession.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-    xhr.send(wildCardName + '=' + false);
-
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            console.log(xhr.responseText);
-        }
-    };
-}
-
 
 // checks if the session level is greater than 2
 checkSessionLevel();

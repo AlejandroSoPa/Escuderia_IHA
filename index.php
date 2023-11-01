@@ -5,7 +5,6 @@ include './resources/myFunctions.php';
 if (isset($_SESSION['counter'])) {
     unset($_SESSION['counter']);
     unset($_SESSION['level']);
-    unset($_SESSION['publicWildcard']);
 }
 if (!isset($_SESSION['lang'])) {
     $_SESSION['lang'] = 'cat';
@@ -22,7 +21,7 @@ echo "<html lang='{$_SESSION['lang']}'>";
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
     <link rel="icon" href="./images/question-icon.svg" type="image/png">
-
+    <script src="questionsInteraction.js"></script>
 </head>
 
 <body>
@@ -51,6 +50,7 @@ echo "<html lang='{$_SESSION['lang']}'>";
         echo "  <a class='rankingButton' href='/ranking.php'>$rankingButtonText</a>\n";
         echo "  <a class='playButton' href='/game.php' onclick='empezarDetener(this);'>$playButtonText</a>\n";
         echo "  <p class='instructions'>$instructionsText</p>";
+        echo "<script> cleanLocalStorage(); </script>";
         ?>
     </div>
     <script src="crono.js"></script>

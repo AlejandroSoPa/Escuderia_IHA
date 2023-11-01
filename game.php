@@ -8,9 +8,6 @@ if (!isset($_SESSION['counter'])) {
 if (!isset($_SESSION['level'])) {
     $_SESSION['level'] = 1;
 }
-if (!isset($_SESSION['publicWildcard'])) {
-    $_SESSION['publicWildcard'] = true;
-}
 if ($_SESSION['lang'] == 'cat') {
     $fileRoute = 'questions/catalan_' . $_SESSION['level'] . '.txt';
 } elseif ($_SESSION['lang'] == 'es') {
@@ -18,7 +15,6 @@ if ($_SESSION['lang'] == 'cat') {
 } elseif ($_SESSION['lang'] == 'en') {
     $fileRoute = 'questions/english_' . $_SESSION['level'] . '.txt';
 }
-echo $_SESSION['publicWildcard'];
 
 // Especifica la carpeta principal, subcarpeta y nombre de archivo a buscar
 
@@ -85,13 +81,7 @@ echo "   <h1>$gameTittle</h1>";
 <audio id="audioIncorrecto" src="audio/error.mp3"></audio>
 <div id="help">
     <button type="submit" value="50%">50%</button>
-    <?php 
-    if ($_SESSION['publicWildcard'] == true) {
-        echo "<button onclick='publicWildcard()' type='submit' value='Public' id='publicWildcard'>Public</button>";
-    } else {
-        echo "<button disabled>Public</button>";
-    }
-    ?>
+    <button onclick="publicWildcard()" type="submit" value="Public" id="publicWildcard" disabled="true">Public</button>
     <button type="submit" value="Temps Extra">Temps Extra</button>
 </div>
 
@@ -175,8 +165,8 @@ echo "   <h1>$gameTittle</h1>";
         <button onclick="hidePublicWildCard()" class="standardButton">Close</button>
     </div>
 </div>
-
 <script src="questionsInteraction.js"></script>
+<?php echo "<script> checkWildcard(); </script>" ?>
 <script src="crono.js"></script>
 <script src="https://d3js.org/d3.v6.min.js"></script>
 </body>
