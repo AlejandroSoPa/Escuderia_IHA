@@ -26,7 +26,12 @@ return [
     To view instructions on enabling JavaScript in your browser, click.",
     'popUpTime' => 'Your time has been:',
     'tempsColumn' => 'Time',
-    'easterEgg' => 'You have found the easter egg!'
+    'easterEgg' => 'You have found the easter egg!',
+    'login'=> 'Log in',
+    'username'=>'Username',
+    'password'=>'Password',
+    'submit' => 'Submit',
+    'feedbackNotLog'=>'Incorrect credentials, failed login'
 ];
 
 ?>

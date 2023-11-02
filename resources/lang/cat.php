@@ -26,7 +26,12 @@ return [
     al vostre navegador, feu clic.",
     'popUpTime' => 'El teu temps ha sigut de:',
     'tempsColumn' => 'Temps',
-    'easterEgg' => 'Has trobat l\'ou de pascua'
+    'easterEgg' => 'Has trobat l\'ou de pascua',
+    'login'=> 'Iniciar sessió',
+    'username'=>'Nom d\'usuari',
+    'password'=>'Contrasenya',
+    'submit' => 'Enviar',
+    'feedbackNotLog'=>'Credencials incorrectas, inici d\' sesió fallit'
 ];
 
 ?>

@@ -1,6 +1,5 @@
 <?php
 session_start();
-include './resources/JsNotEnable.php';
 include './resources/myFunctions.php';
 if (isset($_SESSION['counter'])) {
     unset($_SESSION['counter']);
@@ -21,7 +20,7 @@ echo "<html lang='{$_SESSION['lang']}'>";
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
     <link rel="icon" href="./images/question-icon.svg" type="image/png">
-    <script src="questionsInteraction.js"></script>
+
 </head>
 
 <body>
@@ -33,35 +32,31 @@ echo "<html lang='{$_SESSION['lang']}'>";
         echo "      <button type='submit' name='lang' value='es'><img src='./images/espana.png'></button>\n";
         echo "      <button type='submit' name='lang' value='cat'><img src='./images/catalonia.png'></button>\n";
         echo "  </form>\n";
+        echo "  <form method='POST' action='./login.php'>\n";
+        echo "      <button type='submit' name='log' id='log'> Log in </button>\n";
+        echo "  </form>";
         echo "  </header>\n";
 
         //Mensaje de error, JS no esta habilitado en el navegador
-        $JsNotEnableMessage = trans('jsNone', $_SESSION['lang']);
-        $jsNotEnable = CheckJsEnable($JsNotEnableMessage);
-        echo $jsNotEnable;
-
+        $JsNoneMessage = trans('jsNone', $_SESSION['lang']);
+        echo "<noscript>\n";
+        echo "    <div class='deshabilitado'>\n";
+        echo "        $JsNoneMessage";
+        echo "        <a href='http://www.enable-javascript.com/es/' target='_blank'>aquí</a>.\n";
+        echo "    </div>\n";
+        echo "</noscript>\n";
 
 
         $welcomeMessage = trans('welcome', $_SESSION['lang']);
         $playButtonText = trans('playButton', $_SESSION['lang']);
         $rankingButtonText = trans('rankingButton', $_SESSION['lang']);
         $instructionsText = trans('instructions', $_SESSION['lang']);
-        $easterEgg = trans('easterEgg', $_SESSION['lang']);
         echo "  <h1 class='mainTitle'>$welcomeMessage</h1>\n";
         echo "  <a class='rankingButton' href='/ranking.php'>$rankingButtonText</a>\n";
-        echo "  <a class='playButton' href='/game.php' onclick='empezarDetener(this);'>$playButtonText</a>\n";
+        echo "  <a class='playButton' href='/game.php'>$playButtonText</a>\n";
         echo "  <p class='instructions'>$instructionsText</p>";
-        echo "<script> cleanLocalStorage(); </script>";
         ?>
-        <button id="easter" onclick="document.getElementById('easterEgg').setAttribute('data-on','on')"></button><br>
-        <div class="panel" id="easterEgg" data-on="off" onclick="this.setAttribute('data-on','off')">
-            <div>
-                <p><?php echo $easterEgg; ?><p>
-                <img src='./images/gatos-bailando.gif'>
-            </div>
-        </div>
     </div>
-    <script src="crono.js"></script>
 </body>
 
 </html>

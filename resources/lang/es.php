@@ -29,7 +29,12 @@ return [
       en su navegador, haga click',
     'popUpTime' => 'Tu tiempo ha sido de:',
     'tempsColumn' => 'Tiempo',
-    'easterEgg' => 'Has encontrado el huevo de pascua!'
+    'easterEgg' => 'Has encontrado el huevo de pascua!',
+    'login'=> 'Iniciar sesión',
+    'username'=>'Nombre de usuario',
+    'password'=>'Contraseña',
+    'submit' => 'Enviar',
+    'feedbackNotLog'=>'Credenciales incorrectas, inicio de sesión fallido'
 ];
 
 ?>
