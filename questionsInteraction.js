@@ -6,6 +6,7 @@ var audioCorrecto = document.getElementById('audioCorrecto');
 var audioIncorrecto = document.getElementById('audioIncorrecto');
 var audioPublic = document.getElementById('audioPublic');
 var audioCall = document.getElementById('audioCall');
+//var callImage = document.getElementById("callImage");
 var correctAnswers = 0;
 var currentQuestion = 1; 
 var totalQuestions = 3;
@@ -369,8 +370,10 @@ function callAnimationAndSound(repeticion) {
     if(repeticion>=1){
         console.log(repeticion);
         audioCall.play();
+        //callImage.style.display = "block";
         setTimeout(function() {
             callAnimationAndSound(repeticion - 1);
+            //callImage.style.display = "none";
           }, 2000);
     }
 }
