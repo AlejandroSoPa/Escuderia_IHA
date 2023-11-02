@@ -5,9 +5,11 @@ let respuesta3 = checkAnswer("form3", "respuesta3", "feedback3", "feedback33", "
 var audioCorrecto = document.getElementById('audioCorrecto');
 var audioIncorrecto = document.getElementById('audioIncorrecto');
 var audioPublic = document.getElementById('audioPublic');
+var audioCall = document.getElementById('audioCall');
 var correctAnswers = 0;
 var currentQuestion = 1; 
 var totalQuestions = 3;
+var repeticion = 0;
 
 var countDownTimer;
 var time = initialTime;
@@ -135,6 +137,7 @@ async function cleanLocalStorage(){
     localStorage.removeItem("extraTime");
     localStorage.removeItem("publicWildcard");
     localStorage.removeItem("50Wildcard");
+    localStorage.removeItem("callWildcard");
 }
 
 function checkWildcard() {
@@ -143,6 +146,9 @@ function checkWildcard() {
     }
     if (localStorage.getItem("50Wildcard") == null) {
         document.getElementById('50Wildcard').disabled=false;
+    }
+    if (localStorage.getItem("callWildcard") == null) {
+        document.getElementById('callWildcard').disabled=false;
     }
 }
 
@@ -344,6 +350,28 @@ function fiftyPercentWildcard() {
         const labelElement = labelList[i].querySelector('label');
         const newText = letters[i] + labelElement.innerText.substring(1);
         labelElement.innerText = newText;
+    }
+}
+
+function callWildcard() {
+    localStorage.setItem("callWildcard", true);
+    document.getElementById("callWildcard").disabled = true;
+    var repeticion = getNRandom();
+    callAnimationAndSound(repeticion);
+}
+
+function getNRandom() {
+  const numRandom = Math.floor(Math.random() * 10) + 1;
+  return numRandom;
+}
+
+function callAnimationAndSound(repeticion) {
+    if(repeticion>=1){
+        console.log(repeticion);
+        audioCall.play();
+        setTimeout(function() {
+            callAnimationAndSound(repeticion - 1);
+          }, 2000);
     }
 }
 

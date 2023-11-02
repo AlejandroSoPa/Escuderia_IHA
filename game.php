@@ -83,10 +83,12 @@ echo "   <h1>$gameTittle</h1>";
 <audio id="audioCorrecto" src="audio/acierto.mp3"></audio>
 <audio id="audioIncorrecto" src="audio/error.mp3"></audio>
 <audio id="audioPublic" src="audio/publicWildcard.mp3"></audio>
+<audio id="audioCall" src="audio/callWildcard.mp3"></audio>
 <div id="help">
+  <button onclick="callWildcard()" type="submit" class="wildCard" value="call" id="callWildcard" disabled="true"><img src='./images/call.png'></button>
   <button onclick="fiftyPercentWildcard()" type="submit" class="wildCard" value="50%" id="50Wildcard" disabled="true"><img src='./images/50-percent.png'></button>
   <button onclick="publicWildcard()" type="submit" class="wildCard" value="Public" id="publicWildcard" disabled="true"><img src='./images/group.png'></button>
-  <button type="submit" id="extraTime" class="wildCard" value="Temps Extra" disabled="true" onClick="extraTime();"><img src='./images/clock.png'></button>
+  <button type="submit" id="extraTime" class="wildCard" value="extraTime" disabled="true" onClick="extraTime();"><img src='./images/clock.png'></button>
 </div>
 <div id="incremental">
     <h5 id='crono'>00:00:00</h5>
