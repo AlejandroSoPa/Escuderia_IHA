@@ -1,8 +1,3 @@
-* Test Question?
-- Option A
-- Option B
-+ Correct Option
-- Option C
 * ¿Más Mundiales?
 - Jamaica
 - Francia
