@@ -545,4 +545,16 @@ text {
     background-color: #42393b;
     color: #fff;
 }
+
+.containerformFeedback {
+    width: 100%;
+    align-items: center;
+}
+
+.formFeedback {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: red;
+}
   

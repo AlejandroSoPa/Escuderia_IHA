@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="cat">
 <head>
@@ -10,7 +11,7 @@
 </head>
 <body>
     <h1>Formulari de creació de preguntes</h1>
-    <div class="feedback"></div>
+    <div class="containerformFeedback"><h2 class="formFeedback"><?php echo $_SESSION['formFeedback']; ?></h2></div>
     <div class="create">
         <form action="./resources/checkForm.php" method="post" class="form">
             <label for="questionLang">Idioma de la pregunta:</label>
