@@ -11,7 +11,8 @@
 </head>
 <body>
     <h1>Formulari de creació de preguntes</h1>
-    <div class="containerformFeedback"><h2 class="formFeedback"><?php echo $_SESSION['formFeedback']; ?></h2></div>
+    <div class="containerformFeedbackIncorrect"><h2 class="formFeedback"><?php echo $_SESSION['formFeedback']; ?></h2></div>
+    <div class="containerformFeedbackCorrect"><h2 class="formFeedback"><?php echo $_SESSION['formFeedbackOK']; ?></h2></div>
     <div class="create">
         <form action="./resources/checkForm.php" method="post" class="form">
             <label for="questionLang">Idioma de la pregunta:</label>
