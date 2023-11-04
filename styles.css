@@ -458,6 +458,7 @@ text {
     height: 2.5rem;
     padding: 0 1.25rem;
     border: 1px solid #42393b;
+    box-shadow: 1px 1px 0px #42393b;
     border-radius: 5px;
     margin: 0.625rem auto;
     transition: all 250ms;
@@ -554,6 +555,7 @@ text {
     margin-right: auto;
     margin-bottom: 10px;
     background-color: red;
+    border: 5px solid rgb(168, 15, 15);
     border-radius: 5px;
 }
 
@@ -565,6 +567,7 @@ text {
     margin-right: auto;
     margin-bottom: 10px;
     background-color: green;
+    border: 5px solid rgb(21, 97, 21);
     border-radius: 5px;
 }
 

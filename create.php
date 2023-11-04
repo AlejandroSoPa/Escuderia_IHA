@@ -10,9 +10,21 @@
     <link rel="icon" href="./images/question-icon.svg" type="image/png">
 </head>
 <body>
+    <?php
+    if (!isset($_SESSION["login"])) {
+        http_response_code(403);
+        echo "<h1>403 Forbidden</h1>";
+        ?>
+        <form action='index.php'>
+            <input id='btnIniciWin' visibility:visible type='submit' value="Tornar a l'Inici">
+        </form>
+        <?php
+        exit;
+    }
+    ?>
     <h1>Formulari de creació de preguntes</h1>
-    <div class="containerformFeedbackIncorrect"><h2 class="formFeedback"><?php echo $_SESSION['formFeedback']; ?></h2></div>
-    <div class="containerformFeedbackCorrect"><h2 class="formFeedback"><?php echo $_SESSION['formFeedbackOK']; ?></h2></div>
+    <?php if(isset($_SESSION['formFeedback'])) {echo "<div class='containerformFeedbackIncorrect'><h2 class='formFeedback'>" . $_SESSION['formFeedback'] . "</h2></div>";} ?>
+    <?php if(isset($_SESSION['formFeedbackOK'])) {echo "<div class='containerformFeedbackCorrect'><h2 class='formFeedback'>" . $_SESSION['formFeedbackOK'] . "</h2></div>";} ?>
     <div class="create">
         <form action="./resources/checkForm.php" method="post" class="form">
             <label for="questionLang">Idioma de la pregunta:</label>

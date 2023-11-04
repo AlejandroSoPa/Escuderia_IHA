@@ -26,8 +26,24 @@
         header("Location: ../create.php");
         exit;
     }
-    elseif (preg_match('/^[1-6]+$/', $_POST['questionLevel'])) { // ojo mirar de comprobar que solo sea nivel del 1 al 6 no mas y tambien el de catalan_...
-        $_SESSION['formFeedback'] = "Les respostes tenen un màxim de 40 caràcters.";
+    // Check the level value. If it is not between 1 and 6, the user is trying to fool us
+    // Check the selected language. If it is not between the 3 languages specified in the array, the user is trying to fool us
+    $correctLanguage = false;
+    $languagesArray = ["catalan_", "english_", "spanish_"];
+    foreach ($languagesArray as $lang) {
+        if ($lang == $_POST['questionLang']) {
+            $correctLanguage = true;
+        }
+    }
+    $correctLevel = false;
+    for ($i=1; $i <= 6; $i++) { 
+        if ($i . "" == $_POST['questionLevel']) {
+            $correctLevel = true;
+            break;
+        }
+    }
+    if (!$correctLevel || !$correctLanguage) {
+        $_SESSION['formFeedback'] = "T'observem i no ens agrada que facis això.";
         header("Location: ../create.php");
         exit;
     }
