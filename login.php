@@ -12,10 +12,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Log in</title>
 </head>
 <body>
-    <div>
+    <div class="log">
         <h2><?php echo $logIn ?></h2>
         <form method="post">
             <label for="username"><?php echo $userName ?>:</label>

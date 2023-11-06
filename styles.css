@@ -439,3 +439,15 @@ text {
 .wildCard:disabled img {
     opacity: 0.3;
 }
+.log {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    width: 30%;
+    border: 5px solid #42393b;
+    box-shadow: 6px 6px 0px #42393b;
+    border-radius: 5px;
+    overflow: hidden;
+    
+}
