@@ -1,8 +1,8 @@
-* ¿Cuál es el país con más copas del mundo?
-- Jamaica
-- Francia
-- Inglaterra
-+ Brasil
+* ¿Cual es el pais que tiene el mayor numero de colonias del mundo?
+- Rusia
++ Francia
+- Dinamarca
+- Portugal
 * ¿Cuál es el país con más guerras ganadas?
 - Australia
 - Canadá

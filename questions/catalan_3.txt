@@ -1,8 +1,8 @@
-* Quin és el país amb més copes del món?
-- Jamaica
-- França
-- Anglaterra
-+ Brasil
+* Quin és el país amb més colònies al món? 
+- Rússia 
++ França 
+- Dinamarca 
+- Portugal
 * Quin és el país amb més guerres guanyades?
 - Austràlia
 - Canadà
