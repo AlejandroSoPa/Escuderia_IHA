@@ -47,7 +47,53 @@
         header("Location: ../create.php");
         exit;
     }
-    elseif(isset($_SESSION['formFeedback'])) {
+    if(isset($_FILES['image'])) {
+        $archivo = $_FILES['image'];
+    
+        // Comprueba si se subió un archivo
+        if ($archivo['error'] === UPLOAD_ERR_OK) {
+            // Comprueba si es una imagen
+            $infoImagen = getimagesize($archivo['tmp_name']);
+            if ($infoImagen !== false) {
+                /* MIRAR ESTO
+                // Ruta al archivo JSON
+                $jsonFile = 'tu_archivo.json';
+
+                // Lee el contenido actual del archivo JSON
+                $jsonData = file_get_contents($jsonFile);
+
+                // Decodifica el contenido JSON en un array asociativo
+                $data = json_decode($jsonData, true);
+
+                // Agrega nuevos datos al array
+                $newData = array(
+                    "Nueva Pregunta" => "Ruta/NuevaImagen.jpg",
+                    "Otra Pregunta" => "Ruta/OtraImagen.jpg",
+                    // Agrega todas las nuevas preguntas y rutas aquí
+                );
+
+                $data = array_merge($data, $newData);
+
+                // Convierte el array asociativo en JSON nuevamente
+                $jsonUpdated = json_encode($data, JSON_PRETTY_PRINT);
+
+                // Escribe el JSON actualizado de vuelta al archivo
+                file_put_contents($jsonFile, $jsonUpdated);
+
+                echo "Contenido agregado al archivo JSON con éxito.";
+                */
+            } else {
+                $_SESSION['formFeedback'] = "El fitxer no és una imatge vàlida.";
+                header("Location: ../create.php");
+                exit;
+            }
+        } else {
+            $_SESSION['formFeedback'] = "Error al carregar la imatge";
+            header("Location: ../create.php");
+            exit;
+        }
+    }
+    if(isset($_SESSION['formFeedback'])) {
         unset($_SESSION['formFeedback']);
     }
 
