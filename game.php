@@ -63,6 +63,10 @@ $incorrectAnswerText = trans('incorrectAnswer', $_SESSION['lang']);
 $publicWildcardText = trans('publicWildCard', $_SESSION['lang']);
 $publicWildcardFeedback = trans('publicWildCardFeedback', $_SESSION['lang']);
 $closeButtonText = trans('close', $_SESSION['lang']);
+$callTitle = trans('callTitle',$_SESSION['lang']);
+$callText = trans('callText', $_SESSION['lang']);
+$responseCall = trans('responseCall', $_SESSION['lang']);
+$sendCall = trans('sendCall', $_SESSION['lang']);
 
 echo "<!DOCTYPE html>";
 echo "<html lang='{$_SESSION['lang']}'>";
@@ -173,6 +177,15 @@ echo "   <h1>$gameTittle</h1>";
         <div id="loading" class="loading"></div>
         <svg id="chart"></svg>
         <button onclick="hidePublicWildCard()" class="standardButton"><?php echo $closeButtonText; ?></button>
+    </div>
+</div>
+<div id="popup_call" class="popup_call">
+    <div class="popup-content_call">
+        <?php echo "<h1>$callTitle</h1>";
+            echo "<p>$callText</p>";
+            echo "<div id='image' class='image'><img src='./images/call.png' id='callImage' name='callImage'></div>";
+            echo "<input type='number' id='userResponse' name='userResponse'></input>";
+            echo "<button onClick=\"callChangePopUp('$responseCall')\" class='standardButton'>$sendCall</button>";?>
     </div>
 </div>
 <script src="questionsInteraction.js"></script>

@@ -26,7 +26,11 @@ return [
     To view instructions on enabling JavaScript in your browser, click.",
     'popUpTime' => 'Your time has been:',
     'tempsColumn' => 'Time',
-    'easterEgg' => 'You have found the easter egg!'
+    'easterEgg' => 'You have found the easter egg!',
+    'callTitle' => 'Call Wildcard',
+    'callText' => 'Now you will have to memorize how many times the notification sounds and then respond to it in the text field below. You have visual and sound help.',
+    'responseCall' => 'The person you called said the correct answer is:',
+    'sendCall' => 'Send'
 ];
 
 ?>
