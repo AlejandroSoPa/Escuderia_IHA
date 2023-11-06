@@ -5,9 +5,12 @@ let respuesta3 = checkAnswer("form3", "respuesta3", "feedback3", "feedback33", "
 var audioCorrecto = document.getElementById('audioCorrecto');
 var audioIncorrecto = document.getElementById('audioIncorrecto');
 var audioPublic = document.getElementById('audioPublic');
+var audioCall = document.getElementById('audioCall');
+var callImage = document.getElementById("callImage");
 var correctAnswers = 0;
 var currentQuestion = 1; 
 var totalQuestions = 3;
+var comprobacion = 0;
 
 var countDownTimer;
 var time = initialTime;
@@ -135,6 +138,7 @@ async function cleanLocalStorage(){
     localStorage.removeItem("extraTime");
     localStorage.removeItem("publicWildcard");
     localStorage.removeItem("50Wildcard");
+    localStorage.removeItem("callWildcard");
 }
 
 function checkWildcard() {
@@ -143,6 +147,9 @@ function checkWildcard() {
     }
     if (localStorage.getItem("50Wildcard") == null) {
         document.getElementById('50Wildcard').disabled=false;
+    }
+    if (localStorage.getItem("callWildcard") == null) {
+        document.getElementById('callWildcard').disabled=false;
     }
 }
 
@@ -346,6 +353,182 @@ function fiftyPercentWildcard() {
         labelElement.innerText = newText;
     }
 }
+
+function callWildcard() {
+    localStorage.setItem("callWildcard", true);
+    document.getElementById("callWildcard").disabled = true;
+    var repeticion = getNRandom();
+    comprobacion = repeticion;
+    console.log(repeticion);
+    if (sessionLevel >= 2) {
+        stopCountDown();
+    }
+    popup_call.style.display = "block";
+    document.body.style.overflow = "hidden";
+    setTimeout(function() {
+        callAnimationAndSound(repeticion);
+    }, 10000);
+}
+
+function getNRandom() {
+  const numRandom = Math.floor(Math.random() * 10) + 1;
+  return numRandom;
+}
+
+function callAnimationAndSound(repeticion) {
+    if(repeticion>=1){
+        audioCall.play();
+        callImage.style.visibility = "visible";
+        setTimeout(function() {
+            disableImage(repeticion - 1);
+        }, 1000);
+    }
+}
+
+function disableImage(repeticion){
+    if(repeticion>=1){
+        callImage.style.visibility = "hidden";
+        setTimeout(function() {
+            callAnimationAndSound(repeticion);
+        }, 1000);
+    }
+}
+
+function callChangePopUp(responseCall){
+    console.log(comprobacion);
+    var valor = document.getElementById("userResponse").value;
+    if(comprobacion==valor){
+        if (correctAnswers == 0) {
+            numberOfAnswers = document.getElementById("list1").getElementsByTagName("li").length;
+            let correctAnswer = returnCorrectAnswerPosition("answer1");
+            switch (correctAnswer) {
+                case 0:
+                    correctAnswer = "A"
+                    break;
+                case 1:
+                    correctAnswer = "B"
+                    break;
+                case 2:
+                    correctAnswer = "C"
+                    break;
+                case 3:
+                    correctAnswer = "D"
+                    break;
+            }
+            alert(responseCall + ' ' + correctAnswer);
+            setTimeout(hideCallWildCard(), 3000);
+        }
+        else if (correctAnswers == 1) {
+            numberOfAnswers = document.getElementById("list2").getElementsByTagName("li").length;
+            let correctAnswer = returnCorrectAnswerPosition("answer2");
+            switch (correctAnswer) {
+                case 0:
+                    correctAnswer = "A"
+                    break;
+                case 1:
+                    correctAnswer = "B"
+                    break;
+                case 2:
+                    correctAnswer = "C"
+                    break;
+                case 3:
+                    correctAnswer = "D"
+                    break;
+            }
+            alert(responseCall, correctAnswer);
+            setTimeout(hideCallWildCard(), 3000);
+        } else {
+            numberOfAnswers = document.getElementById("list3").getElementsByTagName("li").length;
+            let correctAnswer = returnCorrectAnswerPosition("answer3");
+            switch (correctAnswer) {
+                case 0:
+                    correctAnswer = "A"
+                    break;
+                case 1:
+                    correctAnswer = "B"
+                    break;
+                case 2:
+                    correctAnswer = "C"
+                    break;
+                case 3:
+                    correctAnswer = "D"
+                    break;
+            }
+            alert(responseCall, correctAnswer);
+            setTimeout(hideCallWildCard(), 3000);
+        }
+    } else {
+        if (correctAnswers == 0) {
+            numberOfAnswers = document.getElementById("list1").getElementsByTagName("li").length;
+            let correctAnswer = returnCorrectAnswerPosition("answer1");
+            console.log("correctAnswer= ", correctAnswer)
+            switch (correctAnswer) {
+                case 0:
+                    correctAnswer = "C"
+                    break;
+                case 1:
+                    correctAnswer = "D"
+                    break;
+                case 2:
+                    correctAnswer = "B"
+                    break;
+                case 3:
+                    correctAnswer = "A"
+                    break;
+            }
+            alert(responseCall, correctAnswer);
+            setTimeout(hideCallWildCard(), 3000);
+        }
+        else if (correctAnswers == 1) {
+            numberOfAnswers = document.getElementById("list2").getElementsByTagName("li").length;
+            let correctAnswer = returnCorrectAnswerPosition("answer2");
+            switch (correctAnswer) {
+                case 0:
+                    correctAnswer = "B"
+                    break;
+                case 1:
+                    correctAnswer = "A"
+                    break;
+                case 2:
+                    correctAnswer = "D"
+                    break;
+                case 3:
+                    correctAnswer = "C"
+                    break;
+            }
+            alert(responseCall, correctAnswer);
+            setTimeout(hideCallWildCard(), 3000);
+        } else {
+            numberOfAnswers = document.getElementById("list3").getElementsByTagName("li").length;
+            let correctAnswer = returnCorrectAnswerPosition("answer3");
+            switch (correctAnswer) {
+                case 0:
+                    correctAnswer = "D"
+                    break;
+                case 1:
+                    correctAnswer = "C"
+                    break;
+                case 2:
+                    correctAnswer = "B"
+                    break;
+                case 3:
+                    correctAnswer = "A"
+                    break;
+            }
+            alert(responseCall, correctAnswer);
+            setTimeout(hideCallWildCard(), 3000);
+        }
+    }
+}
+
+function hideCallWildCard() {
+    if (sessionLevel >= 2) {
+        startCountDown();
+    }
+    popup_call.style.display = "none";
+    document.body.style.overflow = "auto";
+}
+
 
 // Checks if the session level is greater than 2
 // This is used to start the regresive counter for the first time

@@ -63,6 +63,10 @@ $incorrectAnswerText = trans('incorrectAnswer', $_SESSION['lang']);
 $publicWildcardText = trans('publicWildCard', $_SESSION['lang']);
 $publicWildcardFeedback = trans('publicWildCardFeedback', $_SESSION['lang']);
 $closeButtonText = trans('close', $_SESSION['lang']);
+$callTitle = trans('callTitle',$_SESSION['lang']);
+$callText = trans('callText', $_SESSION['lang']);
+$responseCall = trans('responseCall', $_SESSION['lang']);
+$sendCall = trans('sendCall', $_SESSION['lang']);
 
 echo "<!DOCTYPE html>";
 echo "<html lang='{$_SESSION['lang']}'>";
@@ -83,10 +87,12 @@ echo "   <h1>$gameTittle</h1>";
 <audio id="audioCorrecto" src="audio/acierto.mp3"></audio>
 <audio id="audioIncorrecto" src="audio/error.mp3"></audio>
 <audio id="audioPublic" src="audio/publicWildcard.mp3"></audio>
+<audio id="audioCall" src="audio/callWildcard.mp3"></audio>
 <div id="help">
+  <button onclick="callWildcard()" type="submit" class="wildCard" value="call" id="callWildcard" disabled="true"><img src='./images/call.png'></button>
   <button onclick="fiftyPercentWildcard()" type="submit" class="wildCard" value="50%" id="50Wildcard" disabled="true"><img src='./images/50-percent.png'></button>
   <button onclick="publicWildcard()" type="submit" class="wildCard" value="Public" id="publicWildcard" disabled="true"><img src='./images/group.png'></button>
-  <button type="submit" id="extraTime" class="wildCard" value="Temps Extra" disabled="true" onClick="extraTime();"><img src='./images/clock.png'></button>
+  <button type="submit" id="extraTime" class="wildCard" value="extraTime" disabled="true" onClick="extraTime();"><img src='./images/clock.png'></button>
 </div>
 <div id="incremental">
     <h5 id='crono'>00:00:00</h5>
@@ -171,6 +177,15 @@ echo "   <h1>$gameTittle</h1>";
         <div id="loading" class="loading"></div>
         <svg id="chart"></svg>
         <button onclick="hidePublicWildCard()" class="standardButton"><?php echo $closeButtonText; ?></button>
+    </div>
+</div>
+<div id="popup_call" class="popup_call">
+    <div class="popup-content_call">
+        <?php echo "<h1>$callTitle</h1>";
+            echo "<p>$callText</p>";
+            echo "<div id='image' class='image'><img src='./images/call.png' id='callImage' name='callImage'></div>";
+            echo "<input type='number' id='userResponse' name='userResponse'></input>";
+            echo "<button onClick=\"callChangePopUp('$responseCall')\" class='standardButton'>$sendCall</button>";?>
     </div>
 </div>
 <script src="questionsInteraction.js"></script>
