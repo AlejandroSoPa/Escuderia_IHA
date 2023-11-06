@@ -62,14 +62,31 @@ echo "<body>";
                         echo"<input type='text' id='game_won' name='game_won' style='display: none;'></input>";
                         echo"<br><input type='submit' value='$publishTitle'>";
                     echo"</form>";
-                    
+
+                    $censura = file("censura.txt");
                     if (isset($_POST["name"])) {
                         $texto = preg_replace('/\s+/', "", $_POST["name"]);
                         if(isset($texto)){
-                            //Código de validación de datos
-                            file_put_contents("records.txt", 
-                            file_get_contents("records.txt")."\n".trim($texto).",".$_POST["point"].",".$_POST["crono"].",".session_id());
-                            session_destroy();
+                            $validar = true;
+                            for ($i = 0; $i < count($censura); $i++) {
+                                if (str_contains($censura[$i], $texto)) {
+                                    $validar = false;
+                                    break;
+                                }
+                            }
+                            if ($validar) {
+                                file_put_contents("records.txt", 
+                                file_get_contents("records.txt")."\n".trim($texto).",".$_POST["point"].",".$_POST["crono"].",".session_create_id()());
+                                session_destroy();
+                            } else {
+                                unset($_POST["name"])
+                                ?>
+                                    <script>
+                                        window.alert("El nombre introducido no es apropiado, porfavor elige otro")
+                                    </script>
+                                <?php
+                            }
+                            
                         }
                     }
                 ?>
@@ -83,8 +100,12 @@ echo "<body>";
         </form>
         <?php
         }
-        if(isset($_POST["name"])){
-            header("Location:http://localhost:8080/");
+        if (isset($_POST["name"])) {
+            ?>
+            <script>
+                document.getElementById('publish').disabled = true;
+            </script>
+            <?php
         }
         ?>
 </body>

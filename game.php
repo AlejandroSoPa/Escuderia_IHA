@@ -3,7 +3,7 @@ session_start();
 include './resources/getPhotos.php';
 include './resources/myFunctions.php';
 if (!isset($_SESSION['counter'])) {
-    $_SESSION['counter'] = 0;
+    $_SESSION['counter'] = 15;
 }
 if (!isset($_SESSION['level'])) {
     $_SESSION['level'] = 1;
