@@ -1,13 +1,13 @@
-* Quin jugador australià té el salari més alt?
+* Quin jugador de futbol australià té el salari més alt?
 + Mathew Ryan
 - Harry Soutar
 - Milos Degenek
 - Leo Messi
-* Són els britànics puntuals?
-+ Sempre
-- Generalment
-- Potser
-- Mai
+* Com es valora la puntualitat a la cultura anglesa?
++ Positivament
+- Negativament
+- No es valora
+- Cap de las anteriors
 * De què tracta la tradició del Rolling Cheese?
 - Menjar formatge rodó
 + Llençar formatge per un pujol
@@ -28,7 +28,7 @@
 + Austràlia
 - Pakistán
 - Sudàfrica
-* Quin d'aquests països europeus segueix siguent una colonia de l'Imperi Britànic?
+* Quin d'aquests països europeus segueix sent una colonia de l'Imperi Britànic?
 + Gibraltar
 - Chipre
 - Illes del Canal

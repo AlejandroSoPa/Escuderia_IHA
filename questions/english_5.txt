@@ -3,11 +3,11 @@
 - Harry Souttar
 - Milos Degenejer
 - Leo Messi
-* Are the British punctual?
-+ Always
-- Usually
-- Maybe
-- Never
+* How is punctuality valued in English culture?
++ Positively
+- Negatively
+- It is not valued
+- None of the above
 * What is the Rolling Cheese tradition about?
 - Eat round cheese
 + Throw round cheese off a hille

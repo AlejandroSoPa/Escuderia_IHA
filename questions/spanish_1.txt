@@ -12,7 +12,7 @@
 * Ghandi murió por un...
 - Accidente
 - Infarto de miocardio
-- enfermedad
+- Enfermedad
  + Asesinado
 * ¿En qué siglo se creó el fútbol?
 + Siglo XIX
@@ -25,17 +25,17 @@
 - México
 -Brasil
 + Inglaterra
-    * La pelota solía ser...
-- Con Plástico
-+ Con Hojas
-- Con Cajas
+    * ¿De que materiales solia ser la pelota de futbol antiguamente?
+- De Plástico
++ De Hojas
+- De Cajas
 
-- Con ropa
-* ¿Quiénes fueron los que utilizaron la palabra “alborigen”?
-  - árabes
-  - asiáticos
-  - Español
- + Griegos
+- De ropa
+* ¿De que país era Leonardo da Vinci?
+  - Árabia Saudi
+  - China
+  - España
+ + Italia
 
 
 

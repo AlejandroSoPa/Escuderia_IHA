@@ -18,8 +18,8 @@
 - Ilness
 + Murdered
 * In What Century Was Soccer Created?
-+ Century Xix
-- Century Xx
++ Century XIX
+- Century XX
 - Century I
 - Now
 
@@ -35,11 +35,11 @@
   - With Boxes
   - With Clothes
 
-* Who Were The Ones Who Used The Word "Alborigen"?
-- Arabs
-- Asians
-- Spanish
-+ Italians - Greeks
+* What country was Leonardo da Vinci from?
+- Saudi Arabia
+- China
+- Spain
++ Italia
 
 
 
