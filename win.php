@@ -7,6 +7,7 @@
     $popUpTime = trans('popUpTime', $_SESSION['lang']);
     $backToStartButton = trans('backToStartButton', $_SESSION['lang']);
     $winRanking = trans('winRanking', $_SESSION['lang']);
+    $winFeedback = trans('winFeedback', $_SESSION['lang']);
 
 echo "<!DOCTYPE html>";
 echo "<html lang='{$_SESSION['lang']}'>";
@@ -62,29 +63,46 @@ echo "<body>";
                         echo"<input type='text' id='game_won' name='game_won' style='display: none;'></input>";
                         echo"<br><input type='submit' value='$publishTitle'>";
                     echo"</form>";
-                    
+
+                    $censura = file("censura.txt");
                     if (isset($_POST["name"])) {
                         $texto = preg_replace('/\s+/', "", $_POST["name"]);
                         if(isset($texto)){
-                            //Código de validación de datos
-                            file_put_contents("records.txt", 
-                            file_get_contents("records.txt")."\n".trim($texto).",".$_POST["point"].",".$_POST["crono"].",".session_id());
-                            session_destroy();
+                            $validar = true;
+                            for ($i = 0; $i < count($censura); $i++) {
+                                if (str_contains($censura[$i], $texto)) {
+                                    $validar = false;
+                                    break;
+                                }
+                            }
+                            if ($validar) {
+                                file_put_contents("records.txt", 
+                                file_get_contents("records.txt")."\n".trim($texto).",".$_POST["point"].",".$_POST["crono"].",".session_create_id());
+                            } else {
+                                unset($_POST["name"])
+                                ?>
+                                    <script>
+                                        window.alert("El nombre introducido no es apropiado, porfavor elige otro")
+                                    </script>
+                                <?php
+                            }
+                            
                         }
                     }
-                ?>
-            </div>
+            echo "</div>
         </div>
-        <form action='index.php'>
-            <input id='btnIniciWin' visibility:visible type='submit' value="<?php echo $backToStartButton; ?>">
-        </form>
-        <form action='ranking.php'>
-            <input id='btntRanking' visibility:visible type='submit' value="<?php echo $winRanking; ?>">
-        </form>
-        <?php
+        \n<a class='rankingButton' href='/index.php'>$backToStartButton</a>
+        <a id='ranking1' class='rankingButton' href='/ranking.php'>$winRanking</a>
+        <h2 id='winFeedback'>$winFeedback</h2>
+        ";
         }
-        if(isset($_POST["name"])){
-            header("Location:http://localhost:8080/");
+        if (isset($_POST["name"])) {
+            ?>
+            <script>
+                document.getElementById('publish').disabled = true;
+                document.getElementById('winFeedback').style.visibility = "visible";
+            </script>
+            <?php
         }
         ?>
 </body>

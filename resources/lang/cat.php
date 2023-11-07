@@ -2,7 +2,7 @@
 return [
     'welcome' => 'Benvolguts i Benvolgudes, ¿Qui Vol Ser Milionari?',
     'playButton' => 'JUGAR',
-    'rankingButton' => 'SALÓ DE LA FAMA',
+    'rankingButton' => 'CLASSIFICACIÓ',
     'instructions' => 'Podeu seleccionar el vostre idioma a la part superior dreta de la pantalla. Les instruccions del joc són senzilles. En prémer el botó "JUGAR", posarem a prova els vostres coneixements. Apareixerà una pregunta amb 4 possibles respostes. Feu clic a la resposta correcta si voleu convertir-vos en milionari. Molta sort!',
     'gameTittle' => 'JOC',
     'nextButton' => 'Següent',
@@ -15,9 +15,9 @@ return [
     'winTitle' => 'Felicitats! Has guanyat',
     'publishTitle' => 'Publicar',
     'popUpTitle' => 'Introdueix el teu nom',
-    'winRanking' => 'SALÓ DE LA FAMA',
+    'winRanking' => 'Classificació',
     'loseTitle' => 'Fi del Joc! Has perdut!',
-    'loseRanking' => 'SALÓ DE LA FAMA',
+    'loseRanking' => 'Classificació',
     'publicWildCard' => 'Comodí del públic',
     'publicWildCardFeedback' => 'Esperant que el públic voti...',
     'close' => 'Tancar',
@@ -35,7 +35,8 @@ return [
     'callTitle' => 'Comodi de la trucada',
     'callText' => 'Ara hauràs de memoritzar quantes vegades sona la notificació per després respondre-ho al camp de text de sota. Tens ajuda visual i sonora.',
     'responseCall' => 'La persona de la trucada ha dit que la resposta correcta es:',
-    'sendCall' => 'Envia'
+    'sendCall' => 'Envia',
+    'winFeedback' => 'Has publicat la teva puntuació en la clasificació'
 ];
 
 ?>

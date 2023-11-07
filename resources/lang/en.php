@@ -31,6 +31,8 @@ return [
     'callText' => 'Now you will have to memorize how many times the notification sounds and then respond to it in the text field below. You have visual and sound help.',
     'responseCall' => 'The person you called said the correct answer is:',
     'sendCall' => 'Send',
+    'winFeedback' => 'You have publish your score in the Hall of Fame',
+    'sendCall' => 'Send',
     'login'=> 'Log in',
     'username'=>'Username',
     'password'=>'Password',
