@@ -1,7 +1,5 @@
 <?php
 session_start();
-session_destroy();
-session_start();
 include './resources/JsNotEnable.php';
 include './resources/myFunctions.php';
 if (isset($_SESSION['counter'])) {

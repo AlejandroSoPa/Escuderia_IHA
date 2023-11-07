@@ -78,6 +78,10 @@ echo "<body>";
                             if ($validar) {
                                 file_put_contents("records.txt", 
                                 file_get_contents("records.txt")."\n".trim($texto).",".$_POST["point"].",".$_POST["crono"].",".session_create_id());
+                                $lenguaje = $_SESSION['lang'];
+                                session_destroy();
+                                session_start();
+                                $_SESSION['lang'] = $lenguaje;
                             } else {
                                 unset($_POST["name"])
                                 ?>
@@ -91,7 +95,7 @@ echo "<body>";
                     }
             echo "</div>
         </div>
-        \n<a class='rankingButton' href='/index.php'>$backToStartButton</a>
+        <a class='rankingButton' href='/index.php'>$backToStartButton</a>
         <a id='ranking1' class='rankingButton' href='/ranking.php'>$winRanking</a>
         <h2 id='winFeedback'>$winFeedback</h2>
         ";
