@@ -15,7 +15,6 @@
             header("Location: ../create.php");
             exit;
     }
-    
     elseif (strlen($_POST["question"]) > 116) {
         $_SESSION['formFeedback'] = "La pregunta no pot tindre més de 116 caràcters";
         header("Location: ../create.php");
@@ -47,12 +46,54 @@
         header("Location: ../create.php");
         exit;
     }
-    elseif(isset($_SESSION['formFeedback'])) {
+    if(isset($_FILES['image'])) {
+        $archivo = $_FILES['image'];
+    
+        // Check if there is an error with the uploaded file
+        if ($archivo['error'] === UPLOAD_ERR_OK) {
+            // Check if it is an image
+            $infoImagen = getimagesize($archivo['tmp_name']);
+            if ($infoImagen !== false) {
+                $jsonRoute = 'questionsWithPhotos.json';
+
+                // Read the actual content of the JSON
+                $jsonData = file_get_contents($jsonRoute);
+
+                // Decode the content of the JSON into an associative array
+                $data = json_decode($jsonData, true);
+
+                // Add new data to the array
+                $imgExtension = pathinfo($_FILES['image']['name'])['extension'];
+                $imgPath = "FotosPreguntas/" . $_POST['questionLevel'] . "/" . time() . "." . $imgExtension;
+                $newData = array(
+                    $_POST['question'] => $imgPath
+                );
+
+                $data = array_merge($data, $newData);
+
+                // Turns the associative array into a JSON with the new content
+                $jsonUpdated = json_encode($data, JSON_PRETTY_PRINT);
+
+                // Write the new content in the JSON
+                file_put_contents($jsonRoute, $jsonUpdated);
+
+                // Save the image into the corresponding folder
+                move_uploaded_file($_FILES['image']['tmp_name'], "../" . $imgPath);
+
+            } else {
+                $_SESSION['formFeedback'] = "El fitxer no és una imatge vàlida.";
+                header("Location: ../create.php");
+                exit;
+            }
+        }
+    }
+    if(isset($_SESSION['formFeedback'])) {
         unset($_SESSION['formFeedback']);
     }
 
+    // save the new question and turns to the create.php page
     $fileRoute = "../questions/".$_POST['questionLang'].$_POST['questionLevel'].".txt";
-    $newFileContent = file_get_contents($fileRoute)."\n* ".$_POST['question']."\n+ ".$_POST['correctAnswer']."\n- ".$_POST['incorrectAnswer1']."\n- ".$_POST['incorrectAnswer2']."\n- ".$_POST['incorrectAnswer3'];
+    $newFileContent = file_get_contents($fileRoute)."\n* ".trim($_POST['question'])."\n+ ".trim($_POST['correctAnswer'])."\n- ".trim($_POST['incorrectAnswer1'])."\n- ".trim($_POST['incorrectAnswer2'])."\n- ".trim($_POST['incorrectAnswer3']);
     file_put_contents($fileRoute, $newFileContent);
     $_SESSION['formFeedbackOK'] = "S'ha enregistrat la nova pregunta";
     header("Location: ../create.php");
