@@ -36,8 +36,8 @@ header button {
     margin-right: 10px;
     transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
-#log{
-    float: left;
+#log {
+    margin-right: 1220px;
 }
 
 header button:hover {
