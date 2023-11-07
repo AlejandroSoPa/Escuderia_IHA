@@ -7,6 +7,7 @@
     $popUpTime = trans('popUpTime', $_SESSION['lang']);
     $backToStartButton = trans('backToStartButton', $_SESSION['lang']);
     $winRanking = trans('winRanking', $_SESSION['lang']);
+    $winFeedback = trans('winFeedback', $_SESSION['lang']);
 
 echo "<!DOCTYPE html>";
 echo "<html lang='{$_SESSION['lang']}'>";
@@ -76,7 +77,7 @@ echo "<body>";
                             }
                             if ($validar) {
                                 file_put_contents("records.txt", 
-                                file_get_contents("records.txt")."\n".trim($texto).",".$_POST["point"].",".$_POST["crono"].",".session_create_id()());
+                                file_get_contents("records.txt")."\n".trim($texto).",".$_POST["point"].",".$_POST["crono"].",".session_create_id());
                                 session_destroy();
                             } else {
                                 unset($_POST["name"])
@@ -89,21 +90,18 @@ echo "<body>";
                             
                         }
                     }
-                ?>
-            </div>
+            echo "</div>
         </div>
-        <form action='index.php'>
-            <input id='btnIniciWin' visibility:visible type='submit' value="<?php echo $backToStartButton; ?>">
-        </form>
-        <form action='ranking.php'>
-            <input id='btntRanking' visibility:visible type='submit' value="<?php echo $winRanking; ?>">
-        </form>
-        <?php
+        \n<a class='rankingButton' href='/index.php'>$backToStartButton</a>
+        <a id='ranking1' class='rankingButton' href='/ranking.php'>$winRanking</a>
+        <h2 id='winFeedback'>$winFeedback</h2>
+        ";
         }
         if (isset($_POST["name"])) {
             ?>
             <script>
                 document.getElementById('publish').disabled = true;
+                document.getElementById('winFeedback').style.visibility = "visible";
             </script>
             <?php
         }

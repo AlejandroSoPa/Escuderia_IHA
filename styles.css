@@ -630,3 +630,7 @@ text {
 .JSdisabled_title{
     margin-top: 20%;
 }
+
+#winFeedback{
+    visibility: hidden;
+}
