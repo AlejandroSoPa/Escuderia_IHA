@@ -45,6 +45,9 @@ echo "<html lang='{$_SESSION['lang']}'>";
             echo "      <button type='submit' name='lang' value='es'><img src='./images/espana.png'></button>\n";
             echo "      <button type='submit' name='lang' value='cat'><img src='./images/catalonia.png'></button>\n";
             echo "  </form>\n";
+            echo "  <form method='POST' action='./login.php'>\n";
+            echo "      <button type='submit' name='log' id='log'> Log in </button>\n";
+            echo "  </form>";
             echo "  </header>\n";
 
             $welcomeMessage = trans('welcome', $_SESSION['lang']);
