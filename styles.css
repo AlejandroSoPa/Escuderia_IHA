@@ -419,6 +419,29 @@ h1 {
     color: #fff;
 }
 
+.autocenter {
+    text-align: center;
+}
+
+.standardA {
+    font-size: 25px;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    color: #42393b;
+    background: transparent;
+    border: 3px solid #42393b;
+    border-radius: 5px;
+    font-weight: normal;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 4px 4px 0px #42393b;
+    transition: background-color 0.3s, color 0.3s;
+}
+
 text {
     font-size: 30px;
     color: #42393b;
@@ -522,6 +545,7 @@ text {
     align-items: center;
     text-align: center;
     margin: 0 auto;
+    margin-bottom: 50px;
     width: 30%;
     border: 5px solid #42393b;
     box-shadow: 6px 6px 0px #42393b;
