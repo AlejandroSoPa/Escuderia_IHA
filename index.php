@@ -1,4 +1,5 @@
 <?php
+session_start();
 session_destroy();
 session_start();
 include './resources/JsNotEnable.php';
@@ -26,6 +27,16 @@ echo "<html lang='{$_SESSION['lang']}'>";
 </head>
 
 <body>
+    <noscript>
+        <div id="JSdisabled" class="JSdisabled">
+            <?php
+                //Mensaje de error, JS no esta habilitado en el navegador
+                $JsNotEnableMessage = trans('jsNone', $_SESSION['lang']);
+                $jsNotEnable = CheckJsEnable($JsNotEnableMessage);
+                echo "<h4 class='JSdisabled_title'>".$jsNotEnable."</h4>";
+            ?>
+        </div>
+    </noscript>
     <div class="mainDiv">
         <?php
             echo "  <header>\n";
@@ -53,14 +64,6 @@ echo "<html lang='{$_SESSION['lang']}'>";
                     echo "<img src='./images/gatos-bailando.gif'>";
                 echo "</div>";
             echo "</div>";
-            
-
-            echo "<noscript>";
-                //Mensaje de error, JS no esta habilitado en el navegador
-                $JsNotEnableMessage = trans('jsNone', $_SESSION['lang']);
-                $jsNotEnable = CheckJsEnable($JsNotEnableMessage);
-                echo $jsNotEnable;
-            echo "</noscript>";
         ?>
     </div>
     
