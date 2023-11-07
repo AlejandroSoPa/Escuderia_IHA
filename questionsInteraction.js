@@ -5,6 +5,7 @@ let respuesta3 = checkAnswer("form3", "respuesta3", "feedback3", "feedback33", "
 var audioCorrecto = document.getElementById('audioCorrecto');
 var audioIncorrecto = document.getElementById('audioIncorrecto');
 var audioPublic = document.getElementById('audioPublic');
+var audioHelp = document.getElementById('audioHelp');
 var correctAnswers = 0;
 var currentQuestion = 1; 
 var totalQuestions = 3;
@@ -96,7 +97,8 @@ async function startCountDown() {
         async function updateCountDown() {
             countDownElement.textContent = time;
             if (time <= 0) {
-                window.location.href = './resources/setNextLevel.php';
+                //countDownElement.textContent = 'Tiempo agotado';
+                window.location.href = 'lose.php';
 
             } else {
                 time--;
@@ -122,6 +124,7 @@ async function cleanLocalStorageTime(){
 }
 
 async function extraTime() {
+    audioHelp.play();
     time = time + 30;
     localStorage.setItem("extraTime",time);
     document.getElementById('extraTime').disabled=true;
@@ -314,39 +317,58 @@ function generatePublicProbability() {
       }
 }
 
-function fiftyPercentWildcard() {
+// checks if the session level is greater than 2
+checkSessionLevel();
+
+
+// Variable de control para rastrear si la función ya se ha ejecutado
+
+// Variable de control para rastrear si el botón "50%" ya se ha ejecutado
+
+// Variable de control para rastrear si el botón "50%" ya se ha ejecutado
+let fiftyPercentUsed = false;
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Obtener el botón "50%" por su id
+    const fiftyPercentButton = document.getElementById("50Wildcard");
     localStorage.setItem("50Wildcard", true);
-    document.getElementById("50Wildcard").disabled = true;
-    // Obtains the current question id. Replaces "question1" with the correct id
-    const currentQuestionId = "question" + currentQuestion;
-    // Obtains all of the <li> elements inside the answers list of the actual question
-    const listaRespuestas = document.querySelectorAll(`#${currentQuestionId} .answer-list li`);
 
-    // Counter to keep track of hidden responses
-    let respuestasOcultas = 0;
+    // Agregar un manejador de eventos al hacer clic en el botón
+    fiftyPercentButton.addEventListener("click", function () {
+        audioHelp.play();
+        // Verificar si el botón "50%" ya se ha utilizado
+        if (!fiftyPercentUsed) {
+            // Obtains the current question id. Replaces "question1" with the correct id
+            const currentQuestionId = "question" + currentQuestion;
+            // Obtains all of the <li> elements inside the answers list of the actual question
+            const listaRespuestas = document.querySelectorAll(`#${currentQuestionId} .answer-list li`);
 
-    listaRespuestas.forEach(function (item) {
-        const radioInput = item.querySelector('input[type="radio"]');
-        const valorRespuesta = radioInput.value;
+            // Contador para llevar el seguimiento de respuestas ocultas
+            let respuestasOcultas = 0;
+            console.log();
+            // Iterar a través de los elementos de la lista de respuestas de la pregunta actual
+            listaRespuestas.forEach(function (item) {
+                // Obtener el input de tipo radio en cada elemento <li>
+                const radioInput = item.querySelector('input[type="radio"]');
+                // Obtener el valor del input de tipo radio
+                const valorRespuesta = radioInput.value;
 
-        // Check if the value of the answer starts with "-" and two answers have not been hidden yet
-        if (valorRespuesta.startsWith("-") && respuestasOcultas < 2) {
-            // Delete the <li> element
-            item.remove();
-            respuestasOcultas++;
+                // Verificar si el valor de la respuesta comienza con "-" y aún no se han ocultado dos respuestas
+                if (valorRespuesta.startsWith("-") && respuestasOcultas < 2) {
+                    // Ocultar el elemento <li>
+                    item.style.display = "none";
+                    respuestasOcultas++;
+                }
+            });
+
+            // Marcar el botón "50%" como utilizado
+            fiftyPercentUsed = true;
+
+            // Deshabilitar el botón "50%" después de usarlo
+            fiftyPercentButton.disabled = true;
         }
     });
-    // We replace the first character of each label with new letters from A to B
-    const letters = ["A", "B", "C", "D"];
-    const labelList = document.querySelectorAll(`#${currentQuestionId} .answer-list li`);
-    for (let i = 0; i < labelList.length; i++) {
-        // Obtains the <label> on each <li> element
-        const labelElement = labelList[i].querySelector('label');
-        const newText = letters[i] + labelElement.innerText.substring(1);
-        labelElement.innerText = newText;
-    }
-}
 
-// Checks if the session level is greater than 2
-// This is used to start the regresive counter for the first time
-checkSessionLevel();
+    // Aquí debes agregar código para habilitar nuevamente el botón "50%" cuando vuelvas a la página de inicio (index).
+    // Puedes hacer esto mediante un enlace o un botón en la página de inicio que restablezca la variable fiftyPercentUsed y habilite el botón.
+});

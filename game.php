@@ -82,6 +82,7 @@ echo "   <h1>$gameTittle</h1>";
 ?>
 <audio id="audioCorrecto" src="audio/acierto.mp3"></audio>
 <audio id="audioIncorrecto" src="audio/error.mp3"></audio>
+<audio id="audioHelp" src="audio/help.mp3"></audio>
 <audio id="audioPublic" src="audio/publicWildcard.mp3"></audio>
 <div id="help">
   <button onclick="fiftyPercentWildcard()" type="submit" class="wildCard" value="50%" id="50Wildcard" disabled="true"><img src='./images/50-percent.png'></button>
