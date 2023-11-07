@@ -78,7 +78,6 @@ echo "<body>";
                             if ($validar) {
                                 file_put_contents("records.txt", 
                                 file_get_contents("records.txt")."\n".trim($texto).",".$_POST["point"].",".$_POST["crono"].",".session_create_id());
-                                session_destroy();
                             } else {
                                 unset($_POST["name"])
                                 ?>
