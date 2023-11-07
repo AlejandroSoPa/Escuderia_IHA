@@ -37,7 +37,9 @@ return [
     'username'=>'Username',
     'password'=>'Password',
     'submit' => 'Submit',
-    'feedbackNotLog'=>'Incorrect credentials, failed login'
+    'feedbackNotLog'=>'Incorrect credentials, failed login',
+    'cronoTitle' => 'Time playing',
+    'timeTitle' => 'Time to reply'
 ];
 
 ?>

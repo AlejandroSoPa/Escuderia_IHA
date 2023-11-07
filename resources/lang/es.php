@@ -39,7 +39,9 @@ return [
     'callText' => 'Ahora tendras que memorizar cuantas veces suena la notificacion para luego responderlo en el campo de texto de debajo. Tienes ayuda visual y sonora.',
     'responseCall' => 'La persona que has llamado ha dicho que la respuesta correcta es:',
     'sendCall' => 'Enviar',
-    'winFeedback' => 'Has publicado tu puntuacion en la clasificacion'
+    'winFeedback' => 'Has publicado tu puntuacion en la clasificacion',
+    'cronoTitle' => 'Tiempo de juego',
+    'timeTitle' => 'Tiempo para responder'
 ];
 
 ?>

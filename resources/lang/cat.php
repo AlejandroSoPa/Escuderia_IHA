@@ -36,7 +36,9 @@ return [
     'callText' => 'Ara hauràs de memoritzar quantes vegades sona la notificació per després respondre-ho al camp de text de sota. Tens ajuda visual i sonora.',
     'responseCall' => 'La persona de la trucada ha dit que la resposta correcta es:',
     'sendCall' => 'Envia',
-    'winFeedback' => 'Has publicat la teva puntuació en la clasificació'
+    'winFeedback' => 'Has publicat la teva puntuació en la clasificació',
+    'cronoTitle' => 'Temps de joc',
+    'timeTitle' => 'Temps per a respondre'
 ];
 
 ?>

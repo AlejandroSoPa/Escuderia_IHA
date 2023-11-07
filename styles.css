@@ -58,11 +58,22 @@ header button img {
 #incremental{
     display: flex;
     position: fixed;
-    margin-left: 30px;
-    flex-direction: row-reverse;
+    margin-left: 1%;
+    margin-bottom: 0%;
+    flex-direction: column;
+    justify-content: flex-start;
     left: 0;
     font-size: 25px;
 }
+
+#cronoTitle{
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+#crono{
+    margin-top: 0%;
+}
+
 .container{
     padding-left: 33%;
     padding-right: 33%;

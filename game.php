@@ -68,6 +68,8 @@ $callTitle = trans('callTitle',$_SESSION['lang']);
 $callText = trans('callText', $_SESSION['lang']);
 $responseCall = trans('responseCall', $_SESSION['lang']);
 $sendCall = trans('sendCall', $_SESSION['lang']);
+$cronoTitle = trans('cronoTitle', $_SESSION['lang']);
+$timeTitle = trans('timeTitle', $_SESSION['lang']);
 
 echo "<!DOCTYPE html>";
 echo "<html lang='{$_SESSION['lang']}'>";
@@ -97,7 +99,8 @@ echo "   <h1>$gameTittle</h1>";
   <button type="submit" id="extraTime" class="wildCard" value="extraTime" disabled="true" onClick="extraTime();"><img src='./images/clock.png'></button>
 </div>
 <div id="incremental">
-    <h5 id='crono'>00:00:00</h5>
+    <h3 id="cronoTitle"><?php echo $cronoTitle; ?></h3>
+    <h3 id='crono'>00:00:00</h3>
 </div>
 
 <div class="question" id="question1">
@@ -105,6 +108,12 @@ echo "   <h1>$gameTittle</h1>";
     <?php
     $preguntaActual = $preguntasAleatorias[0]['pregunta'];
     getPhotoAndPath($preguntaActual, $preguntasConFotos);
+    ?>
+    <?php
+    if($_SESSION['level']>1){
+        $level = $_SESSION['level'];
+        echo "<h3 id='cronoTitle'>$timeTitle</h3>";
+    };
     ?>
     <h3 class="countDownTimer" id="countDownTimer1"></h3>
     <form id="form1" class="answer-form">
@@ -128,6 +137,12 @@ echo "   <h1>$gameTittle</h1>";
     $preguntaActual = $preguntasAleatorias[1]['pregunta'];
     getPhotoAndPath($preguntaActual, $preguntasConFotos);
     ?>
+    <?php
+    if($_SESSION['level']>1){
+        $level = $_SESSION['level'];
+        echo "<h3 id='cronoTitle'>$timeTitle</h3>";
+    };
+    ?>
     <h3 class="countDownTimer" id="countDownTimer2"></h3>
     <form id="form2">
         <ul class="answer-list" id="list2">
@@ -149,6 +164,12 @@ echo "   <h1>$gameTittle</h1>";
     <?php
     $preguntaActual = $preguntasAleatorias[2]['pregunta'];
     getPhotoAndPath($preguntaActual, $preguntasConFotos);
+    ?>
+    <?php
+    if($_SESSION['level']>1){
+        $level = $_SESSION['level'];
+        echo "<h3 id='cronoTitle'>$timeTitle</h3>";
+    };
     ?>
     <h3 class="countDownTimer" id="countDownTimer3"></h3>
     <form id="form3">
