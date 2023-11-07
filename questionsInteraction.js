@@ -435,7 +435,7 @@ function callChangePopUp(responseCall){
                     correctAnswer = "D"
                     break;
             }
-            alert(responseCall, correctAnswer);
+            alert(responseCall + ' ' + correctAnswer);
             setTimeout(hideCallWildCard(), 3000);
         } else {
             numberOfAnswers = document.getElementById("list3").getElementsByTagName("li").length;
@@ -454,7 +454,7 @@ function callChangePopUp(responseCall){
                     correctAnswer = "D"
                     break;
             }
-            alert(responseCall, correctAnswer);
+            alert(responseCall + ' ' +  correctAnswer);
             setTimeout(hideCallWildCard(), 3000);
         }
     } else {
@@ -476,7 +476,7 @@ function callChangePopUp(responseCall){
                     correctAnswer = "A"
                     break;
             }
-            alert(responseCall, correctAnswer);
+            alert(responseCall + ' ' + correctAnswer);
             setTimeout(hideCallWildCard(), 3000);
         }
         else if (correctAnswers == 1) {
@@ -496,7 +496,7 @@ function callChangePopUp(responseCall){
                     correctAnswer = "C"
                     break;
             }
-            alert(responseCall, correctAnswer);
+            alert(responseCall + ' ' + correctAnswer);
             setTimeout(hideCallWildCard(), 3000);
         } else {
             numberOfAnswers = document.getElementById("list3").getElementsByTagName("li").length;
@@ -515,7 +515,7 @@ function callChangePopUp(responseCall){
                     correctAnswer = "A"
                     break;
             }
-            alert(responseCall, correctAnswer);
+            alert(responseCall + ' ' + correctAnswer);
             setTimeout(hideCallWildCard(), 3000);
         }
     }
