@@ -83,11 +83,6 @@
 - Namibia
 + India
 - England
-* Test Question?
-- Option A
-- Option B
-+ Correct Option
-- Option C
 * More Fast Food?
 - Canada
 + India

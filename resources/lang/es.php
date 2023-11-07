@@ -29,7 +29,11 @@ return [
       en su navegador, haga click',
     'popUpTime' => 'Tu tiempo ha sido de:',
     'tempsColumn' => 'Tiempo',
-    'easterEgg' => 'Has encontrado el huevo de pascua!'
+    'easterEgg' => 'Has encontrado el huevo de pascua!',
+    'callTitle' => 'Comodin de la llamada',
+    'callText' => 'Ahora tendras que memorizar cuantas veces suena la notificacion para luego responderlo en el campo de texto de debajo. Tienes ayuda visual y sonora.',
+    'responseCall' => 'La persona que has llamado ha dicho que la respuesta correcta es:',
+    'sendCall' => 'Enviar'
 ];
 
 ?>
