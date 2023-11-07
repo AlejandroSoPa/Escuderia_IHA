@@ -34,7 +34,11 @@ return [
     'username'=>'Nombre de usuario',
     'password'=>'Contraseña',
     'submit' => 'Enviar',
-    'feedbackNotLog'=>'Credenciales incorrectas, inicio de sesión fallido'
+    'feedbackNotLog'=>'Credenciales incorrectas, inicio de sesión fallido',
+    'callTitle' => 'Comodin de la llamada',
+    'callText' => 'Ahora tendras que memorizar cuantas veces suena la notificacion para luego responderlo en el campo de texto de debajo. Tienes ayuda visual y sonora.',
+    'responseCall' => 'La persona que has llamado ha dicho que la respuesta correcta es:',
+    'sendCall' => 'Enviar'
 ];
 
 ?>
