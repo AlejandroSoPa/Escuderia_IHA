@@ -5,7 +5,6 @@ let respuesta3 = checkAnswer("form3", "respuesta3", "feedback3", "feedback33", "
 var audioCorrecto = document.getElementById('audioCorrecto');
 var audioIncorrecto = document.getElementById('audioIncorrecto');
 var audioPublic = document.getElementById('audioPublic');
-var audioHelp = document.getElementById('audioHelp');
 var audioCall = document.getElementById('audioCall');
 var callImage = document.getElementById("callImage");
 var correctAnswers = 0;
@@ -100,7 +99,6 @@ async function startCountDown() {
         async function updateCountDown() {
             countDownElement.textContent = time;
             if (time <= 0) {
-                //countDownElement.textContent = 'Tiempo agotado';
                 window.location.href = './resources/setNextLevel.php';
 
             } else {
@@ -127,7 +125,6 @@ async function cleanLocalStorageTime(){
 }
 
 async function extraTime() {
-    audioHelp.play();
     time = time + 30;
     localStorage.setItem("extraTime",time);
     document.getElementById('extraTime').disabled=true;
