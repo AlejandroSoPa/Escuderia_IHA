@@ -11,7 +11,7 @@
 </head>
 <body>
     <?php
-    /*if (!isset($_SESSION["login"])) {
+    if (!isset($_SESSION["login"])) {
         http_response_code(403);
         echo "<h1>403 Forbidden</h1>";
         ?>
@@ -20,7 +20,7 @@
         </form>
         <?php
         exit;
-    }*/
+    }
     ?>
     <h1>Formulari de creació de preguntes</h1>
     <?php if(isset($_SESSION['formFeedback'])) {echo "<div class='containerformFeedbackIncorrect'><h2 class='formFeedback'>" . $_SESSION['formFeedback'] . "</h2></div>";} ?>
