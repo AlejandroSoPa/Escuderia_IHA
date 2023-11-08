@@ -4,8 +4,8 @@
 - 2 World Cup
 - Never gone
 * Which way do the English people drive?
-+ In the left lane and the driver on the right.
-- In the right lane and the driver on the left.
++ The left lane, driver on right
+- The left right, driver on left
 - Like everyone.
 - To the other way
 * Which commonwealth country do you think has the best economic situation?
@@ -13,11 +13,11 @@
 - Canada
 - Pakistan
 - United Kingdom
-* What is the country with the most colonies in the world?
-- Russia
-+ France
-- Denmark
-- Portugal
+* What is the country with the most cups in the world?
+- Jamaica
+- France
+- England
++ Brazil
 * In what time of the day do the British drink tea?
 - 2 P.M
 - 1 P.M

@@ -36,6 +36,9 @@ header button {
     margin-right: 10px;
     transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
+#log {
+    margin-right: 1220px;
+}
 
 header button:hover {
     background-color: #9e956e;
@@ -99,7 +102,7 @@ header button img {
     transition: color 0.3s, background-color 0.3s;
 }
 
-#btnInici:hover , #buttonNext:hover {
+#btnLog:hover,#btnInici:hover , #buttonNext:hover {
     color: white;
     background-color: #42393b;
 }
@@ -427,6 +430,29 @@ h1 {
     color: #fff;
 }
 
+.autocenter {
+    text-align: center;
+}
+
+.standardA {
+    font-size: 25px;
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    color: #42393b;
+    background: transparent;
+    border: 3px solid #42393b;
+    border-radius: 5px;
+    font-weight: normal;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 4px 4px 0px #42393b;
+    transition: background-color 0.3s, color 0.3s;
+}
+
 text {
     font-size: 30px;
     color: #42393b;
@@ -475,6 +501,48 @@ text {
 .wildCard:disabled img {
     opacity: 0.3;
 }
+.log {
+    text-align: center;
+    width: 30%;
+    border: 5px solid #42393b;
+    box-shadow: 6px 6px 0px #42393b;
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 20px;
+    margin: 0 auto; /* Agrega esta propiedad para centrar horizontalmente */
+    position: relative; /* Agrega esta propiedad para posicionarlo de manera relativa */
+    top: 50%; /* Lleva el div hacia abajo en un 50% de su altura */
+    transform: translateY(30%); /* Alinea verticalmente el div respecto a sí mismo */
+
+}
+.username{
+    padding-top: 5%;
+    font-size: 20px;
+}
+.pswd{
+    font-size: 20px;
+}
+#btnLog{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    background: none;
+    color: inherit;
+    font-family: inherit;
+    border: 3px solid #42393b;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bolder;
+    height: 50px;
+    box-shadow: 4px 4px 0px #42393b;
+    transition: color 0.3s, background-color 0.3s;
+}
+.feedbackLog{
+    padding-bottom: 5%;
+    font-size: 20px;
+}
 
 #userResponse{
     margin-bottom: 1%;
@@ -488,6 +556,7 @@ text {
     align-items: center;
     text-align: center;
     margin: 0 auto;
+    margin-bottom: 50px;
     width: 30%;
     border: 5px solid #42393b;
     box-shadow: 6px 6px 0px #42393b;
@@ -571,6 +640,7 @@ text {
 
 .sendInput {
     font-size: 25px;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 30px;

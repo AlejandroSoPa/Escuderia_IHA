@@ -3,7 +3,7 @@
 + Azul Blanco Y Rojo
 - Azul, Negro, Rojo
 - Amarillo Rojo Azul
-* ¿Qué come habitualmente el Reino Unido?
+* ¿Qué se come habitualmente en el Reino Unido?
 - gofres
 - Sopa
 - Tocino
@@ -18,27 +18,27 @@
 - Pedro Sánchez
 - Dina Boluarte
 + Boris Johnson
-* ¿Cuánto duró aproximadamente la guerra entre Palestina e Israel?
-- 2 meses
-- 7 días
-- 2 años
-+ 11 Días
-* ¿Cuántos Días Hubo Guerra Con Violencia Entre Palestina E Israel?
-- 11 días
-- 2 meses
-+ 3 Días
-- Cada día de guerra
-* ¿Cuántas personas murieron en la guerra entre Palestina e Israel?
-- 3 personas
-- La mitad de la ciudad
-- 200 personas
-+ 44 personas
-* ¿Por qué son importantes los imperios británicos?
+* ¿Qué guerra tuvo lugar en 1967 en Gaza y otras áreas?
+- Guerra de Independencia de Israel
+- Guerra del Yom Ha'atzmaut
+- Guerra de Iom Kipur
++ Guerra de los Seis Días
+* ¿Cuál es el nombre del río que discurre en la frontera occidental de Israel?
+- Río Tigris
+- Río Nilo
++ Río Jordán
+- Río Éufrates
+* ¿Cuál es la capital de Israel?
+- Ramallah
+- Haifa
+- Tel Aviv
++ Jerusalén
+* ¿Por qué falta se recuerda al imperio británico?
 - Por su histórico
 + Por sus muertos
 - Por sus victorias
 - Por su dinero
-* Las ideas sobre el imperio en el Reino Unido han fluctuado a lo largo...
+* Las ideas sobre el imperio en el Reino Unido han perdurado a lo largo...
 - Victorias
 + Horarios
 - Monarquía

@@ -16,8 +16,6 @@ if ($_SESSION['lang'] == 'cat') {
     $fileRoute = 'questions/english_' . $_SESSION['level'] . '.txt';
 }
 
-// Especifica la carpeta principal, subcarpeta y nombre de archivo a buscar
-
 $rutaFoto = 'FotosPreguntas/1/GhandiDoFor.png';
 $rutaFoto2 = 'FotosPreguntas/1/SoccerCentury.jpg';
 
@@ -52,6 +50,9 @@ foreach ($lineas as $linea) {
         }
         $pregunta_actual = ['pregunta' => $linea = substr($linea, 2), 'respuestas' => []];
     }
+}
+if (!empty($pregunta_actual)) {
+    $preguntas[] = $pregunta_actual;
 }
 shuffle($preguntas);
 $preguntasAleatorias = array_slice($preguntas, 0, 3);
@@ -89,6 +90,7 @@ echo "   <h1>$gameTittle</h1>";
 ?>
 <audio id="audioCorrecto" src="audio/acierto.mp3"></audio>
 <audio id="audioIncorrecto" src="audio/error.mp3"></audio>
+<audio id="audioHelp" src="audio/help.mp3"></audio>
 <audio id="audioPublic" src="audio/publicWildcard.mp3"></audio>
 <audio id="audioCall" src="audio/callWildcard.mp3"></audio>
 <div id="help">

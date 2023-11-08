@@ -26,7 +26,7 @@
     <?php if(isset($_SESSION['formFeedback'])) {echo "<div class='containerformFeedbackIncorrect'><h2 class='formFeedback'>" . $_SESSION['formFeedback'] . "</h2></div>";} ?>
     <?php if(isset($_SESSION['formFeedbackOK'])) {echo "<div class='containerformFeedbackCorrect'><h2 class='formFeedback'>" . $_SESSION['formFeedbackOK'] . "</h2></div>";} ?>
     <div class="create">
-        <form action="./resources/checkForm.php" method="post" class="form">
+        <form action="./resources/checkForm.php" method="post" enctype="multipart/form-data" class="form">
             <label for="questionLang">Idioma de la pregunta:</label>
             <select id="questionLang" name="questionLang" required>
                 <option value="catalan_">Català</option>
@@ -59,9 +59,13 @@
             <input type="text" id="incorrectAnswer3" name="incorrectAnswer3" required class="form__input" placeholder="Opció incorrecta 3">
             <label for="incorrectAnswer3" class="form__label">Opció incorrecta 3</label>
 
+            <label for="imagen">Selecciona una imatge(opcional):</label>
+            <input type="file" name="image" id="image" accept="image/*">
+
             <input type="submit" value="Enviar" class="sendInput">
         </form>
     </div>
+    <div class="autocenter"><a class="standardA" href="/">Tornar a l'Inici</a></div>
     
 </body>
 </html>
