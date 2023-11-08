@@ -37,11 +37,15 @@ echo "<html lang='{$_SESSION['lang']}'>";
             ;
             $file = fopen("records.txt", "r");
             $ranking = [];
+            $contador = 0;
             while (!feof($file)) {
                 $line = fgets($file);
                 $users = explode(",", $line);
-                $ranking[$users[3]." ".$users[0]] = $users[1];
-                $tiempo[$users[3]." ".$users[0]] = $users[2];
+                if(!empty($users[0])) {
+                    $ranking[$users[3]." ".$users[0]] = $users[1];
+                    $tiempo[$users[3]." ".$users[0]] = $users[2];
+                    $contador++;
+                }
             }
             arsort($ranking);
             foreach ($ranking as $order => $valor) {    

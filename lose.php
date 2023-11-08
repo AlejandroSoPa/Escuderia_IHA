@@ -4,41 +4,34 @@
     $loseTitle = trans('loseTitle', $_SESSION['lang']);
     $backToStartButton = trans('backToStartButton', $_SESSION['lang']);
     $loseRanking = trans('loseRanking', $_SESSION['lang']);
-?>
-<!DOCTYPE html>
-<html lang="es">
+    $lose = trans('lose', $_SESSION['lang']);
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="styles.css">
-</head>
+echo "<!DOCTYPE html>";
+echo "<html lang='{$_SESSION['lang']}'>";
 
-<body>
-<?php
+echo "<head>";
+    echo "<meta charset='UTF-8'>";
+    echo "<title>$lose</title>";
+    echo "<meta name='viewport' content='width=device-width, initial-scale=1.0'>";
+    echo "<link rel='stylesheet' href='styles.css'>";
+    echo "<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Kanit'>";
+    echo "<link rel=\"icon\" href=\"./images/question-icon.svg\" type=\"image/png\">";
+echo "</head>";
+    
+    echo "<body>";
     if (!isset($_POST["game_lose"])) {
         http_response_code(403);
-        echo "<h1>403 Forbidden</h1>";
-        ?>
-        <form action='index.php'>
-            <input id='btnIniciWin' visibility:visible type='submit' value="<?php echo $backToStartButton; ?>">
-        </form>
-        <?php
+        echo "<h1>403 Forbidden</h1>
+            <a class='rankingButton' href='/index.php'>$backToStartButton</a>";
         exit;
     } else {
         echo"<audio autoplay>";
             echo"<source src='audio/GameOver.mp3' type='audio/mpeg'>";
         echo"</audio>";
-        echo "<h1>$loseTitle</h1>";
-        ?>
-        <form action='index.php'>
-            <input id='btnIniciWin' visibility:visible type='submit' value="<?php echo $backToStartButton; ?>">
-        </form>
-        <form action='ranking.php'>
-            <input id='btntRanking' visibility:visible type='submit' value='<?php echo $loseRanking; ?>'>
-        </form>
-    <?php
+        echo "<h1>$loseTitle</h1>
+        <a class='rankingButton' href='/index.php'>$backToStartButton</a>
+        <a id='ranking1' class='rankingButton' href='/ranking.php'>$loseRanking</a>
+        ";
     }
     ?>
 </body>

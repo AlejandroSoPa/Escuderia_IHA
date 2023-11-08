@@ -1,6 +1,7 @@
 <?php
     session_start();
     include './resources/myFunctions.php';
+    $win = trans('win', $_SESSION['lang']);
     $winTitle = trans('winTitle', $_SESSION['lang']);
     $publishTitle = trans('publishTitle', $_SESSION['lang']);
     $popUpTitle = trans('popUpTitle', $_SESSION['lang']);
@@ -14,22 +15,19 @@ echo "<html lang='{$_SESSION['lang']}'>";
 
 echo "<head>";
     echo "<meta charset='UTF-8'>";
+    echo "<title>$win</title>";
     echo "<meta name='viewport' content='width=device-width, initial-scale=1.0'>";
     echo "<link rel='stylesheet' href='styles.css'>";
     echo "<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Kanit'>";
-    echo "<link rel='icon' href='./images/question-icon.svg' type='image/png'>";
+    echo "<link rel=\"icon\" href=\"./images/question-icon.svg\" type=\"image/png\">";
 echo "</head>";
 
 echo "<body>";
 
     if (!isset($_POST["game_won"])) {
         http_response_code(403);
-        echo "<h1>403 Forbidden</h1>";
-        ?>
-        <form action='index.php'>
-            <input id='btnIniciWin' visibility:visible type='submit' value="<?php echo $backToStartButton; ?>">
-        </form>
-        <?php
+        echo "<h1>403 Forbidden</h1>
+            <a class='rankingButton' href='/index.php'>$backToStartButton</a>";
         exit;
     } else {
         echo"<audio autoplay>";
@@ -37,7 +35,7 @@ echo "<body>";
         echo"</audio>";
         echo"<h1>$winTitle</h1>";
         ?>
-        <button id="publish" onclick="document.getElementById('aviso').setAttribute('data-on','on')"><?php echo $publishTitle; ?></button><br>
+        <a id="publish" onclick="document.getElementById('aviso').setAttribute('data-on','on')" class='rankingButton'><?php echo $publishTitle; ?></a><br>
         <div class="panel" id="aviso" data-on="off" onclick="this.setAttribute('data-on','on')">
             <div>
                 <?php
@@ -95,6 +93,7 @@ echo "<body>";
                     }
             echo "</div>
         </div>
+        <br><br>
         <a class='rankingButton' href='/index.php'>$backToStartButton</a>
         <a id='ranking1' class='rankingButton' href='/ranking.php'>$winRanking</a>
         <h2 id='winFeedback'>$winFeedback</h2>

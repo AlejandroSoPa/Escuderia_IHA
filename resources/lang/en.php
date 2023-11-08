@@ -33,7 +33,9 @@ return [
     'sendCall' => 'Send',
     'winFeedback' => 'You have publish your score in the Hall of Fame',
     'cronoTitle' => 'Time playing',
-    'timeTitle' => 'Time to reply'
+    'timeTitle' => 'Time to reply',
+    'win' => 'WIN',
+    'lose' => 'LOSE'
 ];
 
 ?>

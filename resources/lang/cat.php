@@ -33,7 +33,9 @@ return [
     'sendCall' => 'Envia',
     'winFeedback' => 'Has publicat la teva puntuació en la clasificació',
     'cronoTitle' => 'Temps de joc',
-    'timeTitle' => 'Temps per a respondre'
+    'timeTitle' => 'Temps per a respondre',
+    'win' => 'WIN',
+    'lose' => 'LOSE'
 ];
 
 ?>
