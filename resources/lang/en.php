@@ -35,7 +35,8 @@ return [
     'cronoTitle' => 'Time playing',
     'timeTitle' => 'Time to reply',
     'win' => 'WIN',
-    'lose' => 'LOSE'
+    'lose' => 'LOSE',
+    'incorrectAnswerCall' => 'Looks like you failed the call wildcard minigame.'
 ];
 
 ?>

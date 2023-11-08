@@ -38,7 +38,8 @@ return [
     'cronoTitle' => 'Tiempo de juego',
     'timeTitle' => 'Tiempo para responder',
     'win' => 'WIN',
-    'lose' => 'LOSE'
+    'lose' => 'LOSE',
+    'incorrectAnswerCall' => 'Parece que has fallado el minijuego del comodin de la llamada.'
 ];
 
 ?>

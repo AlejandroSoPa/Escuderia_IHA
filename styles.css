@@ -104,7 +104,7 @@ header button img {
     background-color: #42393b;
 }
 
-#feedback1, #feedback11, #feedback2, #feedback22, #feedback3, #feedback33 {
+#feedback1, #feedback11, #feedback12, #feedback2, #feedback22, #feedback23, #feedback3, #feedback33, #feedback34 {
     display: none;
 } 
 .panel{

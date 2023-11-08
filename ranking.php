@@ -42,26 +42,30 @@ echo "<html lang='{$_SESSION['lang']}'>";
                 $line = fgets($file);
                 $users = explode(",", $line);
                 if(!empty($users[0])) {
-                    $ranking[$users[3]." ".$users[0]] = $users[1];
-                    $tiempo[$users[3]." ".$users[0]] = $users[2];
+                    $ranking[$users[0]." ".$contador][] = $users[1];
+                    $ranking[$users[0]." ".$contador][] = $users[2];
                     $contador++;
                 }
             }
             arsort($ranking);
             foreach ($ranking as $order => $valor) {    
-                echo "<tr>
-                        <td><p>".substr($order,strpos($order," "),strlen($order))."</p></td> 
-                        <td><p>".$valor."</p></td>
-                        ";
-                        foreach ($tiempo as $user => $time) {
-                            if(substr($order,0,strpos($order," "))===substr($user,0,strpos($user," "))){
-                                echo "<td><p>".$time."</p></td>";
-                            }
-                        }
-                echo"</tr>";
+                $username = substr($order, 0, strpos($order," "));
+                $last_publish = ((int)trim(substr($order,strpos($order," "),strlen($order))));
+                echo "<tr>";
+                if ($last_publish==$contador-1) {
+                    echo "<td style='font-size: 30px;' bgcolor='#75c9a3';>$username</td>";
+                    echo "<td style='font-size: 30px;' bgcolor='#75c9a3';>".$valor[0]."</td>";
+                    echo "<td style='font-size: 30px;' bgcolor='#75c9a3';>".$valor[1]."</td>";
+                } else {
+                    echo "<td style='font-size: 30px;'>$username</td>";
+                    echo "<td style='font-size: 30px;'>".$valor[0]."</td>";
+                    echo "<td style='font-size: 30px;'>".$valor[1]."</td>";
+                }
+                echo "</tr>";
             }
             fclose($file);
-            echo "</tbody></table><br>";
+            echo "</tbody>
+                </table><br>";
         ?>
     </div>
     <div class="centered-link">

@@ -35,7 +35,7 @@ echo "<body>";
         echo"</audio>";
         echo"<h1>$winTitle</h1>";
         ?>
-        <a id="publish" onclick="document.getElementById('aviso').setAttribute('data-on','on')" class='rankingButton'><?php echo $publishTitle; ?></a><br>
+        <button id="publish" onclick="document.getElementById('aviso').setAttribute('data-on','on')" class='rankingButton'><?php echo $publishTitle; ?></button><br>
         <div class="panel" id="aviso" data-on="off" onclick="this.setAttribute('data-on','on')">
             <div>
                 <?php

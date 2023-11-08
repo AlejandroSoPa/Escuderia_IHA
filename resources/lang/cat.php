@@ -29,13 +29,14 @@ return [
     'easterEgg' => 'Has trobat l\'ou de pascua',
     'callTitle' => 'Comodi de la trucada',
     'callText' => 'Ara hauràs de memoritzar quantes vegades sona la notificació per després respondre-ho al camp de text de sota. Tens ajuda visual i sonora.',
-    'responseCall' => 'La persona de la trucada ha dit que la resposta correcta es:',
+    'responseCall' => 'La persona que has trucat ha dit que la resposta correcta es:',
     'sendCall' => 'Envia',
     'winFeedback' => 'Has publicat la teva puntuació en la clasificació',
     'cronoTitle' => 'Temps de joc',
     'timeTitle' => 'Temps per a respondre',
     'win' => 'WIN',
-    'lose' => 'LOSE'
+    'lose' => 'LOSE',
+    'incorrectAnswerCall' => 'Sembla que no has encertat el minijoc del comodi de la llamada.'
 ];
 
 ?>

@@ -3,7 +3,7 @@ session_start();
 include './resources/getPhotos.php';
 include './resources/myFunctions.php';
 if (!isset($_SESSION['counter'])) {
-    $_SESSION['counter'] = 0;
+    $_SESSION['counter'] = 15;
 }
 if (!isset($_SESSION['level'])) {
     $_SESSION['level'] = 1;
@@ -69,6 +69,7 @@ $responseCall = trans('responseCall', $_SESSION['lang']);
 $sendCall = trans('sendCall', $_SESSION['lang']);
 $cronoTitle = trans('cronoTitle', $_SESSION['lang']);
 $timeTitle = trans('timeTitle', $_SESSION['lang']);
+$incorrectAnswerCall = trans('incorrectAnswerCall', $_SESSION['lang']);
 
 echo "<!DOCTYPE html>";
 echo "<html lang='{$_SESSION['lang']}'>";
@@ -127,6 +128,7 @@ echo "   <h1>$gameTittle</h1>";
     </form>
     <div class="feedbackGood" id="feedback1"><?php echo $correctAnswerText; ?></div>
     <div class="feedbackBad" id="feedback11"><?php echo $incorrectAnswerText; ?></div>
+    <div class="feedbackBadCall" id="feedback12"><?php echo $incorrectAnswerCall; ?></div>
 </div>
 
 <div class="questionHidden" id="question2">
@@ -155,6 +157,7 @@ echo "   <h1>$gameTittle</h1>";
     </form>
     <div id="feedback2"><?php echo $correctAnswerText; ?></div>
     <div id="feedback22"><?php echo $incorrectAnswerText; ?></div>
+    <div class="feedback22Call" id="feedback23"><?php echo $incorrectAnswerCall; ?></div>
 </div>
 
 <div class="questionHidden" id="question3">
@@ -183,6 +186,7 @@ echo "   <h1>$gameTittle</h1>";
     </form>
     <div id="feedback3"><?php echo $correctAnswerText; ?></div>
     <div id="feedback33"><?php echo $incorrectAnswerText; ?></div>
+    <div class="feedback33Call" id="feedback34"><?php echo $incorrectAnswerCall; ?></div>
 </div>
 
 <form action="./resources/setNextLevel.php" method="post">

@@ -1,6 +1,6 @@
-let respuesta1 = checkAnswer("form1", "respuesta1", "feedback1", "feedback11", "question2", "answer1");
-let respuesta2 = checkAnswer("form2", "respuesta2", "feedback2", "feedback22", "question3", "answer2");
-let respuesta3 = checkAnswer("form3", "respuesta3", "feedback3", "feedback33", "question4", "answer3");
+let respuesta1 = checkAnswer("form1", "respuesta1", "feedback1", "feedback11",  "feedback12","question2", "answer1");
+let respuesta2 = checkAnswer("form2", "respuesta2", "feedback2", "feedback22",  "feedback23","question3", "answer2");
+let respuesta3 = checkAnswer("form3", "respuesta3", "feedback3", "feedback33",  "feedback34","question4", "answer3");
 
 var audioCorrecto = document.getElementById('audioCorrecto');
 var audioIncorrecto = document.getElementById('audioIncorrecto');
@@ -11,6 +11,7 @@ var correctAnswers = 0;
 var currentQuestion = 1; 
 var totalQuestions = 3;
 var comprobacion = 0;
+var callError = false;
 
 var countDownTimer;
 var time = initialTime;
@@ -25,13 +26,15 @@ function disableQuestion(answers) {
     }
 }
 
-function checkAnswer(formId, answerName, feedbackId, feedbackId2, nextQuestionId, answerClass) {
+function checkAnswer(formId, answerName, feedbackId, feedbackId2, feedbackId3, nextQuestionId, answerClass) {
     document.getElementById(formId).addEventListener("change", function () {
         var selectedAnswer = document.querySelector(`input[name="${answerName}"]:checked`);
         var feedbackElement = document.getElementById(feedbackId);
         var feedbackElement2 = document.getElementById(feedbackId2);
+        var feedbackElement3 = document.getElementById(feedbackId3);
         var nextQuestionElement = document.getElementById(nextQuestionId);
         var answers = document.querySelectorAll(`.${answerClass}`);
+        console.log('hola')
 
         if (selectedAnswer) {
             stopCountDown();
@@ -39,6 +42,7 @@ function checkAnswer(formId, answerName, feedbackId, feedbackId2, nextQuestionId
             var firstChar = playerAnswer.charAt(0);
             var isCorrect = (firstChar === '+');
             if (isCorrect) {
+                callError = false;
                 time = initialTime;
                 correctAnswers++;
                 audioCorrecto.play();
@@ -60,7 +64,11 @@ function checkAnswer(formId, answerName, feedbackId, feedbackId2, nextQuestionId
             } else {
                 selectedAnswer.classList.remove(answerClass);
                 selectedAnswer.classList.add("incorrect");
-                feedbackElement2.style.display = "block";
+                if (callError == true) {
+                    feedbackElement3.style.display="block";
+                } else{
+                    feedbackElement2.style.display = "block";
+                }
                 audioIncorrecto.play();
                 var btnInici = document.getElementById('btnInici');
                 // Show index button if the answer is not correct
@@ -70,7 +78,6 @@ function checkAnswer(formId, answerName, feedbackId, feedbackId2, nextQuestionId
                 }
                 // Disable question after being answered
                 disableQuestion(answers);
-
             }
         }
     });
@@ -356,6 +363,7 @@ function fiftyPercentWildcard() {
 
 function callWildcard() {
     localStorage.setItem("callWildcard", true);
+    callError = true;
     document.getElementById("callWildcard").disabled = true;
     var repeticion = getNRandom();
     comprobacion = repeticion;
@@ -528,7 +536,6 @@ function hideCallWildCard() {
     popup_call.style.display = "none";
     document.body.style.overflow = "auto";
 }
-
 
 // Checks if the session level is greater than 2
 // This is used to start the regresive counter for the first time
