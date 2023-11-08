@@ -36,9 +36,6 @@ header button {
     margin-right: 10px;
     transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
-#log {
-    margin-right: 1220px;
-}
 
 header button:hover {
     background-color: #9e956e;
@@ -714,4 +711,54 @@ text {
 
 #winFeedback{
     visibility: hidden;
+}
+
+#log {
+    position: absolute;
+    left: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .mainTitle {
+        margin-top: 100px;
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-bottom: 0;
+        height: 240px;
+    }
+    .mainDiv {
+        background-position: 50% 120px;
+    }
+    .rankingButton {
+        margin: 0;
+        margin-bottom: 30px;
+        width: 70%;
+    }
+    .playButton {
+        margin: 0;
+        width: 70%;
+    }
+    .buttonsContainer {
+        display: flex;
+        flex-direction: column;
+        margin-top: 130px;
+        margin-left: 20px;
+        margin-right: 20px;
+        text-align: center;
+        align-items: center;
+    }
+    .instructions {
+        width: 70%;
+    }
+    .answer-list {
+        grid-template-columns: none;
+    }
+    #help {
+        flex-direction: row;
+        padding: 0;
+        top: 70px;
+    }
+    .questionText {
+        margin-top: 80px;
+    }
 }
