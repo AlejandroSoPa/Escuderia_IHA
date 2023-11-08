@@ -320,10 +320,6 @@ h1 {
     transition: font-size 0.3s;
 }
 
-.too-long {
-    font-size: 20px;
-}
-
 .answer-list input[type="radio"]:hover + label::before {
     height: 70px;
 }
@@ -790,5 +786,20 @@ text {
     }
     #btnInici {
         margin-bottom: 200px;
+    }
+    .answer-list input[type="radio"] + label::before {
+        white-space: unset;
+    }
+    .answer-list input[type="radio"] + label {
+        line-height: 1.2;
+        white-space: unset;
+        max-width: 300px;
+        display: inline-block;
+    }
+    .popup-content {
+        width: 75%;
+    }
+    #chart {
+        width: 100%;
     }
 }
