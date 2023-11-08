@@ -4,8 +4,8 @@
 - 2 Copes del Món
 - Mai ha guanyat uan copa del món
 * En quin costat condueixen les persones angleses?
-+ Pel carril esquerre i el conductor a la dreta.
-- Pel carril dret i el conductor a l'esquerra.
++ Carril esquerre i conductor a la dreta.
+- Carril dret i conductor a l'esquerra.
 - Com tothom.
 - Al revés.
 * Quin país de la Commonwealth té la millor situació econòmica?

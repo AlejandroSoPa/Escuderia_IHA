@@ -4,8 +4,8 @@
 - 2
 - Nunca ha ido
 * ¿En que direccion conducen los ingleses?
-+ Por la izquierda y el conductor esta en la derecha
-- Por la derecha y el conductor esta en la izquierda
++ Por la izquierda,conductor en la derecha
+- Por la derecha, conductor en la izquierda
 - Como todos
 - Al reves
 * ¿Que país de la commonwealth crees que tiene la mejor situacion economica?

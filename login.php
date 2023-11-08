@@ -22,7 +22,7 @@ $logIn = trans('login', $_SESSION['lang']);
         <h2><?php echo $logIn ?></h2>
         <form id="loginForm">
             <div class="username">
-                <label for="username"><?php echo $userName ?></label>
+                <label for="username"><?php echo $userName ?>:</label>
                 <input type="text" id="username" name="username" required>
             </div>
             <br><br>

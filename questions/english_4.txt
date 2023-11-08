@@ -4,8 +4,8 @@
 - 2 World Cup
 - Never gone
 * Which way do the English people drive?
-+ In the left lane and the driver on the right.
-- In the right lane and the driver on the left.
++ The left lane, driver on right
+- The left right, driver on left
 - Like everyone.
 - To the other way
 * Which commonwealth country do you think has the best economic situation?
