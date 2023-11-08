@@ -751,14 +751,44 @@ text {
         width: 70%;
     }
     .answer-list {
+        gap: 30px;
         grid-template-columns: none;
+        font-size: 20px;
+        margin-bottom: 150px;
     }
     #help {
+        width: 100%;
         flex-direction: row;
         padding: 0;
-        top: 70px;
+        top: 91%;
+        background-color:#ffc897;
+        z-index: 900;
+        align-items: center;
+        justify-content: center;
+    }
+    #help button {
+        margin: 0;
     }
     .questionText {
-        margin-top: 80px;
+        font-size: 30px;
+    }
+    #incremental {
+        text-align: center;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color:#ffc897;
+        top: 83%;
+        font-size: 20px;
+        z-index: 900;
+    }
+    #crono {
+        margin-bottom: 0;
+    }
+    #buttonNext {
+        margin-bottom: 200px;
+    }
+    #btnInici {
+        margin-bottom: 200px;
     }
 }
