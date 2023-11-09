@@ -715,3 +715,7 @@ text {
 #winFeedback{
     visibility: hidden;
 }
+
+.log{
+    margin-bottom: 7%;
+}

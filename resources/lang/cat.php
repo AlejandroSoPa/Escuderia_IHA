@@ -31,7 +31,7 @@ return [
     'username'=>'Nom d\'usuari',
     'password'=>'Contrasenya',
     'submit' => 'Enviar',
-    'feedbackNotLog'=>'Credencials incorrectas, inici d\' sesió fallit',
+    'feedbackNotLog'=>'Credencials incorrectas, inici de sessió no valit',
     'callTitle' => 'Comodi de la trucada',
     'callText' => 'Ara hauràs de memoritzar quantes vegades sona la notificació per després respondre-ho al camp de text de sota. Tens ajuda visual i sonora.',
     'responseCall' => 'La persona que has trucat ha dit que la resposta correcta es:',

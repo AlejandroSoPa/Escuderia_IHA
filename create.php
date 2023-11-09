@@ -13,12 +13,8 @@
     <?php
     if (!isset($_SESSION["login"])) {
         http_response_code(403);
-        echo "<h1>403 Forbidden</h1>";
-        ?>
-        <form action='index.php'>
-            <input id='btnIniciWin' visibility:visible type='submit' value="Tornar a l'Inici">
-        </form>
-        <?php
+        echo "<h1>403 Forbidden</h1>
+        <a class='rankingButton' href='/index.php'>$backToStartButton</a>";
         exit;
     }
     ?>

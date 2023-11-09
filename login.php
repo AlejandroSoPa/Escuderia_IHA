@@ -6,6 +6,32 @@ $passWord = trans('password', $_SESSION['lang']);
 $btnSubmit = trans('submit', $_SESSION['lang']);
 $feedbackNotLog = trans('feedbackNotLog', $_SESSION['lang']);
 $logIn = trans('login', $_SESSION['lang']);
+$backToStartButton = trans('backToStartButton', $_SESSION['lang']);
+unset($_SESSION['login']);
+
+$feedbackVisible = "hidden";
+
+
+$file = fopen("admin.txt", "r");
+$usuarios = [];
+while (!feof($file)) {
+    $line = fgets($file);
+    $admins = explode(",", $line);
+    if(!empty($admins[0])) {
+        $usuarios[$admins[0]]= $admins[1];
+    }
+}
+if(isset($_POST["username"])){
+    foreach ($usuarios as $order => $valor) { 
+        if($_POST["username"]==$order && $_POST["password"]==$valor){
+            $_SESSION["login"] = "correcto";
+            header("Location:http://localhost:8080/create.php");
+        } else{
+            $feedbackVisible = "visible";
+        }
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,66 +40,26 @@ $logIn = trans('login', $_SESSION['lang']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Log in</title>
+    <title><?php echo $logIn ?></title>
+    <link rel="icon" href="./images/question-icon.svg" type="image/png">
+    
 </head>
 
 <body>
     <div class="log">
         <h2><?php echo $logIn ?></h2>
-        <form id="loginForm">
-            <div class="username">
-                <label for="username"><?php echo $userName ?>:</label>
-                <input type="text" id="username" name="username" required>
-            </div>
+        <form method="POST" action="">
+            <label for="username"><?php echo $userName; ?>:</label>
+            <input type="text" id="username" name="username" required>
             <br><br>
-            <div class="pswd">
-                <label for="password"><?php echo $passWord ?>:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
+            <label for="password"><?php echo $passWord; ?>:</label>
+            <input type="password" id="password" name="password" required>
             <br><br>
-            <button id="btnLog" type="submit"><?php echo $btnSubmit ?></button>
+            <button id="btnLog" type="submit"><?php echo $btnSubmit; ?></button>
         </form>
-        <div class="feedbackLog" id="feedbackLog"></div>
+        <div class="feedbackLog" id="feedbackLog" style="visibility:<?php echo $feedbackVisible; ?>"><?php echo $feedbackNotLog; ?></div>
     </div>
-
-    <script>
-        var feedbackNotLog = <?php echo json_encode($feedbackNotLog); ?>;
-        document.getElementById("loginForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Evita que se envíe el formulario
-
-            // Obtén las credenciales ingresadas
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-
-            // Realiza una solicitud AJAX para cargar los datos de un archivo JSON
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "logs.json", true);
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var jsonData = JSON.parse(xhr.responseText);
-
-                    // Comprueba las credenciales con los datos del archivo JSON
-                    var credencialesCorrectas = false;
-                    for (var i = 0; i < jsonData.usuarios.length; i++) {
-                        if (jsonData.usuarios[i].username === username && jsonData.usuarios[i].password === password) {
-                            credencialesCorrectas = true;
-                            break;
-                        }
-                    }
-
-                    if (credencialesCorrectas) {
-                        // Credenciales correctas, redirige a "create.php"
-                        window.location.href = "create.php";
-                    } else {
-                        // Credenciales incorrectas, muestra el mensaje de feedback
-                        var feedbackLog = document.getElementById("feedbackLog");
-                        feedbackLog.innerHTML = feedbackNotLog; //
-                    }
-                }
-            };
-            xhr.send();
-        });
-    </script>
+    <div class="autocenter"><?php echo "<a class='rankingButton' id='loginToIndex' href='/index.php'>$backToStartButton</a>"; ?></div> 
 </body>
 
 </html>

@@ -9,9 +9,10 @@ if (isset($_SESSION['counter'])) {
 if (!isset($_SESSION['lang'])) {
     $_SESSION['lang'] = 'cat';
 }
-
+unset($_SESSION['login']);
 echo "<!DOCTYPE html>";
 echo "<html lang='{$_SESSION['lang']}'>";
+$logIn = trans('login', $_SESSION['lang']);
 ?>
 
 <head>
@@ -44,7 +45,7 @@ echo "<html lang='{$_SESSION['lang']}'>";
             echo "      <button type='submit' name='lang' value='cat'><img src='./images/catalonia.png'></button>\n";
             echo "  </form>\n";
             echo "  <form method='POST' action='./login.php'>\n";
-            echo "      <button type='submit' name='log' id='log'> Log in </button>\n";
+            echo "      <button type='submit' name='log' id='log'>$logIn</button>\n";
             echo "  </form>";
             echo "  </header>\n";
 
