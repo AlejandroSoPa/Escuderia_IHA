@@ -104,9 +104,9 @@ header button img {
     background-color: #42393b;
 }
 
-#feedback1, #feedback11, #feedback2, #feedback22, #feedback3, #feedback33 {
+#feedback1, #feedback11, #feedback12, #feedback2, #feedback22, #feedback23, #feedback3, #feedback33, #feedback34 {
     display: none;
-} 
+}
 .panel{
     position: absolute;
     top:0;
@@ -713,6 +713,9 @@ text {
     position: absolute;
     left: 10px;
 }
+.log{
+    margin-bottom: 7%;
+}
 
 @media only screen and (max-width: 600px) {
     .mainTitle {
@@ -745,12 +748,6 @@ text {
     }
     .instructions {
         width: 70%;
-    }
-    .answer-list {
-        gap: 30px;
-        grid-template-columns: none;
-        font-size: 20px;
-        margin-bottom: 150px;
     }
     #help {
         width: 100%;
@@ -787,6 +784,12 @@ text {
     #btnInici {
         margin-bottom: 200px;
     }
+    .answer-list {
+        gap: 30px;
+        grid-template-columns: none;
+        font-size: 20px;
+        margin-bottom: 150px;
+    }
     .answer-list input[type="radio"] + label::before {
         white-space: unset;
     }
@@ -800,6 +803,22 @@ text {
         width: 75%;
     }
     #chart {
+        width: 100%;
+    }
+    .answer-list input[type="radio"]:hover + label::before {
+        height: 100%;
+    }
+    
+    .answer-list input[type="radio"]:hover + label {
+        font-size: 20px;
+    }
+    .popup-content_call {
+        width: 75%;
+    }
+    #image {
+        width: 100%;
+    }
+    #image img {
         width: 100%;
     }
 }

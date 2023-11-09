@@ -35,9 +35,11 @@ echo "<body>";
         echo"<audio autoplay>";
             echo"<source src='audio/exit.mp3' type='audio/mpeg'>";
         echo"</audio>";
-        echo"<h1>$winTitle</h1>";
+        echo"<h1 class='mainTitle'>$winTitle</h1>";
         ?>
-        <button id="publish" onclick="document.getElementById('aviso').setAttribute('data-on','on')"><?php echo $publishTitle; ?></button><br>
+        <div id  class="autocenter">
+            <button id="publish" class="standardButton" onclick="document.getElementById('aviso').setAttribute('data-on','on')"><?php echo $publishTitle; ?></button>
+        </div>
         <div class="panel" id="aviso" data-on="off" onclick="this.setAttribute('data-on','on')">
             <div>
                 <?php
@@ -95,8 +97,10 @@ echo "<body>";
                     }
             echo "</div>
         </div>
+        <div class='autocenter'>
         <a class='rankingButton' href='/index.php'>$backToStartButton</a>
         <a id='ranking1' class='rankingButton' href='/ranking.php'>$winRanking</a>
+        </div>
         <h2 id='winFeedback'>$winFeedback</h2>
         ";
         }
