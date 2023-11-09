@@ -8,11 +8,11 @@
 - Canada
 + England
 - New Zealand
-* What is the country with the highest annual PIB?
-+ India
-- Canada
-- Australia
+* What is the country with the most cups in the world?
+- Jamaica
+- France
 - England
++ Brazil
 * What is the country with the most population?
 + India
 - Bangladesh
@@ -20,14 +20,14 @@
 - England
 * Which country has the hottest climate?
 - Australia
-- Cameroon
+- Finland
 + India
 - New Zealand
 * What is the country with the coldest climate?
 - England
 + Canada
 - Ghana
-- Prawn
+- Gambia
 * Which is the country where people work the most hours?
 + England
 - Cameroon
@@ -53,11 +53,12 @@
 - Cameroon
 - Ghana
 + England
-* From which country is pizza typical?
-- Spain
-- Morocco
-- Brazil
-+ Italy
+
+* Where In The World Was Football Created?
+- China
+- Mexico
+- Brasil
++ England
 * What is the country with the most deaths?
 - New Zealand
 - Cameroon
@@ -78,11 +79,6 @@
 - New Zealand
 - Philippines
 + England
-* Which country has the oldest culture?
-- Kenya
-- Namibia
-+ India
-- England
 * Which country has the most fast food restaurants?
 - Canada
 + India

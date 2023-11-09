@@ -13,11 +13,11 @@
 - Canadà
 - Pakistan
 - Regne Unit
-* Quin és el país amb més copes del món?
-- Jamaica
-- França
+* Quin és el país amb més PIB anual?
++ Índia
+- Canadà
+- Austràlia
 - Anglaterra
-+ Brasil
 * En quina hora del dia prenen te els britànics? 
 - 2 P.M 
 - 1 P.M 
@@ -33,9 +33,10 @@
 + Dia de Maig 
 - Dia de Sant Patrici 
 - Dia d'April Fool's
+
 * Quin país consumeix més te anualment? 
 - Portugal 
-+ El Regne Unit 
++ Anglaterra
 - Espanya 
 - França
 * Quin país colonial té més Copes del món? 

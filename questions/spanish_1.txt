@@ -4,16 +4,15 @@
 - Revolución
 - Racismo
 * ¿De dónde es Gandhi?
-
 - Marruecos
 - Inglaterra
 + India
  - Perú
-* Ghandi murió por un...
-- Accidente
-- Infarto de miocardio
-- Enfermedad
- + Asesinado
+* ¿Dónde está localizado el Big Ben?
+- París
++ London
+- Andorra
+- Alemania
 * ¿En qué siglo se creó el fútbol?
 + Siglo XIX
 - Siglo XX
@@ -37,10 +36,8 @@
   - España
  + Italia
 
-
-
 *¿De qué época son los neandertales?
-+ Peleolítico
++ Paleolítico
 - Mesolítico
 - Neolítico
 - Ahora

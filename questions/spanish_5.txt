@@ -3,16 +3,16 @@
 - Harry Soutar
 - Milos Degenek
 - Leo Messi
-* ¿Cómo se valora la puntualidad en la cultura inglesa?
-+ Positivamente
-- Negativamente
-- No se valora
-- Ninguna de las anteriores
-* ¿De qué se trata la tradición del Rolling Cheese?
-- Comer queso redondo
-+ Tirar queso redondo desde una colina
-- Hacer una tarta de queso redonda
-- Compra un queso redondo grande.
+* ¿Cuántos territorios conquistó el Imperio Británico?
++ 5 Territorios
+- 8 territorios
+- 10 territorios
+- 12 territorios
+* Ghandi murió por un...
+- Accidente
+- Infarto de miocardio
+- Enfermedad
+ + Asesinado
 * ¿Cuáles de estos países no fueron colonizados por Inglaterra?
 - Islas Maldivas
 - Islas Caimán

@@ -8,26 +8,26 @@
 - Sopa
 - Tocino
 + Patatas Y Pescado
-* ¿Cuántos territorios conquistó el Imperio Británico?
-+ 5 Territorios
-- 8 territorios
-- 10 territorios
-- 12 territorios
+* ¿Cómo se valora la puntualidad en la cultura inglesa?
++ Positivamente
+- Negativamente
+- No se valora
+- Ninguna de las anteriores
 * ¿Quién es el presidente del Reino Unido?
 - Donald Trump
 - Pedro Sánchez
 - Dina Boluarte
 + Boris Johnson
-* ¿Qué guerra tuvo lugar en 1967 en Gaza y otras áreas?
-- Guerra de Independencia de Israel
-- Guerra del Yom Ha'atzmaut
-- Guerra de Iom Kipur
-+ Guerra de los Seis Días
-* ¿Cuál es el nombre del río que discurre en la frontera occidental de Israel?
-- Río Tigris
-- Río Nilo
-+ Río Jordán
-- Río Éufrates
+* ¿Qué territorio africano fue conquistado en el siglo XIX por Inglaterra?
++ Uganda
+- Espanya
+- Francia
+- Melilla
+* ¿Dónde se encuentra el palacio de Buckingham?
+- Francia
++ Inglaterra
+- Italia
+- Sudáfrica.
 * ¿Cuál es la capital de Israel?
 - Ramallah
 - Haifa
@@ -38,8 +38,8 @@
 + Por sus muertos
 - Por sus victorias
 - Por su dinero
-* Las ideas sobre el imperio en el Reino Unido han perdurado a lo largo...
-- Victorias
-+ Horarios
-- Monarquía
-- País
+* ¿A qué continente pertenece Australia?
+- Asia
++ Oceanía
+- America del sur
+- Europa

@@ -8,11 +8,11 @@
 - Canadá
 + Inglaterra
 - Nueva Zelanda
-* ¿Cuál es el país con más PIB anual?
-+ India
-- Canadá
-- Australia
+* ¿Cuál es el país con más copas del mundo?
+- Jamaica
+- Francia
 - Inglaterra
++ Brasil
 * ¿Cuál es el país con más población?
 + India
 - Bangladesh
@@ -20,14 +20,14 @@
 - Inglaterra
 * ¿Cuál es el país con el clima más caliente?
 - Australia
-- Camerún
+- Finlándia
 + India
 - Nueva Zelanda
 * ¿Cuál es el país con el clima más frío?
 - Inglaterra
 + Canadá
 - Ghana
-- Gamba
+- Gambia
 * ¿Cuál es el país donde la gente hace más horas de trabajo?
 + Inglaterra
 - Camerún
@@ -58,6 +58,11 @@
 - Marruecos
 - Brasil
 + Italia
+* ¿En qué parte del mundo se creó el fútbol?
+- Porcelana
+- México
+- Brasil
++ Inglaterra
 * ¿De qué país es típica la pizza?
 - España
 - Marruecos
@@ -83,11 +88,6 @@
 - Nueva Zelanda
 - Filipinas
 + Inglaterra
-* ¿Qué país tiene la cultura más antigua?
-- Kenia
-- Namibia
-+ India
-- Inglaterra
 * ¿Cuál es el país con más restaurantes de comida rápida?
 - Canadá
 + India

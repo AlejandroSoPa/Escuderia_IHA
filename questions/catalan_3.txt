@@ -8,11 +8,11 @@
 - Canadà
 + Anglaterra
 - Nova Zelanda
-* Quin és el país amb més PIB anual?
-+ Índia
-- Canadà
-- Austràlia
+* Quin és el país amb més copes del món?
+- Jamaica
+- França
 - Anglaterra
++ Brasil
 * Quin és el país amb més població?
 + Índia
 - Bangla Desh
@@ -20,14 +20,14 @@
 - Anglaterra
 * Quin és el país amb el clima més calent?
 - Austràlia
-- Camerun
+- Finlàndia
 + Índia
 - Nova Zelanda
 * Quin és el país amb el clima més fred?
 - Anglaterra
 + Canadà
 - Ghana
-- Gamba
+- Gambia
 * Quin és el país on la gent fa més hores de treball?
 + Anglaterra
 - Camerun
@@ -53,11 +53,11 @@
 - Camerun
 - Ghana
 + Anglaterra
-* De quin país es tipica la pizza?
-- Espanya
-- Marroc
+* En quin país del món es va crear el futbol?
+- Xina
+- Mèxic
 - Brasil
-+ Italia
++ Anglaterra
 * Quin es el país amb més morts?
 - Nova Zelanda
 - Camerun
@@ -78,11 +78,6 @@
 - Nova Zelanda
 - Filipines
 + Anglaterra
-* Quin país té la cultura més antiga?
-- Kènia
-- Namíbia
-+ Índia
-- Anglaterra
 * Quin és el país amb més restaurants de menjar ràpid?
 - Canadà
 + Índia

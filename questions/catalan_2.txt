@@ -13,21 +13,23 @@
 - Pedro Sánchez
 - Dina Boluarte
 + Boris Johnson
-* Quina guerra va tenir lloc el 1967 a Gaza i altres àrees?
-- Guerra d'Independència d'Israel
-- Guerra de l'Yom Ha'atzmaut
-- Guerra de Iom Kipur
-+ Guerra dels Seis Dies
-* Quants territoris va conquerir l'Imperi Britànic?
-+ 5 Territoris
-- 8 Territoris
-- 10 Territoris
-- 12 Territoris
-* Quin és el nom del riu que discorreix a la frontera occidental d'Israel?
-- Riu Tigris
-- Riu Nil
-+ Riu Jordà
-- Riu Eufrates
+* Quin territori africà va conquistar Anglaterra al segle XIX?
++ Uganda
+- Espanya
+- França
+- Melilla
+
+* Com es valora la puntualitat a la cultura anglesa?
++ Positivament
+- Negativament
+- No es valora
+- Cap de las anteriors
+
+* A on es localitza el palau de Buckingham?
+- França
++ Anglaterra
+- Itàlia
+- Sudàfrica.
 * Quina és la capital d'Israel?
 - Ramallah
 - Haifa
@@ -38,8 +40,8 @@
 + Per als seus morts
 - Per les seves victòries
 - Pels seus diners
-* Les idees sobre l'Imperi britànic han perdurat al llarg del...
-- Victòries
-+ Temps
-- Monarquia
-- País
+* A quin continent perteneix Australia?
+- Asia
++ Oceania
+- America del sud
+- Europa

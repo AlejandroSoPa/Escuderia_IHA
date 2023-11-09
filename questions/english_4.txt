@@ -13,11 +13,12 @@
 - Canada
 - Pakistan
 - United Kingdom
-* What is the country with the most cups in the world?
-- Jamaica
-- France
+* What is the country with the highest annual PIB?
++ India
+- Canada
+- Australia
 - England
-+ Brazil
+
 * In what time of the day do the British drink tea?
 - 2 P.M
 - 1 P.M
@@ -35,7 +36,7 @@
 - April Fool's day
 * Which country consumes more tea annually?
 - Portugal
-+ The UK
++ UK
 - Spain
 - France
 * Which colonial country has more world cups?

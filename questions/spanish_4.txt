@@ -13,11 +13,12 @@
 - Canada
 - Pakistan
 - Reino Unido
-* ¿Cuál es el país con más copas del mundo?
-- Jamaica
-- Francia
+* ¿Cuál es el país con más PIB anual?
++ India
+- Canadá
+- Australia
 - Inglaterra
-+ Brasil
+
 * ¿A que hora toman el te los ingleses?
 - 2 P.M
 - 1 P.M
