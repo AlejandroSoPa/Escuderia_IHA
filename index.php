@@ -2,6 +2,15 @@
 session_start();
 include './resources/JsNotEnable.php';
 include './resources/myFunctions.php';
+if(isset($_SESSION['formFeedback'])) {
+    unset($_SESSION['formFeedback']);
+}
+if(isset($_SESSION['formFeedbackOK'])) {
+    unset($_SESSION['formFeedbackOK']);
+}
+if (isset($_SESSION['calculo'])) {
+    unset($_SESSION['calculo']);
+}
 if (isset($_SESSION['counter'])) {
     unset($_SESSION['counter']);
     unset($_SESSION['level']);

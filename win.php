@@ -44,7 +44,15 @@ echo "<body>";
                     echo"<form action='' method='post'>";
                         echo"<p>".$popUpTitle."</p>";
                         echo"<input type='text' name='name' id='name' required></input><br>";
-                        $diff = $_POST["actual"] - $_POST["inicio"];
+                        $diff;
+                        if (isset($_SESSION['calculo'])) {
+                            $diff = $_SESSION['calculo'];
+                        }
+                        elseif (isset($_POST["actual"]) && isset($_POST["inicio"])) {
+                            $diff = $_POST["actual"] - $_POST["inicio"];
+                            $_SESSION['calculo'] = $_POST["actual"] - $_POST["inicio"];
+                        }
+                        
                         if($diff<=60000){
                             $puntos = (120000-$diff)*2 + 18;
                             echo"<input type='number' name='point' id='point' style='display: none;' value='$puntos'></input><br>";
@@ -78,15 +86,13 @@ echo "<body>";
                             if ($validar) {
                                 file_put_contents("records.txt", 
                                 file_get_contents("records.txt")."\n".trim($texto).",".$_POST["point"].",".$_POST["crono"].",".session_create_id());
-                                $lenguaje = $_SESSION['lang'];
-                                session_destroy();
-                                session_start();
-                                $_SESSION['lang'] = $lenguaje;
+                                session_id('');
+                                
                             } else {
-                                unset($_POST["name"])
+                                unset($_POST["name"]);
                                 ?>
                                     <script>
-                                        window.alert("El nombre introducido no es apropiado, porfavor elige otro")
+                                        window.alert("El nombre introducido no es apropiado, porfavor elige otro");
                                     </script>
                                 <?php
                             }

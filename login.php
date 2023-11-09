@@ -40,8 +40,9 @@ if(isset($_POST["username"])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title><?php echo $logIn ?></title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
     <link rel="icon" href="./images/question-icon.svg" type="image/png">
+    <title><?php echo $logIn ?></title>
     
 </head>
 

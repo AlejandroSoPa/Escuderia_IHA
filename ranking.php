@@ -53,13 +53,13 @@ echo "<html lang='{$_SESSION['lang']}'>";
                 $last_publish = ((int)trim(substr($order,strpos($order," "),strlen($order))));
                 echo "<tr>";
                 if ($last_publish==$contador-1) {
-                    echo "<td style='font-size: 30px;' bgcolor='#75c9a3';>$username</td>";
-                    echo "<td style='font-size: 30px;' bgcolor='#75c9a3';>".$valor[0]."</td>";
-                    echo "<td style='font-size: 30px;' bgcolor='#75c9a3';>".$valor[1]."</td>";
+                    echo "<td bgcolor='#75c9a3';><p>$username</p></td>";
+                    echo "<td bgcolor='#75c9a3';><p>".$valor[0]."</p></td>";
+                    echo "<td bgcolor='#75c9a3';><p>".$valor[1]."</p></td>";
                 } else {
-                    echo "<td style='font-size: 30px;'>$username</td>";
-                    echo "<td style='font-size: 30px;'>".$valor[0]."</td>";
-                    echo "<td style='font-size: 30px;'>".$valor[1]."</td>";
+                    echo "<td><p>$username</p></td>";
+                    echo "<td><p>".$valor[0]."</p></td>";
+                    echo "<td><p>".$valor[1]."</p></td>";
                 }
                 echo "</tr>";
             }

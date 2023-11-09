@@ -9,7 +9,7 @@ return [
     'backToStartButton' => 'Back to the start',
     'incorrectAnswer' => 'Incorrect answer.',
     'correctAnswer' => 'Correct answer. Moving on to the next question...',
-    'rankingTittle' => 'Ranking',
+    'rankingTittle' => 'HALL OF FAME',
     'nameColumn' => 'Name',
     'pointsColumn' => 'Points',
     'winTitle' => 'Congratulations! You win',
