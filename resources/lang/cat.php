@@ -41,7 +41,20 @@ return [
     'timeTitle' => 'Temps per a respondre',
     'win' => 'WIN',
     'lose' => 'LOSE',
-    'incorrectAnswerCall' => 'Sembla que no has encertat el minijoc del comodi de la llamada.'
+    'incorrectAnswerCall' => 'Sembla que no has encertat el minijoc del comodi de la llamada.',
+    'createTitle' => 'Crear nova pregunta',
+    'languajeCreate' => 'Idioma de la pregunta:',
+    'catCreate' => 'Català',
+    'spCreate' => 'Castellà',
+    'enCreate' => 'Anglès',
+    'levelCreate' => 'Nivell de dificultat de la pregunta:',
+    'nextQuestion' => 'Nova pregunta',
+    'correctAnswer' => 'Resposta correcta',
+    'incorrectAnswer1' => 'Opció incorrecta 1',
+    'incorrectAnswer2' => 'Opció incorrecta 2',
+    'incorrectAnswer3' => 'Opció incorrecta 3',
+    'imageCreate' => 'Selecciona una imatge(opcional):',
+    'sendCreate' => 'Enviar'
 ];
 
 ?>

@@ -42,7 +42,20 @@ return [
     'timeTitle' => 'Time to reply',
     'win' => 'WIN',
     'lose' => 'LOSE',
-    'incorrectAnswerCall' => 'Looks like you failed the call wildcard minigame.'
+    'incorrectAnswerCall' => 'Looks like you failed the call wildcard minigame.',
+    'createTitle' => 'Create new question',
+    'languajeCreate' => 'Languaje of the question:',
+    'catCreate' => 'Catalan',
+    'spCreate' => 'Spanish',
+    'enCreate' => 'Inglish',
+    'levelCreate' => 'Difficulty level of the question:',
+    'nextQuestion' => 'New question',
+    'correctAnswer' => 'Correct answer',
+    'incorrectAnswer1' => 'Incorrect option 1',
+    'incorrectAnswer2' => 'Incorrect option 2',
+    'incorrectAnswer3' => 'Incorrect option 3',
+    'imageCreate' => 'Select an image (optional):',
+    'sendCreate' => 'Send'
 ];
 
 ?>

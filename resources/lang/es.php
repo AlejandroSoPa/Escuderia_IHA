@@ -44,7 +44,20 @@ return [
     'timeTitle' => 'Tiempo para responder',
     'win' => 'WIN',
     'lose' => 'LOSE',
-    'incorrectAnswerCall' => 'Parece que has fallado el minijuego del comodin de la llamada.'
+    'incorrectAnswerCall' => 'Parece que has fallado el minijuego del comodin de la llamada.',
+    'createTitle' => 'Crear una nueva pregunta',
+    'languajeCreate' => 'Idioma de la pregunta:',
+    'catCreate' => 'Catalan',
+    'spCreate' => 'Castellano',
+    'enCreate' => 'Inglés',
+    'levelCreate' => 'Nivel de dificultad de la pregunta:',
+    'nextQuestion' => 'Nueva pregunta',
+    'correctAnswer' => 'Respuesta correcta',
+    'incorrectAnswer1' => 'Opcion incorrecta 1',
+    'incorrectAnswer2' => 'Opcion incorrecta 2',
+    'incorrectAnswer3' => 'Opcion incorrecta 3',
+    'imageCreate' => 'Selecciona una imagen(opcional):',
+    'sendCreate' => 'Enviar'
 ];
 
 ?>
