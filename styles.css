@@ -18,6 +18,18 @@ body {
     text-align: center;
 }
 
+.winDiv {
+    background-image: url("./images/trophy.svg");
+    background-repeat: no-repeat;
+    background-position: 50% 50px;
+    align-items: center;
+    text-align: center;
+}
+
+.buttonsWinContainer {
+    margin-top: 50px;
+}
+
 header {
     background-color: #f3e5ab; /* Color de fondo del encabezado */
     padding: 10px 0; /* Espaciado interno superior e inferior */
@@ -66,6 +78,7 @@ header button img {
 #cronoTitle{
     margin-top: 0%;
     margin-bottom: 0%;
+    font-size: 25px;
 }
 #crono{
     margin-top: 0%;
@@ -820,5 +833,13 @@ text {
     }
     #image img {
         width: 100%;
+    }
+    .buttonsWinContainer {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+    .tableDiv {
+        width: 85%;
     }
 }

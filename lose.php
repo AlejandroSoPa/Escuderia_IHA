@@ -10,9 +10,11 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lose</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kanit">
+    <link rel="icon" href="./images/question-icon.svg" type="image/png">
 </head>
 
 <body>
@@ -20,25 +22,18 @@
     if (!isset($_POST["game_lose"])) {
         http_response_code(403);
         echo "<h1>403 Forbidden</h1>";
-        ?>
-        <form action='index.php'>
-            <input id='btnIniciWin' visibility:visible type='submit' value="<?php echo $backToStartButton; ?>">
-        </form>
-        <?php
+        echo "<div class='autocenter'><a class='standardA' href='/'>$backToStartButton</a></div>";
         exit;
+
     } else {
         echo"<audio autoplay>";
             echo"<source src='audio/GameOver.mp3' type='audio/mpeg'>";
         echo"</audio>";
+        echo "<div class='autocenter'>";
         echo "<h1>$loseTitle</h1>";
-        ?>
-        <form action='index.php'>
-            <input id='btnIniciWin' visibility:visible type='submit' value="<?php echo $backToStartButton; ?>">
-        </form>
-        <form action='ranking.php'>
-            <input id='btntRanking' visibility:visible type='submit' value='<?php echo $loseRanking; ?>'>
-        </form>
-    <?php
+        echo "<div class='buttonsWinContainer'><a class='rankingButton' href='/'>$backToStartButton</a>";
+        echo "<a class='rankingButton' href='/ranking.php'>$loseRanking</a></div>";
+        echo "</div>";
     }
     ?>
 </body>
