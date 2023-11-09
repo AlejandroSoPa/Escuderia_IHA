@@ -29,7 +29,6 @@
 - Un profesor
 - Ninguna de las anteriores
 
-- De ropa
 * ¿De que país era Leonardo da Vinci?
   - Árabia Saudi
   - China
