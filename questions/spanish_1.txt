@@ -19,16 +19,16 @@
 - Siglo XX
 - Siglo I
 - Ahora
-* ¿En qué parte del mundo se creó el fútbol?
-
-- Porcelana
-- México
--Brasil
-+ Inglaterra
-    * ¿De que materiales solia ser la pelota de futbol antiguamente?
-- De Plástico
-+ De Hojas
-- De Cajas
+* ¿De qué país es típica la pizza?
+- España
+- Marruecos
+- Brasil
++ Italia
+* ¿Quién fue Pele?
++ Un futbolista
+- Un doctor
+- Un profesor
+- Ninguna de las anteriores
 
 - De ropa
 * ¿De que país era Leonardo da Vinci?
@@ -39,19 +39,8 @@
 
 
 
-* En la antigüedad, los humanos vivían en...
-+Australia
-- Barcelona
--Singapur
-- Argentina
-
-
-* ¿Cuántos años vivieron los aborígenes?
-
-- 12.000 Años
-
-+ 40.000 Años
-
-- 25.000 años
-
-- 60.000 años
+*¿De qué época son los neandertales?
++ Peleolítico
+- Mesolítico
+- Neolítico
+- Ahora

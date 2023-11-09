@@ -22,18 +22,17 @@
 - Century XX
 - Century I
 - Now
+* From which country is pizza typical?
+- Spain
+- Morocco
+- Brazil
++ Italy
 
-* Where In The World Was Football Created?
-- China
-- Mexico
-- Brasil
-+ England
-
-* The Ball Used To Be...
-  - With Plastic
-  + With Leaves
-  - With Boxes
-  - With Clothes
+* Who was Pele?
++ A soccer player
+- A doctor
+- A teacher
+- None of the above
 
 * What country was Leonardo da Vinci from?
 - Saudi Arabia
@@ -43,19 +42,9 @@
 
 
 
-* In Ancient Times, The Humans Used To Lived In...
-+ Australia
-- Barcelona
-- Singapur
-- Argentina
+* From what period are Neanderthals?
++ Peleolytic
+- Mesolithic
+- Neolithic
+-Now
 
-
-* How Many Years Did The Aborigines Live?
-
-- 12.000 Years
-
-+ 40,000 Years
-
-- 25,000 Years
-
-- 60,000 Years

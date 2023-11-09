@@ -33,11 +33,11 @@
 - China
 - Espanya
 + Italia
-* En l'antiguitat, els humans solien viure a...
-+ Austràlia
-- Espanya
-- Singapur
-- Argentina
+* De quina època són els neandertals?
++ Peleolític 
+- Mesolític
+- Neolític
+- Ara
 * Quants anys van viure els aborígens?
 - 12.000 anys
 + 40.000 anys
