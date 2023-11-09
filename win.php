@@ -26,16 +26,18 @@ echo "<body>";
 
     if (!isset($_POST["game_won"])) {
         http_response_code(403);
-        echo "<h1>403 Forbidden</h1>
-            <a class='rankingButton' href='/index.php'>$backToStartButton</a>";
+        echo "<h1>403 Forbidden</h1>";
+        echo "<div class='autocenter'><a class='standardA' href='/'>$backToStartButton</a></div>";
         exit;
     } else {
         echo"<audio autoplay>";
             echo"<source src='audio/exit.mp3' type='audio/mpeg'>";
         echo"</audio>";
-        echo"<h1>$winTitle</h1>";
-        ?>
-        <button id="publish" onclick="document.getElementById('aviso').setAttribute('data-on','on')" class='rankingButton'><?php echo $publishTitle; ?></button><br>
+        
+?>
+        <div class="winDiv">
+        <?php echo"<h1 class='mainTitle'>$winTitle</h1>"; ?>
+        <button id="publish" class="standardButton" onclick="document.getElementById('aviso').setAttribute('data-on','on')"><?php echo $publishTitle; ?></button>
         <div class="panel" id="aviso" data-on="off" onclick="this.setAttribute('data-on','on')">
             <div>
                 <?php
@@ -93,10 +95,11 @@ echo "<body>";
                     }
             echo "</div>
         </div>
-        <br><br>
+        <div class='buttonsWinContainer'>
         <a class='rankingButton' href='/index.php'>$backToStartButton</a>
         <a id='ranking1' class='rankingButton' href='/ranking.php'>$winRanking</a>
         <h2 id='winFeedback'>$winFeedback</h2>
+        </div>
         ";
         }
         if (isset($_POST["name"])) {

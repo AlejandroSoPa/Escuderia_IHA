@@ -21,17 +21,19 @@ echo "</head>";
     echo "<body>";
     if (!isset($_POST["game_lose"])) {
         http_response_code(403);
-        echo "<h1>403 Forbidden</h1>
-            <a class='rankingButton' href='/index.php'>$backToStartButton</a>";
+        echo "<h1>403 Forbidden</h1>";
+        echo "<div class='autocenter'><a class='standardA' href='/'>$backToStartButton</a></div>";
         exit;
+
     } else {
         echo"<audio autoplay>";
             echo"<source src='audio/GameOver.mp3' type='audio/mpeg'>";
         echo"</audio>";
-        echo "<h1>$loseTitle</h1>
-        <a class='rankingButton' href='/index.php'>$backToStartButton</a>
-        <a id='ranking1' class='rankingButton' href='/ranking.php'>$loseRanking</a>
-        ";
+        echo "<div class='autocenter'>";
+        echo "<h1>$loseTitle</h1>";
+        echo "<div class='buttonsWinContainer'><a class='rankingButton' href='/'>$backToStartButton</a>";
+        echo "<a class='rankingButton' href='/ranking.php'>$loseRanking</a></div>";
+        echo "</div>";
     }
     ?>
 </body>

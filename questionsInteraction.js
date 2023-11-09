@@ -267,7 +267,7 @@ function createChart(numberOfBars, correctAnswerPos) {
     const etiquetas = ["A", "B", "C", "D"];
 
     // Chart config
-    const width = 410;
+    const width = document.getElementById("chart").clientWidth;
     const height = 300;
     const barSpacing = 20;
     const barWidth = (width - (barSpacing * (numberOfBars - 1))) / numberOfBars;
