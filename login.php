@@ -25,7 +25,7 @@ if(isset($_POST["username"])){
     foreach ($usuarios as $order => $valor) { 
         if($_POST["username"]==$order && $_POST["password"]==$valor){
             $_SESSION["login"] = "correcto";
-            header("Location:http://localhost:8080/create.php");
+            header("Location:./create.php");
         } else{
             $feedbackVisible = "visible";
         }
